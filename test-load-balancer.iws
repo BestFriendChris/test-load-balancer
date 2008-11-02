@@ -17,6 +17,7 @@
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iws" afterPath="$PROJECT_DIR$/test-load-balancer.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iml" afterPath="$PROJECT_DIR$/test-load-balancer.iml" />
     </list>
     <ignored path="test-load-balancer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -603,9 +604,7 @@
     <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/TwistScenarioFilterTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="76" selection-start="549" selection-end="549" vertical-scroll-proportion="0.35005116">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
