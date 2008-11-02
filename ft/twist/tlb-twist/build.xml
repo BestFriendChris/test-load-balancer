@@ -43,6 +43,7 @@
                 <include name="**/*.jar"/>
             </fileset>
         </copy>
+        <copy todir="${dir.lib}" file="../../../target/test-load-balancer.jar"/>
     </target>
 
     <target name="twist" description="Executes twist scenarios">

@@ -43,13 +43,20 @@ public class LoadBalancer {
 
     static String getJobName(String envValue) {
         String jobName = System.getProperty(CRUISE_JOB_NAME);
-        if (jobName == null || jobName.trim().length() == 0) {
+        if (isEmpty(jobName)) {
             jobName = envValue;
         }
         return jobName;
     }
 
+    private static boolean isEmpty(String str) {
+        return str == null || str.trim().length() == 0;
+    }
+
     public void balance(File scenariosDir) {
+        if (isEmpty(jobName)) {
+            throw new RuntimeException("Unable to find the current running job. Cruise should set it automatically.");
+        }
         final LoadBalanceFactor factor = new LoadBalanceFactor(myGroup.jobIndex(jobName), myGroup.jobsCount());
         new TwistScenarioFilter(scenariosDir).filter(factor);
     }
