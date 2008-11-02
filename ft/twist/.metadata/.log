@@ -1,0 +1,48 @@
+!SESSION 2008-11-02 17:13:38.522 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_03
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_HK
+Framework arguments:  -showLocation -showLocation
+Command-line arguments:  -os linux -ws gtk -arch x86 -showLocation -data /home/cceuser/projects/test-load-balancer/ft/twist -showLocation
+
+!ENTRY org.eclipse.ui 2 0 2008-11-02 17:13:39.555
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2008-11-02 17:13:39.555
+!MESSAGE Commands should really have a category: plug-in='com.thoughtworks.twist.eclipse.ui', id='com.thoughtworks.tide.eclipse.ui.launch.launchScenarioShortcut.debug', categoryId='org.eclipse.debug.ui.category.debug'
+
+!ENTRY org.eclipse.ui 4 4 2008-11-02 17:13:40.479
+!MESSAGE Unable to find view with id: org.eclipse.ui.console.console_view_context, when creating perspective com.thoughtworks.tide.eclipse.ui.perspectives.TwistPerspective
+
+!ENTRY org.eclipse.ui 4 4 2008-11-02 17:13:40.481
+!MESSAGE Part already exists in page layout: com.thoughtworks.tide.eclipse.ui.views.ScenarioView.
+
+!ENTRY org.eclipse.ui.workbench 2 0 2008-11-02 17:13:42.482
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2008-11-02 17:13:42.482
+!MESSAGE Conflict for 'AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.tide.eclipse.ui.new.project':
+HandlerActivation(commandId=AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.tide.eclipse.ui.new.project,
+	handler=ActionDelegateHandlerProxy(null,com.thoughtworks.tide.eclipse.ui.actions.OpenNewTwistProjectWizardAction),
+	expression=AndExpression(ActionSetExpression(com.thoughtworks.twist.eclipse.ui.actionSet,org.eclipse.ui.internal.WorkbenchWindow@e0e515),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@e0e515)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.tide.eclipse.ui.new.project,
+	handler=ActionDelegateHandlerProxy(null,com.thoughtworks.tide.eclipse.ui.actions.OpenNewTwistProjectWizardAction),
+	expression=AndExpression(ActionSetExpression(com.thoughtworks.twist.eclipse.ui.actionSet,org.eclipse.ui.internal.WorkbenchWindow@e0e515),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@e0e515)),sourcePriority=16640)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2008-11-02 17:13:42.482
+!MESSAGE Conflict for 'AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.tide.eclipse.ui.new.scenario':
+HandlerActivation(commandId=AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.tide.eclipse.ui.new.scenario,
+	handler=ActionDelegateHandlerProxy(null,com.thoughtworks.tide.eclipse.ui.actions.OpenNewTwistScenarioWizardAction),
+	expression=AndExpression(ActionSetExpression(com.thoughtworks.twist.eclipse.ui.actionSet,org.eclipse.ui.internal.WorkbenchWindow@e0e515),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@e0e515)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.tide.eclipse.ui.new.scenario,
+	handler=ActionDelegateHandlerProxy(null,com.thoughtworks.tide.eclipse.ui.actions.OpenNewTwistScenarioWizardAction),
+	expression=AndExpression(ActionSetExpression(com.thoughtworks.twist.eclipse.ui.actionSet,org.eclipse.ui.internal.WorkbenchWindow@e0e515),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@e0e515)),sourcePriority=16640)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2008-11-02 17:13:42.482
+!MESSAGE Conflict for 'AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.twist.eclipse.ui.registration':
+HandlerActivation(commandId=AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.twist.eclipse.ui.registration,
+	handler=ActionDelegateHandlerProxy(null,com.thoughtworks.twist.eclipse.ui.license.ShowLicenseAction),
+	expression=AndExpression(ActionSetExpression(com.thoughtworks.twist.eclipse.ui.actionSet,org.eclipse.ui.internal.WorkbenchWindow@e0e515),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@e0e515)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::com.thoughtworks.twist.eclipse.ui.actionSet/com.thoughtworks.twist.eclipse.ui.registration,
+	handler=ActionDelegateHandlerProxy(null,com.thoughtworks.twist.eclipse.ui.license.ShowLicenseAction),
+	expression=AndExpression(ActionSetExpression(com.thoughtworks.twist.eclipse.ui.actionSet,org.eclipse.ui.internal.WorkbenchWindow@e0e515),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@e0e515)),sourcePriority=16640)
+
+!ENTRY org.eclipse.equinox.p2.ui.sdk 2 0 2008-11-02 17:13:42.638
+!MESSAGE Could not locate the running profile instance
