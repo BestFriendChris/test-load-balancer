@@ -16,12 +16,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/Groups.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/Groups.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iws" afterPath="$PROJECT_DIR$/test-load-balancer.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/googlecode/tlb/LoadBalancerTest.java" afterPath="$PROJECT_DIR$/test/com/googlecode/tlb/LoadBalancerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/googlecode/tlb/TwistScenarioFilterTest.java" afterPath="$PROJECT_DIR$/test/com/googlecode/tlb/TwistScenarioFilterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/LoadBalancer.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/LoadBalancer.java" />
     </list>
     <ignored path="test-load-balancer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,102 +95,7 @@
     <favorites_list name="test-load-balancer" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="LoadBalancerTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/LoadBalancerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="0" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.3579109">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="577" selection-end="577" vertical-scroll-proportion="0.5253456">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadBalancer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/LoadBalancer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="32" selection-start="398" selection-end="398" vertical-scroll-proportion="0.47772658">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Groups.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/Groups.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="18" selection-start="454" selection-end="454" vertical-scroll-proportion="0.61290324">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Group.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/Group.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="0.38709676">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GroupsTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/GroupsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="5" selection-start="428" selection-end="428" vertical-scroll-proportion="0.29185867">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwistScenarioFilterTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/TwistScenarioFilterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="76" selection-start="549" selection-end="549" vertical-scroll-proportion="0.5253456">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="File.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-6-sun-1.6.0.03/src.zip!/java/io/File.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="13" selection-start="5750" selection-end="5750" vertical-scroll-proportion="-4.7955976">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwistScenarioFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/TwistScenarioFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="5" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.827957">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadBalanceFactor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/LoadBalanceFactor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="17" selection-start="556" selection-end="556" vertical-scroll-proportion="0.59447">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -292,50 +192,6 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/home/cceuser/projects/test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/cceuser/projects/test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/cceuser/projects/test-load-balancer/test" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/cceuser/projects/test-load-balancer/test/com/googlecode/tlb" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/cceuser/projects/test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/cceuser/projects/test-load-balancer/src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/cceuser/projects/test-load-balancer/src/com/googlecode/tlb" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -594,12 +450,12 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2455669" order="0" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2455669" order="0" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="6" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3109162" order="2" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3109162" order="2" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="5" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
@@ -665,13 +521,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/LoadBalanceFactorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="148" selection-end="148" vertical-scroll-proportion="0.12025317">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/parser/GroupsParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="40" selection-start="483" selection-end="796" vertical-scroll-proportion="0.3908228">
@@ -707,46 +556,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/LoadBalanceFactor.java">
+    <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/LoadBalancerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="17" selection-start="556" selection-end="556" vertical-scroll-proportion="0.59447">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-6-sun-1.6.0.03/src.zip!/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="13" selection-start="5750" selection-end="5750" vertical-scroll-proportion="-4.7955976">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/TwistScenarioFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="5" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.827957">
+        <state line="42" column="9" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.6612078">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="577" selection-end="577" vertical-scroll-proportion="0.5253456">
+        <state line="20" column="0" selection-start="577" selection-end="577" vertical-scroll-proportion="0.35005116">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/TwistScenarioFilterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="76" selection-start="549" selection-end="549" vertical-scroll-proportion="0.5253456">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/LoadBalancer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="32" selection-start="398" selection-end="398" vertical-scroll-proportion="0.47772658">
+        <state line="17" column="32" selection-start="398" selection-end="398" vertical-scroll-proportion="0.3183214">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -755,30 +581,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/Groups.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="18" selection-start="454" selection-end="454" vertical-scroll-proportion="0.61290324">
+        <state line="21" column="18" selection-start="454" selection-end="454" vertical-scroll-proportion="0.40839303">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/Group.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="0.38709676">
+        <state line="30" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="0.5445241">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/GroupsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="428" selection-end="428" vertical-scroll-proportion="0.29185867">
+        <state line="12" column="5" selection-start="428" selection-end="428" vertical-scroll-proportion="0.19447288">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/LoadBalancerTest.java">
+    <entry file="file://$PROJECT_DIR$/test/com/googlecode/tlb/TwistScenarioFilterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.3579109">
+        <state line="19" column="76" selection-start="549" selection-end="549" vertical-scroll-proportion="0.35005116">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-6-sun-1.6.0.03/src.zip!/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="13" selection-start="5750" selection-end="5750" vertical-scroll-proportion="-3.170478">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/TwistScenarioFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="5" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.55168885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/LoadBalanceFactor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="17" selection-start="556" selection-end="556" vertical-scroll-proportion="0.39611053">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/parser/Group.g">
+      <provider selected="true" editor-type-id="grammar">
+        <state />
       </provider>
     </entry>
   </component>
