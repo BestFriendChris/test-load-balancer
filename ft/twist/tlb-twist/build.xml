@@ -1,0 +1,54 @@
+<project basedir="." default="default">
+    <property name="dir.target" value="${basedir}/target"/>
+    <property name="dir.target.classes" value="${basedir}/target/classes"/>
+    <property name="dir.target.reports" value="${basedir}/target/reports"/>
+    <property name="dir.scenarios" value="${basedir}/scenarios"/>
+    <property name="dir.src" value="${basedir}/src"/>
+    <property name="dir.lib" value="${basedir}/lib"/>
+
+    <target name="default" depends="init, compile, load-balance, twist"/>
+
+    <path id="twist-classpath">
+        <pathelement location="${dir.target.classes}"/>
+        <fileset dir="${dir.lib}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="init">
+        <delete dir="${dir.target}"/>
+        <mkdir dir="${dir.target}"/>
+        <mkdir dir="${dir.target.reports}"/>
+        <mkdir dir="${dir.target.classes}"/>
+    </target>
+
+
+    <target name="compile">
+        <javac srcdir="${dir.src}" destdir="${dir.target.classes}" source="1.6" target="1.6" debug="true">
+        </javac>
+    </target>
+
+    <target name="load-balance">
+        <taskdef classname="com.thoughtworks.twist.core.execution.ant.ExecuteScenariosTask"
+                 classpathref="twist-classpath" name="twist.runner"/>
+    </target>
+
+    <target name="twist" description="Executes twist scenarios">
+        <taskdef classname="com.thoughtworks.twist.core.execution.ant.ExecuteScenariosTask"
+                 classpathref="twist-classpath" name="twist.runner"/>
+
+        <!--<load.balancer scenarioDir="${dir.scenarios}"-->
+        <!--loadBalance="[ie7, win-twist-2, win-twist-3], [twist-firefox, linux-twist-2, linux-twist-3.]"-->
+        <!--url="http://bjcruise.thoughtworks.com:8153"-->
+        <!--username="" password=""/>-->
+
+
+        <twist.runner scenarioDir="${dir.scenarios}" reportsDir="${dir.target.reports}" haltonfailure="true"
+                      failureproperty="twist.scenarios.failed" classpathref="twist-classpath"
+                      tags="!in-progress">
+        </twist.runner>
+
+
+        <fail if="twist.scenarios.failed" message="One or more scenarios for failed"/>
+    </target>
+</project>

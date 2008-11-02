@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="test-load-balancer" default="all">
+
+
+    <property file="test-load-balancer.properties"/>
+    <!-- Uncomment the following property if no tests compilation is needed -->
+    <!--
+   <property name="skip.tests" value="true"/>
+    -->
+
+    <!-- Compiler options -->
+
+    <property name="compiler.debug" value="on"/>
+    <property name="compiler.generate.no.warnings" value="off"/>
+    <property name="compiler.args" value=""/>
+    <property name="compiler.max.memory" value="128m"/>
+    <property name="target" value="target"/>
+    
+    <patternset id="ignored.files">
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/SCCS/**"/>
+        <exclude name="**/RCS/**"/>
+        <exclude name="**/rcs/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.svn/**"/>
+        <exclude name="**/.sbas/**"/>
+        <exclude name="**/.IJI.*/**"/>
+        <exclude name="**/vssver.scc/**"/>
+        <exclude name="**/vssver2.scc/**"/>
+    </patternset>
+    <patternset id="compiler.resources">
+        <include name="**/?*.properties"/>
+        <include name="**/?*.xml"/>
+        <include name="**/?*.gif"/>
+        <include name="**/?*.png"/>
+        <include name="**/?*.jpeg"/>
+        <include name="**/?*.jpg"/>
+        <include name="**/?*.html"/>
+        <include name="**/?*.dtd"/>
+        <include name="**/?*.tld"/>
+    </patternset>
+
+    <!-- JDK definitions -->
+
+    <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+    <path id="jdk.classpath.1.6">
+        <fileset dir="${jdk.home.1.6}">
+            <include name="../java-6-sun/jre/lib/resources.jar"/>
+            <include name="../java-6-sun/jre/lib/deploy.jar"/>
+            <include name="../java-6-sun/jre/lib/management-agent.jar"/>
+            <include name="../java-6-sun/jre/lib/rt.jar"/>
+            <include name="../java-6-sun/jre/lib/jce.jar"/>
+            <include name="../java-6-sun/jre/lib/charsets.jar"/>
+            <include name="../java-6-sun/jre/lib/jsse.jar"/>
+            <include name="../java-6-sun/jre/lib/plugin.jar"/>
+            <include name="../java-6-sun/jre/lib/javaws.jar"/>
+            <include name="../java-6-sun/jre/lib/ext/sunjce_provider.jar"/>
+            <include name="../java-6-sun/jre/lib/ext/localedata.jar"/>
+            <include name="../java-6-sun/jre/lib/ext/sunpkcs11.jar"/>
+            <include name="../java-6-sun/jre/lib/ext/dnsns.jar"/>
+        </fileset>
+    </path>
+
+    <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+    <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+    <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+
+
+    <!-- Project Libraries -->
+
+    <path id="library.production.classpath">
+        <pathelement location="${basedir}/lib/test/hamcrest-library-1.1.jar"/>
+        <pathelement location="${basedir}/lib/test/junit-4.4.jar"/>
+        <pathelement location="${basedir}/lib/test/commons-io-1.4.jar"/>
+        <pathelement location="${basedir}/lib/production/com.thoughtworks.tide.core_1.0.0.3443-shiva.jar"/>
+        <pathelement location="${basedir}/lib/production/ant-1.7.0.jar"/>
+        <pathelement location="${basedir}/lib/production/commons-collections-3.2.jar"/>
+        <pathelement location="${basedir}/lib/production/antlr-3.1.1.jar"/>
+        <pathelement location="${basedir}/lib/production/ant-junit.jar"/>
+    </path>
+
+    <!-- Modules -->
+
+
+    <!-- Module test-load-balancer -->
+
+    <dirname property="module.test-load-balancer.basedir" file="${ant.file}"/>
+
+
+    <property name="module.jdk.home.test-load-balancer" value="${project.jdk.home}"/>
+    <property name="module.jdk.bin.test-load-balancer" value="${project.jdk.bin}"/>
+    <property name="module.jdk.classpath.test-load-balancer" value="${project.jdk.classpath}"/>
+
+    <property name="compiler.args.test-load-balancer" value="${compiler.args}"/>
+
+    <property name="test-load-balancer.output.dir"
+              value="${module.test-load-balancer.basedir}/out/production/test-load-balancer"/>
+    <property name="test-load-balancer.testoutput.dir"
+              value="${module.test-load-balancer.basedir}/out/test/test-load-balancer"/>
+
+    <path id="test-load-balancer.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="test-load-balancer.module.classpath">
+        <path refid="${module.jdk.classpath.test-load-balancer}"/>
+        <path refid="library.production.classpath"/>
+    </path>
+
+    <path id="test-load-balancer.runtime.module.classpath">
+        <path refid="${module.jdk.classpath.test-load-balancer}"/>
+        <pathelement location="${test-load-balancer.output.dir}"/>
+        <pathelement location="${test-load-balancer.testoutput.dir}"/>
+        <path refid="library.production.classpath"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.test-load-balancer">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.test-load-balancer">
+        <patternset refid="excluded.from.module.test-load-balancer"/>
+    </patternset>
+
+    <path id="test-load-balancer.module.sourcepath">
+        <dirset dir="${module.test-load-balancer.basedir}">
+            <include name="src"/>
+        </dirset>
+    </path>
+
+    <path id="test-load-balancer.module.test.sourcepath">
+        <dirset dir="${module.test-load-balancer.basedir}">
+            <include name="ft"/>
+            <include name="ut"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.test-load-balancer"
+            depends="compile.module.test-load-balancer.production,compile.module.test-load-balancer.tests"
+            description="Compile module test-load-balancer"/>
+
+    <target name="compile.module.test-load-balancer.production"
+            description="Compile module test-load-balancer; production classes">
+        <mkdir dir="${test-load-balancer.output.dir}"/>
+        <javac destdir="${test-load-balancer.output.dir}" debug="${compiler.debug}"
+               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true"
+               executable="${module.jdk.bin.test-load-balancer}/javac">
+            <compilerarg line="${compiler.args.test-load-balancer}"/>
+            <bootclasspath refid="test-load-balancer.module.bootclasspath"/>
+            <classpath refid="test-load-balancer.module.classpath"/>
+            <src refid="test-load-balancer.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.test-load-balancer"/>
+        </javac>
+
+        <copy todir="${test-load-balancer.output.dir}">
+            <fileset dir="${module.test-load-balancer.basedir}/src">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.test-load-balancer.tests" depends="compile.module.test-load-balancer.production"
+            description="compile module test-load-balancer; test classes" unless="skip.tests">
+        <mkdir dir="${test-load-balancer.testoutput.dir}"/>
+        <javac destdir="${test-load-balancer.testoutput.dir}" debug="${compiler.debug}"
+               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true"
+               executable="${module.jdk.bin.test-load-balancer}/javac">
+            <compilerarg line="${compiler.args.test-load-balancer}"/>
+            <classpath refid="test-load-balancer.module.classpath"/>
+            <classpath location="${test-load-balancer.output.dir}"/>
+            <src refid="test-load-balancer.module.test.sourcepath"/>
+            <patternset refid="excluded.from.compilation.test-load-balancer"/>
+        </javac>
+
+        <copy todir="${test-load-balancer.testoutput.dir}">
+            <fileset dir="${module.test-load-balancer.basedir}/ft">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+            <fileset dir="${module.test-load-balancer.basedir}/ut">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <target name="ut.module.test-load-balancer">
+        <junit printsummary="yes" dir="${module.test-load-balancer.basedir}" haltonfailure="true" fork="true"
+               forkMode="once">
+            <classpath refid="test-load-balancer.runtime.module.classpath"></classpath>
+            <formatter type="brief" usefile="false"/>
+            <formatter type="xml"/>
+
+
+            <batchtest todir="${target}/testoutput">
+                <fileset dir="${module.test-load-balancer.basedir}/ut">
+                    <include name="**/*Test.java"></include>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="jar.module.test-load-balancer">
+        <jar destfile="${target}/test-load-balancer.jar">
+            <fileset dir="${test-load-balancer.output.dir}">
+                <include name="**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="clean.module.test-load-balancer" description="cleanup module">
+        <delete dir="${test-load-balancer.output.dir}"/>
+        <delete dir="${test-load-balancer.testoutput.dir}"/>
+    </target>
+
+    <target name="init" description="Build initialization">
+        <delete dir="${target}"/>
+        <mkdir dir="${target}"/>
+        <mkdir dir="${target}/testoutput"/>
+    </target>
+
+    <target name="clean" depends="clean.module.test-load-balancer" description="cleanup all"/>
+
+    <target name="all"
+            depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer, jar.module.test-load-balancer "
+            description="build all"/>
+</project>
