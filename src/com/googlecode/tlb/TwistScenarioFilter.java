@@ -26,10 +26,14 @@ public class TwistScenarioFilter implements TestFilter {
         deleteScenarios(scenarioFiles, toKeep);
     }
 
-    private void deleteScenarios(File[] scenarioFiles, List<File> toKeep) {
+    void deleteScenarios(File[] scenarioFiles, List<File> toKeep) {
         for (File scenarioFile : scenarioFiles) {
             if (!toKeep.contains(scenarioFile)) {
-                scenarioFile.delete();
+                try {
+                    scenarioFile.delete();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
