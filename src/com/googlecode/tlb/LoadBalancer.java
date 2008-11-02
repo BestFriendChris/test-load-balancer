@@ -2,7 +2,6 @@ package com.googlecode.tlb;
 
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -17,6 +16,7 @@ public class LoadBalancer {
     private String definition;
     private String jobName;
     private final Group myGroup;
+    public static final String CRUISE_JOB_NAME = "cruise.job.name";
 
 
     private LoadBalancer(Group myGroup, String jobName) {
@@ -25,7 +25,7 @@ public class LoadBalancer {
     }
 
     public static LoadBalancer getLoadBalancer(String definition) {
-        String jobName = System.getProperty("cruise.job.name");
+        String jobName = System.getProperty(CRUISE_JOB_NAME);
         Groups groups = null;
         try {
             ANTLRInputStream input = new ANTLRInputStream(new ByteArrayInputStream(definition.getBytes("UTF-8")));
@@ -36,7 +36,7 @@ public class LoadBalancer {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        final Group group = groups.findGroup(jobName);
+        final Group group = groups.findByJobName(jobName);
         return new LoadBalancer(group, jobName);
     }
 

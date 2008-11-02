@@ -2,6 +2,7 @@ package com.googlecode.tlb.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 public class FileUtil {
     public static File createTempFolder(String folderName) {
