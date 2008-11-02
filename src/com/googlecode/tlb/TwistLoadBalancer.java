@@ -2,16 +2,22 @@ package com.googlecode.tlb;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
+import org.apache.log4j.Logger;
 
 import java.io.File;
 
 public class TwistLoadBalancer extends Task {
+    public static final Logger LOGGER = Logger.getLogger(TwistLoadBalancer.class);
     private File scenarioDir;
     private String loadBalance;
 
-
     public void execute() throws BuildException {
-        LoadBalancer.getLoadBalancer(loadBalance).balance(scenarioDir);
+        try {
+            LoadBalancer.getLoadBalancer(loadBalance).balance(scenarioDir);
+        } catch (Exception e) {
+            LOGGER.error("Failed to load balance", e);
+            throw new BuildException(e);
+        }
     }
 
     public void setScenarioDir(File scenarioDir) {

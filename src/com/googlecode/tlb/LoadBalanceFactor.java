@@ -1,6 +1,11 @@
 package com.googlecode.tlb;
 
+import org.apache.log4j.Logger;
+
+import static java.lang.String.format;
+
 public class LoadBalanceFactor {
+    private static final Logger LOGGER = Logger.getLogger(LoadBalanceFactor.class);
     private int thisJobIndex;
     private int allJobCounts;
 
@@ -18,17 +23,20 @@ public class LoadBalanceFactor {
     }
 
     public String toString() {
-        return String.format("%d/%d", thisJobIndex, allJobCounts);
+        return format("%d/%d", thisJobIndex, allJobCounts);
     }
 
     public Range amountOfTests(int allTestResourse) {
+        Range range = null;
         if (areJobsMoreThanTests(allTestResourse)) {
-            return assignEachJobOneTest(allTestResourse);
+            range = assignEachJobOneTest(allTestResourse);
         } else {
             int amount = averageWithoutMod(allTestResourse);
-            return new Range((thisJobIndex - 1) * amount, getLength(allTestResourse, amount));
+            range = new Range((thisJobIndex - 1) * amount, getLength(allTestResourse, amount));
         }
-
+        LOGGER.info(format("[%d] tests to load balance between [%d] jobs. Assigned range [%s] for #[%d] job",
+                allTestResourse, allJobCounts, range, thisJobIndex));
+        return range;
     }
 
     private boolean areJobsMoreThanTests(int allTestResourse) {

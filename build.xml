@@ -15,6 +15,7 @@
     <property name="compiler.args" value=""/>
     <property name="compiler.max.memory" value="128m"/>
     <property name="target" value="target"/>
+    <property name="log4j.properties" value="${basedir}/log4j.properties"/>
 
     <patternset id="ignored.files">
         <exclude name="**/CVS/**"/>
@@ -132,6 +133,7 @@
                 <patternset refid="compiler.resources"/>
                 <type type="file"/>
             </fileset>
+            <fileset file="${log4j.properties}"/>
         </copy>
     </target>
 
@@ -180,6 +182,7 @@
         <jar destfile="${target}/test-load-balancer.jar">
             <fileset dir="${test-load-balancer.output.dir}">
                 <include name="**/*.class"/>
+                <include name="**/log4j.properties"/>
             </fileset>
         </jar>
     </target>
@@ -197,7 +200,7 @@
 
     <target name="clean" depends="clean.module.test-load-balancer" description="cleanup all"/>
 
-    <import file="ft/twist/tlb-twist/build.xml" />
+    <import file="ft/twist/tlb-twist/build.xml"/>
 
     <target name="all"
             depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer, jar.module.test-load-balancer"
