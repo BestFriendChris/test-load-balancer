@@ -11,13 +11,13 @@ public class LoadBalancerTest {
     @Test
     public void shouldReturn2AsJobIndex() {
         LoadBalanceFactor factor = new LoadBalancer("[linux-job-1, linux-job-2]", "linux-job-2").balance();
-        assertThat(factor, Is.is(new LoadBalanceFactor("2", "2")));
+        assertThat(factor, Is.is(new LoadBalanceFactor(2, 2)));
     }
 
     @Test
     public void shouldReturn1AsJobIndex() {
         LoadBalanceFactor factor = new LoadBalancer("[linux-job-1, linux-job-2]", "linux-job-1").balance();
-        assertThat(factor, Is.is(new LoadBalanceFactor("2", "2")));
+        assertThat(factor, Is.is(new LoadBalanceFactor(2, 2)));
     }
 
     @Test(expected = Exception.class)

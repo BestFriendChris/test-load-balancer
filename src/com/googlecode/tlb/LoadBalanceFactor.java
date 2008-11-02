@@ -4,38 +4,49 @@ package com.googlecode.tlb;
  *
  */
 public class LoadBalanceFactor {
-    private String thisJobIndex;
-    private String allJobCounts;
+    private int thisJobIndex;
+    private int allJobCounts;
 
-    public LoadBalanceFactor(String thisJobIndex, String allJobCounts) {
+    public LoadBalanceFactor(int thisJobIndex, int allJobCounts) {
         this.thisJobIndex = thisJobIndex;
         this.allJobCounts = allJobCounts;
     }
 
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        LoadBalanceFactor that = (LoadBalanceFactor) o;
-
-        if (allJobCounts != null ? !allJobCounts.equals(that.allJobCounts) : that.allJobCounts != null) {
-            return false;
-        }
-        if (thisJobIndex != null ? !thisJobIndex.equals(that.thisJobIndex) : that.thisJobIndex != null) {
-            return false;
-        }
-
-        return true;
+    public int getThisJobIndex() {
+        return thisJobIndex;
     }
 
-    public int hashCode() {
-        int result;
-        result = (thisJobIndex != null ? thisJobIndex.hashCode() : 0);
-        result = 31 * result + (allJobCounts != null ? allJobCounts.hashCode() : 0);
-        return result;
+    public int getAllJobCounts() {
+        return allJobCounts;
+    }
+
+    public String toString() {
+        return String.format("%d/%d", thisJobIndex, allJobCounts);
+    }
+
+    public Range amountOfTests(int allTestResourse) {
+        int amount = averageWithoutMod(allTestResourse);
+        return new Range((thisJobIndex - 1) * amount, getLength(allTestResourse, amount));
+    }
+
+    private int getLength(int allTestResourse, int evenResult) {
+        final int mod = getMod(allTestResourse);
+        return isLastJob() ? evenResult + mod : evenResult;
+    }
+
+    private int getMod(int allTestResourse) {
+        return allTestResourse % allJobCounts;
+    }
+
+    private int averageWithoutMod(int allTestResourse) {
+        if (thisJobIndex == 0 || allJobCounts == 0) {
+            throw new RuntimeException("Invalid load balance factor: " + this);
+        }
+        final int mod = getMod(allTestResourse);
+        return (allTestResourse - mod) / getAllJobCounts();
+    }
+
+    private boolean isLastJob() {
+        return thisJobIndex == allJobCounts;
     }
 }
