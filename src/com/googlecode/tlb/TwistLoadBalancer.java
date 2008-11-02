@@ -11,14 +11,7 @@ public class TwistLoadBalancer extends Task {
 
 
     public void execute() throws BuildException {
-
-        //input loadBalanerStragegy, output 1/3
-        // 1. parse load balance => factor
-        // 2. parse pipelineStatus => #
-
-        //ScenariosModifier input 1/3, void, repose: changed the scenarios.
-        // 3. parse scenariodir => #/factor for current agent
-        // 4. ignore the rest
+        LoadBalancer.getLoadBalancer(loadBalance).balance(scenarioDir);
     }
 
     public void setScenarioDir(File scenarioDir) {

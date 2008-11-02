@@ -222,10 +222,7 @@
       </item>
     </group>
   </component>
-  <component name="ProjectFileVersion" converted="true">
-    <converter id="javaee-modules" />
-    <converter id="ror-modules" />
-  </component>
+  <component name="ProjectFileVersion" converted="true" />
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/test-load-balancer.iml" filepath="$PROJECT_DIR$/test-load-balancer.iml" />
