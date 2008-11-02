@@ -1,1 +1,2 @@
 alias tlb="cd ~/projects/test-load-balancer"
+alias addall="svn st | grep '?' | xargs svn add"
