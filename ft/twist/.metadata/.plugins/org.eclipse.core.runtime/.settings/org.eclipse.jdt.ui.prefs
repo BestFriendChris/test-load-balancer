@@ -1,7 +1,8 @@
-#Sun Nov 02 17:16:15 CST 2008
+#Sun Nov 02 19:43:26 CST 2008
 content_assist_proposals_foreground=0,0,0
 spelling_locale=en_GB
 spelling_locale_initialized=true
+content_assist_disabled_computers=org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.templateProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000
 org.eclipse.jdt.ui.text.templates_migrated=true
 useAnnotationsPrefPage=true
 eclipse.preferences.version=1

@@ -15,7 +15,9 @@ public class TwistLoadBalancer extends Task {
         try {
             LoadBalancer.getLoadBalancer(loadBalance).balance(scenarioDir);
         } catch (Exception e) {
+            // TODO - fix log4j
             LOGGER.error("Failed to load balance", e);
+            System.err.println("Failed to load balance: " + e);
             throw new BuildException(e);
         }
     }

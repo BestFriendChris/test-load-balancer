@@ -35,9 +35,9 @@ public class TwistScenarioFilter implements TestFilter {
         for (File scenarioFile : scenarioFiles) {
             if (!toKeep.contains(scenarioFile)) {
                 try {
-                    LOGGER.info(format("Deleting file [%s]", scenarioFile.getAbsolutePath()));
+                    log(format("Deleting file [%s]", scenarioFile.getAbsolutePath()));
                     scenarioFile.delete();
-                    LOGGER.info(format("File [%s] is deleted", scenarioFile.getAbsolutePath()));
+                    log(format("File [%s] is deleted", scenarioFile.getAbsolutePath()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -45,6 +45,11 @@ public class TwistScenarioFilter implements TestFilter {
         }
     }
 
+    // TODO - fix logging
+    private void log(String message) {
+        LOGGER.info(message);
+        System.out.println(message);
+    }
     private void log(List<File> toKeep) {
         LOGGER.info(format("Keeping [%d] files:", toKeep.size()));
         for (File file : toKeep) {

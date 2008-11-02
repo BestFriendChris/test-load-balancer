@@ -34,8 +34,10 @@ public class LoadBalanceFactor {
             int amount = averageWithoutMod(allTestResourse);
             range = new Range((thisJobIndex - 1) * amount, getLength(allTestResourse, amount));
         }
-        LOGGER.info(format("[%d] tests to load balance between [%d] jobs. Assigned range [%s] for #[%d] job",
-                allTestResourse, allJobCounts, range, thisJobIndex));
+        final String msg = format("[%d] tests to load balance between [%d] jobs. Assigned range [%s] for #[%d] job",
+                allTestResourse, allJobCounts, range, thisJobIndex);
+        LOGGER.info(msg);
+        System.out.println(msg);
         return range;
     }
 
