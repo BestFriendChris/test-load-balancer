@@ -41,6 +41,19 @@ public class LoadBalancerTest {
     }
 
     @Test
+    public void shouldUseEnvironmentVairableWhenSystemPropertyIsEmpty() throws Exception {
+        System.clearProperty(LoadBalancer.CRUISE_JOB_NAME);
+        final String job = LoadBalancer.getJobName("jobNameFromEnv");
+        assertThat(job, is("jobNameFromEnv"));
+    }
+
+    @Test
+    public void shouldOverideEnvironmentVairableWithSystemProperty() throws Exception {
+        final String job = LoadBalancer.getJobName("jobNameFromEnv");
+        assertThat(job, is("job1"));
+    }
+
+    @Test
     public void end2endWhenJobsCanNotBeEvenlyDevided() throws Exception {
         System.setProperty(LoadBalancer.CRUISE_JOB_NAME, "job2");
 

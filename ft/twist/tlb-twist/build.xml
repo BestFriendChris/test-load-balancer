@@ -1,4 +1,5 @@
-<project basedir="." default="default">
+<project basedir="." default="twist.default">
+
     <property name="dir.target" value="${basedir}/target"/>
     <property name="dir.target.classes" value="${basedir}/target/classes"/>
     <property name="dir.target.reports" value="${basedir}/target/reports"/>
@@ -6,7 +7,7 @@
     <property name="dir.src" value="${basedir}/src"/>
     <property name="dir.lib" value="${basedir}/lib"/>
 
-    <target name="default" depends="init, compile, load-balance, twist"/>
+    <target name="twist.default" depends="init, compile, load-balance, twist"/>
 
     <path id="twist-classpath">
         <pathelement location="${dir.target.classes}"/>
@@ -29,18 +30,24 @@
     </target>
 
     <target name="load-balance">
-        <taskdef classname="com.thoughtworks.twist.core.execution.ant.ExecuteScenariosTask"
-                 classpathref="twist-classpath" name="twist.runner"/>
+        <taskdef classname="com.googlecode.tlb.TwistLoadBalancer"
+                 classpathref="twist-classpath" name="load.balancer"/>
+        <load.balancer scenarioDir="${dir.scenarios}" loadBalance="[job1, job2]"/>
+    </target>
+
+    <target name="retrieve">
+        <ant antfile="build.xml" dir="../../../"/>
+        <copy todir="${dir.lib}">
+            <!--TODO remove the duplication-->
+            <fileset dir="../../../lib/">
+                <include name="**/*.jar"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="twist" description="Executes twist scenarios">
         <taskdef classname="com.thoughtworks.twist.core.execution.ant.ExecuteScenariosTask"
                  classpathref="twist-classpath" name="twist.runner"/>
-
-        <!--<load.balancer scenarioDir="${dir.scenarios}"-->
-        <!--loadBalance="[ie7, win-twist-2, win-twist-3], [twist-firefox, linux-twist-2, linux-twist-3.]"-->
-        <!--url="http://bjcruise.thoughtworks.com:8153"-->
-        <!--username="" password=""/>-->
 
 
         <twist.runner scenarioDir="${dir.scenarios}" reportsDir="${dir.target.reports}" haltonfailure="true"
@@ -51,4 +58,6 @@
 
         <fail if="twist.scenarios.failed" message="One or more scenarios for failed"/>
     </target>
+
+    <target name="manual-test" depends="retrieve, load-balance, twist" />
 </project>

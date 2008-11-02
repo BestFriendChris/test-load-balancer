@@ -17,6 +17,7 @@ public class LoadBalancer {
     private String jobName;
     private final Group myGroup;
     public static final String CRUISE_JOB_NAME = "cruise.job.name";
+    private static final String JOBNAME = "CRUISE_JOB_NAME";
 
 
     private LoadBalancer(Group myGroup, String jobName) {
@@ -25,7 +26,7 @@ public class LoadBalancer {
     }
 
     public static LoadBalancer getLoadBalancer(String definition) {
-        String jobName = System.getProperty(CRUISE_JOB_NAME);
+        String jobName = getJobName(System.getenv(JOBNAME));
         Groups groups = null;
         try {
             ANTLRInputStream input = new ANTLRInputStream(new ByteArrayInputStream(definition.getBytes("UTF-8")));
@@ -38,6 +39,14 @@ public class LoadBalancer {
         }
         final Group group = groups.findByJobName(jobName);
         return new LoadBalancer(group, jobName);
+    }
+
+    static String getJobName(String envValue) {
+        String jobName = System.getProperty(CRUISE_JOB_NAME);
+        if (jobName == null || jobName.trim().length() == 0) {
+            jobName = envValue;
+        }
+        return jobName;
     }
 
     public void balance(File scenariosDir) {

@@ -1,8 +1,5 @@
 package com.googlecode.tlb;
 
-/**
- *
- */
 public class LoadBalanceFactor {
     private int thisJobIndex;
     private int allJobCounts;
@@ -25,8 +22,29 @@ public class LoadBalanceFactor {
     }
 
     public Range amountOfTests(int allTestResourse) {
-        int amount = averageWithoutMod(allTestResourse);
-        return new Range((thisJobIndex - 1) * amount, getLength(allTestResourse, amount));
+        if (areJobsMoreThanTests(allTestResourse)) {
+            return assignEachJobOneTest(allTestResourse);
+        } else {
+            int amount = averageWithoutMod(allTestResourse);
+            return new Range((thisJobIndex - 1) * amount, getLength(allTestResourse, amount));
+        }
+
+    }
+
+    private boolean areJobsMoreThanTests(int allTestResourse) {
+        return allTestResourse < this.allJobCounts;
+    }
+
+    private Range assignEachJobOneTest(int allTestResourse) {
+        if (noMoreTestToAssign(allTestResourse)) {
+            return new NullRange();
+        } else {
+            return new Range(thisJobIndex - 1, 1);
+        }
+    }
+
+    private boolean noMoreTestToAssign(int allTestResourse) {
+        return this.thisJobIndex > allTestResourse;
     }
 
     private int getLength(int allTestResourse, int evenResult) {

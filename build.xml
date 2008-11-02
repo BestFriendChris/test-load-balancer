@@ -15,7 +15,7 @@
     <property name="compiler.args" value=""/>
     <property name="compiler.max.memory" value="128m"/>
     <property name="target" value="target"/>
-    
+
     <patternset id="ignored.files">
         <exclude name="**/CVS/**"/>
         <exclude name="**/SCCS/**"/>
@@ -72,7 +72,6 @@
         <pathelement location="${basedir}/lib/test/hamcrest-library-1.1.jar"/>
         <pathelement location="${basedir}/lib/test/junit-4.4.jar"/>
         <pathelement location="${basedir}/lib/test/commons-io-1.4.jar"/>
-        <pathelement location="${basedir}/lib/production/com.thoughtworks.tide.core_1.0.0.3443-shiva.jar"/>
         <pathelement location="${basedir}/lib/production/ant-1.7.0.jar"/>
         <pathelement location="${basedir}/lib/production/commons-collections-3.2.jar"/>
         <pathelement location="${basedir}/lib/production/antlr-3.1.1.jar"/>
@@ -225,7 +224,9 @@
 
     <target name="clean" depends="clean.module.test-load-balancer" description="cleanup all"/>
 
+    <import file="ft/twist/tlb-twist/build.xml" />
+
     <target name="all"
-            depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer, jar.module.test-load-balancer "
+            depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer, jar.module.test-load-balancer"
             description="build all"/>
 </project>
