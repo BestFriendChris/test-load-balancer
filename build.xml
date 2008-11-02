@@ -42,28 +42,8 @@
 
     <!-- JDK definitions -->
 
-    <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
-    <path id="jdk.classpath.1.6">
-        <fileset dir="${jdk.home.1.6}">
-            <include name="../java-6-sun/jre/lib/resources.jar"/>
-            <include name="../java-6-sun/jre/lib/deploy.jar"/>
-            <include name="../java-6-sun/jre/lib/management-agent.jar"/>
-            <include name="../java-6-sun/jre/lib/rt.jar"/>
-            <include name="../java-6-sun/jre/lib/jce.jar"/>
-            <include name="../java-6-sun/jre/lib/charsets.jar"/>
-            <include name="../java-6-sun/jre/lib/jsse.jar"/>
-            <include name="../java-6-sun/jre/lib/plugin.jar"/>
-            <include name="../java-6-sun/jre/lib/javaws.jar"/>
-            <include name="../java-6-sun/jre/lib/ext/sunjce_provider.jar"/>
-            <include name="../java-6-sun/jre/lib/ext/localedata.jar"/>
-            <include name="../java-6-sun/jre/lib/ext/sunpkcs11.jar"/>
-            <include name="../java-6-sun/jre/lib/ext/dnsns.jar"/>
-        </fileset>
-    </path>
 
-    <property name="project.jdk.home" value="${jdk.home.1.6}"/>
-    <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
-    <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+
 
 
     <!-- Project Libraries -->
@@ -86,9 +66,6 @@
     <dirname property="module.test-load-balancer.basedir" file="${ant.file}"/>
 
 
-    <property name="module.jdk.home.test-load-balancer" value="${project.jdk.home}"/>
-    <property name="module.jdk.bin.test-load-balancer" value="${project.jdk.bin}"/>
-    <property name="module.jdk.classpath.test-load-balancer" value="${project.jdk.classpath}"/>
 
     <property name="compiler.args.test-load-balancer" value="${compiler.args}"/>
 
@@ -102,12 +79,10 @@
     </path>
 
     <path id="test-load-balancer.module.classpath">
-        <path refid="${module.jdk.classpath.test-load-balancer}"/>
         <path refid="library.production.classpath"/>
     </path>
 
     <path id="test-load-balancer.runtime.module.classpath">
-        <path refid="${module.jdk.classpath.test-load-balancer}"/>
         <pathelement location="${test-load-balancer.output.dir}"/>
         <pathelement location="${test-load-balancer.testoutput.dir}"/>
         <path refid="library.production.classpath"/>
@@ -144,8 +119,7 @@
             description="Compile module test-load-balancer; production classes">
         <mkdir dir="${test-load-balancer.output.dir}"/>
         <javac destdir="${test-load-balancer.output.dir}" debug="${compiler.debug}"
-               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true"
-               executable="${module.jdk.bin.test-load-balancer}/javac">
+               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
             <compilerarg line="${compiler.args.test-load-balancer}"/>
             <bootclasspath refid="test-load-balancer.module.bootclasspath"/>
             <classpath refid="test-load-balancer.module.classpath"/>
@@ -165,8 +139,7 @@
             description="compile module test-load-balancer; test classes" unless="skip.tests">
         <mkdir dir="${test-load-balancer.testoutput.dir}"/>
         <javac destdir="${test-load-balancer.testoutput.dir}" debug="${compiler.debug}"
-               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true"
-               executable="${module.jdk.bin.test-load-balancer}/javac">
+               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
             <compilerarg line="${compiler.args.test-load-balancer}"/>
             <classpath refid="test-load-balancer.module.classpath"/>
             <classpath location="${test-load-balancer.output.dir}"/>
