@@ -1,4 +1,4 @@
-package com.googlecode.tlb.domain;
+package com.googlecode.tlb.support.twist;
 
 import org.junit.Test;
 import org.junit.Before;
@@ -6,11 +6,13 @@ import org.junit.After;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import com.googlecode.tlb.utils.FileUtil;
+import com.googlecode.tlb.domain.LoadBalancer;
+import static com.googlecode.tlb.support.twist.TwistLoadBalancer.getJobName;
 
 import java.io.File;
 import java.util.UUID;
 
-public class LoadBalancerTest {
+public class TwistLoadBalancerTest {
     private File scenarioDir;
     private File scn1;
     private File scn2;
@@ -18,7 +20,7 @@ public class LoadBalancerTest {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty(LoadBalancer.CRUISE_JOB_NAME, "job1");
+        System.setProperty(TwistLoadBalancer.CRUISE_JOB_NAME, "job1");
         scenarioDir = FileUtil.createTempFolder(UUID.randomUUID().toString());
         scn1 = FileUtil.createFileInFolder(scenarioDir, "1.scn");
         scn2 = FileUtil.createFileInFolder(scenarioDir, "2.scn");
@@ -27,13 +29,13 @@ public class LoadBalancerTest {
 
     @After
     public void tearDown() throws Exception {
-        System.clearProperty(LoadBalancer.CRUISE_JOB_NAME);
+        System.clearProperty(TwistLoadBalancer.CRUISE_JOB_NAME);
     }
 
     @Test
     public void end2endWithJobsEvenlyDevided() throws Exception {
         assertThat(scenarioDir.listFiles().length, is(3));
-        LoadBalancer.getLoadBalancer("[job1, job2]").balance(scenarioDir);
+        LoadBalancer.getLoadBalancer(1, 2).balance(scenarioDir);
 
         final File[] filesToKeep = scenarioDir.listFiles();
         assertThat(filesToKeep.length, is(1));
@@ -42,24 +44,24 @@ public class LoadBalancerTest {
 
     @Test
     public void shouldUseEnvironmentVairableWhenSystemPropertyIsEmpty() throws Exception {
-        System.clearProperty(LoadBalancer.CRUISE_JOB_NAME);
-        final String job = LoadBalancer.getJobName("jobNameFromEnv");
+        System.clearProperty(TwistLoadBalancer.CRUISE_JOB_NAME);
+        final String job = getJobName("jobNameFromEnv");
         assertThat(job, is("jobNameFromEnv"));
     }
 
     @Test
     public void shouldOverideEnvironmentVairableWithSystemProperty() throws Exception {
-        final String job = LoadBalancer.getJobName("jobNameFromEnv");
+        final String job = getJobName("jobNameFromEnv");
         assertThat(job, is("job1"));
     }
 
     @Test
     public void end2endWhenJobsCanNotBeEvenlyDevided() throws Exception {
-        System.setProperty(LoadBalancer.CRUISE_JOB_NAME, "job2");
+        System.setProperty(TwistLoadBalancer.CRUISE_JOB_NAME, "job2");
 
         assertThat(scenarioDir.listFiles().length, is(3));
 
-        com.googlecode.tlb.domain.LoadBalancer.getLoadBalancer("[job1, job2]").balance(scenarioDir);
+        LoadBalancer.getLoadBalancer(2, 2).balance(scenarioDir);
 
         final File[] filesToKeep = scenarioDir.listFiles();
         assertThat(filesToKeep.length, is(2));

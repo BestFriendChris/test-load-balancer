@@ -9,55 +9,55 @@ import com.googlecode.tlb.domain.NullRange;
 
 public class LoadBalanceFactor {
     private static final Logger LOGGER = Logger.getLogger(LoadBalanceFactor.class);
-    private int thisJobIndex;
-    private int allJobCounts;
+    private int pieceIndex;
+    private int splittedPieces;
 
-    public LoadBalanceFactor(int thisJobIndex, int allJobCounts) {
-        this.thisJobIndex = thisJobIndex;
-        this.allJobCounts = allJobCounts;
+    public LoadBalanceFactor(int pieceIndex, int splittedPieces) {
+        this.pieceIndex = pieceIndex;
+        this.splittedPieces = splittedPieces;
     }
 
-    public int getThisJobIndex() {
-        return thisJobIndex;
+    public int getPieceIndex() {
+        return pieceIndex;
     }
 
-    public int getAllJobCounts() {
-        return allJobCounts;
+    public int getSplittedPieces() {
+        return splittedPieces;
     }
 
     public String toString() {
-        return format("%d/%d", thisJobIndex, allJobCounts);
+        return format("%d/%d", pieceIndex, splittedPieces);
     }
 
-    public Range amountOfTests(int allTestResourse) {
+    public Range getRangeOfResources(int allTestResourse) {
         Range range = null;
         if (areJobsMoreThanTests(allTestResourse)) {
             range = assignEachJobOneTest(allTestResourse);
         } else {
             int amount = averageWithoutMod(allTestResourse);
-            range = new Range((thisJobIndex - 1) * amount, getLength(allTestResourse, amount));
+            range = new Range((pieceIndex - 1) * amount, getLength(allTestResourse, amount));
         }
         final String msg = format("[%d] tests to load balance between [%d] jobs. Assigned range [%s] for #[%d] job",
-                allTestResourse, allJobCounts, range, thisJobIndex);
+                allTestResourse, splittedPieces, range, pieceIndex);
         LOGGER.info(msg);
         System.out.println(msg);
         return range;
     }
 
-    private boolean areJobsMoreThanTests(int allTestResourse) {
-        return allTestResourse < this.allJobCounts;
+    private boolean areJobsMoreThanTests(int amountOfTest) {
+        return amountOfTest < this.splittedPieces;
     }
 
     private Range assignEachJobOneTest(int allTestResourse) {
         if (noMoreTestToAssign(allTestResourse)) {
             return new NullRange();
         } else {
-            return new Range(thisJobIndex - 1, 1);
+            return new Range(pieceIndex - 1, 1);
         }
     }
 
     private boolean noMoreTestToAssign(int allTestResourse) {
-        return this.thisJobIndex > allTestResourse;
+        return this.pieceIndex > allTestResourse;
     }
 
     private int getLength(int allTestResourse, int evenResult) {
@@ -66,18 +66,18 @@ public class LoadBalanceFactor {
     }
 
     private int getMod(int allTestResourse) {
-        return allTestResourse % allJobCounts;
+        return allTestResourse % splittedPieces;
     }
 
     private int averageWithoutMod(int allTestResourse) {
-        if (thisJobIndex == 0 || allJobCounts == 0) {
+        if (pieceIndex == 0 || splittedPieces == 0) {
             throw new RuntimeException("Invalid load balance factor: " + this);
         }
         final int mod = getMod(allTestResourse);
-        return (allTestResourse - mod) / getAllJobCounts();
+        return (allTestResourse - mod) / getSplittedPieces();
     }
 
     private boolean isLastJob() {
-        return thisJobIndex == allJobCounts;
+        return pieceIndex == splittedPieces;
     }
 }

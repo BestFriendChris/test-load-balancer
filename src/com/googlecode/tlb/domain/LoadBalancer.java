@@ -16,50 +16,22 @@ import com.googlecode.tlb.support.twist.TwistScenarioFilter;
  *
  */
 public class LoadBalancer {
-    private String jobName;
-    private final Group myGroup;
-    public static final String CRUISE_JOB_NAME = "cruise.job.name";
-    private static final String JOBNAME = "CRUISE_JOB_NAME";
+    private int pieceIndex;
+    private int splittedPieces;
 
 
-    private LoadBalancer(Group myGroup, String jobName) {
-        this.myGroup = myGroup;
-        this.jobName = jobName;
+    private LoadBalancer(int pieceIndex, int splittedPieces) {
+        this.pieceIndex = pieceIndex;
+        this.splittedPieces = splittedPieces;
     }
 
-    public static LoadBalancer getLoadBalancer(String definition) {
-        String jobName = getJobName(System.getenv(JOBNAME));
-        Groups groups = null;
-        try {
-            ANTLRInputStream input = new ANTLRInputStream(new ByteArrayInputStream(definition.getBytes("UTF-8")));
-            GroupLexer lexer = new GroupLexer(input);
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            GroupParser parser = new GroupParser(tokens);
-            groups = parser.groups();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        final Group group = groups.findByJobName(jobName);
-        return new LoadBalancer(group, jobName);
+    public static LoadBalancer getLoadBalancer(int pieceIndex, int splittedPieces) {
+        return new LoadBalancer(pieceIndex, splittedPieces);
     }
 
-    static String getJobName(String envValue) {
-        String jobName = System.getProperty(CRUISE_JOB_NAME);
-        if (isEmpty(jobName)) {
-            jobName = envValue;
-        }
-        return jobName;
-    }
-
-    private static boolean isEmpty(String str) {
-        return str == null || str.trim().length() == 0;
-    }
 
     public void balance(File scenariosDir) {
-        if (isEmpty(jobName)) {
-            throw new RuntimeException("Unable to find the current running job. Cruise should set it automatically.");
-        }
-        final LoadBalanceFactor factor = new LoadBalanceFactor(myGroup.jobIndex(jobName), myGroup.jobsCount());
+        final LoadBalanceFactor factor = new LoadBalanceFactor(pieceIndex, splittedPieces);
         new TwistScenarioFilter(scenariosDir).filter(factor);
     }
 }

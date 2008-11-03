@@ -64,7 +64,7 @@ public class TwistScenarioFilter implements TestFilter {
     }
 
     private List<File> getScenariosToKeep(LoadBalanceFactor factor, File[] scenarioFiles) {
-        final Range range = factor.amountOfTests(scenarioFiles.length);
+        final Range range = factor.getRangeOfResources(scenarioFiles.length);
         return range.in(scenarioFiles);
     }
 
