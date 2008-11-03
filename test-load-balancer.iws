@@ -15,24 +15,7 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/parser/GroupLexer.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ut/com/googlecode/tlb/parser/GroupsParserTest.java" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/parser/GroupsParserTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/domain" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ut/com/googlecode/tlb/GroupTest.java" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/GroupTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/parser/Group.g" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/parser/Group.g" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/parser/GroupParser.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/domain/LoadBalanceFactorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalancer.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalancer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/domain/RangeTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/domain/LoadBalancerTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ut/com/googlecode/tlb/GroupsTest.java" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/GroupsTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/TwistScenarioFilterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iws" afterPath="$PROJECT_DIR$/test-load-balancer.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/parser/Group.tokens" afterPath="" />
-    </list>
+    <list default="true" name="Default" comment="" />
     <ignored path="test-load-balancer.iws" />
     <ignored path=".idea/workspace.xml" />
   </component>
@@ -156,7 +139,7 @@
       <file leaf-file-name="TwistScenarioFilterTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/TwistScenarioFilterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="59" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.21014492">
+            <state line="67" column="0" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.45362318">
               <folding />
             </state>
           </provider>
@@ -651,12 +634,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="83" y="22" width="1357" height="878" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32798165" order="0" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32798165" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" order="8" />
@@ -853,7 +836,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/TwistScenarioFilterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="59" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.21014492">
+        <state line="67" column="0" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.45362318">
           <folding />
         </state>
       </provider>
