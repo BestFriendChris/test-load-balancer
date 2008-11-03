@@ -17,11 +17,15 @@
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalancer.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalancer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/TwistLoadBalancerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ut/com/googlecode/tlb/domain/LoadBalanceFactorTest.java" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/domain/LoadBalanceFactorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistScenarioFilter.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistScenarioFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/GroupParser.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/GroupParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/parser/Group.g" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/Group.g" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ut/com/googlecode/tlb/parser" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/parser/Group.tokens" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/Group.tokens" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iws" afterPath="$PROJECT_DIR$/test-load-balancer.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/GroupLexer.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/GroupLexer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/parser" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistLoadBalancer.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistLoadBalancer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalanceFactor.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalanceFactor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/GroupsParserTest.java" />
     </list>
     <ignored path="test-load-balancer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,58 +105,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TwistScenarioFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistScenarioFilter.java">
+      <file leaf-file-name="Group.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/Group.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="394" selection-end="394" vertical-scroll-proportion="0.068085104">
+            <state line="6" column="13" selection-start="147" selection-end="147" vertical-scroll-proportion="0.068085104">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoadBalanceFactor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalanceFactor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="207" selection-end="207" vertical-scroll-proportion="0.072837636">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadBalancer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/domain/LoadBalancer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="455" selection-end="455" vertical-scroll-proportion="0.12746586">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwistLoadBalancer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistLoadBalancer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="452" selection-end="469" vertical-scroll-proportion="0.068085104">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwistLoadBalancerTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/TwistLoadBalancerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.29135054">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+      <file leaf-file-name="Group.g" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/Group.g">
+          <provider selected="true" editor-type-id="grammar">
             <state />
           </provider>
         </entry>
@@ -271,54 +235,6 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/ut" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/ut/com/googlecode/tlb" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/ut/com/googlecode/tlb/support/twist" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/ut" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/ut/com/googlecode/tlb" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
@@ -342,32 +258,6 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/support/twist" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -777,16 +667,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/parser/GroupsParserTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/GroupsParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="266" selection-end="266" vertical-scroll-proportion="0.017391304">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/parser/Group.g">
-      <provider selected="true" editor-type-id="grammar">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java">
@@ -796,16 +681,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/Group.java">
+    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/TwistLoadBalancerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="147" selection-end="147" vertical-scroll-proportion="0.068085104">
-          <folding />
+        <state line="48" column="35" selection-start="1704" selection-end="1704" vertical-scroll-proportion="0.5644916">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistScenarioFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistLoadBalancer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="394" selection-end="394" vertical-scroll-proportion="0.068085104">
+        <state line="15" column="13" selection-start="452" selection-end="469" vertical-scroll-proportion="0.068085104">
           <folding />
         </state>
       </provider>
@@ -830,22 +720,22 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistLoadBalancer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistScenarioFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="452" selection-end="469" vertical-scroll-proportion="0.068085104">
+        <state line="14" column="13" selection-start="394" selection-end="394" vertical-scroll-proportion="0.068085104">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/twist/TwistLoadBalancerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/Group.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.29135054">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="6" column="13" selection-start="147" selection-end="147" vertical-scroll-proportion="0.068085104">
+          <folding />
         </state>
       </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/parser/Group.g">
+      <provider selected="true" editor-type-id="grammar">
         <state />
       </provider>
     </entry>

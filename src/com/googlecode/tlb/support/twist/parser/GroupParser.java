@@ -1,6 +1,6 @@
 // $ANTLR 3.1 /Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/parser/Group.g 2008-11-03 23:02:23
 
-package com.googlecode.tlb.parser;
+package com.googlecode.tlb.support.twist.parser;
 	
 import com.googlecode.tlb.support.twist.Groups;
 import com.googlecode.tlb.support.twist.Group;
@@ -8,9 +8,6 @@ import com.googlecode.tlb.support.twist.Group;
 
 
 import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
 
 public class GroupParser extends Parser {
     public static final String[] tokenNames = new String[] {

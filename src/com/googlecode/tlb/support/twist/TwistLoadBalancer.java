@@ -10,8 +10,8 @@ import java.io.File;
 import java.io.ByteArrayInputStream;
 
 import com.googlecode.tlb.domain.LoadBalancer;
-import com.googlecode.tlb.parser.GroupLexer;
-import com.googlecode.tlb.parser.GroupParser;
+import com.googlecode.tlb.support.twist.parser.GroupLexer;
+import com.googlecode.tlb.support.twist.parser.GroupParser;
 
 public class TwistLoadBalancer extends Task {
     public static final Logger LOGGER = Logger.getLogger(TwistLoadBalancer.class);

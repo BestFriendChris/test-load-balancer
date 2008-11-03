@@ -1,4 +1,4 @@
-package com.googlecode.tlb.parser;
+package com.googlecode.tlb.support.twist.parser;
 
 import java.io.ByteArrayInputStream;
 

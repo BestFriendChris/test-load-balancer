@@ -1,13 +1,10 @@
 // $ANTLR 3.1 /Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/parser/Group.g 2008-11-03 23:02:23
 
-package com.googlecode.tlb.parser;
+package com.googlecode.tlb.support.twist.parser;
 
 
 
 import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
 
 public class GroupLexer extends Lexer {
     public static final int T__7=7;
