@@ -1,10 +1,12 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.support.twist;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 import org.apache.log4j.Logger;
 
 import java.io.File;
+
+import com.googlecode.tlb.domain.LoadBalancer;
 
 public class TwistLoadBalancer extends Task {
     public static final Logger LOGGER = Logger.getLogger(TwistLoadBalancer.class);

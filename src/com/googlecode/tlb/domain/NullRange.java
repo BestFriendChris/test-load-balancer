@@ -1,4 +1,6 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.domain;
+
+import com.googlecode.tlb.domain.Range;
 
 import java.io.File;
 import java.util.List;

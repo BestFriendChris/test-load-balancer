@@ -1,4 +1,4 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.domain;
 
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -8,12 +8,14 @@ import java.io.File;
 
 import com.googlecode.tlb.parser.GroupLexer;
 import com.googlecode.tlb.parser.GroupParser;
+import com.googlecode.tlb.Group;
+import com.googlecode.tlb.Groups;
+import com.googlecode.tlb.TwistScenarioFilter;
 
 /**
  *
  */
 public class LoadBalancer {
-    private String definition;
     private String jobName;
     private final Group myGroup;
     public static final String CRUISE_JOB_NAME = "cruise.job.name";

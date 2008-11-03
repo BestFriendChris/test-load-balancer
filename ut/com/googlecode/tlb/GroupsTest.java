@@ -3,6 +3,7 @@ package com.googlecode.tlb;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
+import com.googlecode.tlb.support.twist.Groups;
 
 public class GroupsTest {
     @Test

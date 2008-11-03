@@ -1,8 +1,11 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.domain;
 
 import org.apache.log4j.Logger;
 
 import static java.lang.String.format;
+
+import com.googlecode.tlb.domain.Range;
+import com.googlecode.tlb.domain.NullRange;
 
 public class LoadBalanceFactor {
     private static final Logger LOGGER = Logger.getLogger(LoadBalanceFactor.class);

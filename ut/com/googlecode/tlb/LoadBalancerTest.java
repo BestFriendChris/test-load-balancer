@@ -59,7 +59,7 @@ public class LoadBalancerTest {
 
         assertThat(scenarioDir.listFiles().length, is(3));
 
-        LoadBalancer.getLoadBalancer("[job1, job2]").balance(scenarioDir);
+        com.googlecode.tlb.domain.LoadBalancer.getLoadBalancer("[job1, job2]").balance(scenarioDir);
 
         final File[] filesToKeep = scenarioDir.listFiles();
         assertThat(filesToKeep.length, is(2));

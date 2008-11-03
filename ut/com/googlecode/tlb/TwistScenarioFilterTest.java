@@ -38,7 +38,7 @@ public class TwistScenarioFilterTest {
     public void shouldAssignTheRestToTheLastAgentIfLoadCanNotBeEvenlyBalanced() throws Exception {
         assertThat(scenarioDir.listFiles().length, is(3));
 
-        new TwistScenarioFilter(scenarioDir).filter(new LoadBalanceFactor(2, 2));
+        new TwistScenarioFilter(scenarioDir).filter(new com.googlecode.tlb.domain.LoadBalanceFactor(2, 2));
 
         File[] files = scenarioDir.listFiles();
         assertThat(files.length, is(2));
@@ -59,7 +59,7 @@ public class TwistScenarioFilterTest {
 
     @Test
     public void shouldContinueToDeleteFileEvenIfAnyFileIsFailedToDelete() throws Exception {
-        final TwistScenarioFilter scenarioFilter = new TwistScenarioFilter(scenarioDir);
+        final com.googlecode.tlb.support.twist.TwistScenarioFilter scenarioFilter = new TwistScenarioFilter(scenarioDir);
         final DeletableFile file = new DeletableFile("1");
         final FailedToDeleteFile file2 = new FailedToDeleteFile("2");
         final DeletableFile file3 = new DeletableFile("3");

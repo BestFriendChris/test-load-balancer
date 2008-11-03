@@ -1,9 +1,8 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.domain;
 
 import java.io.File;
 import java.util.List;
 import java.util.Arrays;
-import java.util.ArrayList;
 
 public class Range {
     private final int start;

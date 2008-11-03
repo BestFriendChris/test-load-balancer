@@ -1,4 +1,4 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.support.twist;
 
 import org.apache.commons.io.comparator.NameFileComparator;
 import org.apache.log4j.Logger;
@@ -8,6 +8,9 @@ import java.io.FilenameFilter;
 import static java.util.Arrays.sort;
 import java.util.List;
 import static java.lang.String.format;
+
+import com.googlecode.tlb.domain.Range;
+import com.googlecode.tlb.domain.LoadBalanceFactor;
 
 public class TwistScenarioFilter implements TestFilter {
     private final File scenarioDir;
@@ -30,6 +33,8 @@ public class TwistScenarioFilter implements TestFilter {
         deleteScenarios(scenarioFiles, toKeep);
     }
 
+
+
     void deleteScenarios(File[] scenarioFiles, List<File> toKeep) {
         log(toKeep);
         for (File scenarioFile : scenarioFiles) {
@@ -50,6 +55,7 @@ public class TwistScenarioFilter implements TestFilter {
         LOGGER.info(message);
         System.out.println(message);
     }
+
     private void log(List<File> toKeep) {
         LOGGER.info(format("Keeping [%d] files:", toKeep.size()));
         for (File file : toKeep) {

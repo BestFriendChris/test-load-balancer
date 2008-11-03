@@ -9,6 +9,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import com.googlecode.tlb.Groups;
 import com.googlecode.tlb.Group;
+import com.googlecode.tlb.support.twist.Group;
 
 public class GroupsParserTest {
 

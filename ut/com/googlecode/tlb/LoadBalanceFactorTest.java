@@ -4,6 +4,8 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
+import com.googlecode.tlb.domain.NullRange;
+import com.googlecode.tlb.domain.Range;
 
 public class LoadBalanceFactorTest {
     @Test
