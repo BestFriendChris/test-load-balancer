@@ -8,9 +8,9 @@ import java.io.File;
 
 import com.googlecode.tlb.parser.GroupLexer;
 import com.googlecode.tlb.parser.GroupParser;
-import com.googlecode.tlb.Group;
-import com.googlecode.tlb.Groups;
-import com.googlecode.tlb.TwistScenarioFilter;
+import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.support.twist.Groups;
+import com.googlecode.tlb.support.twist.TwistScenarioFilter;
 
 /**
  *

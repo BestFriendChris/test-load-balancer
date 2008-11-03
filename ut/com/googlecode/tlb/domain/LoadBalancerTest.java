@@ -1,4 +1,4 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.domain;
 
 import org.junit.Test;
 import org.junit.Before;

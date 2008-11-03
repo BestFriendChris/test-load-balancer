@@ -7,9 +7,8 @@ import org.antlr.runtime.CommonTokenStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
-import com.googlecode.tlb.Groups;
-import com.googlecode.tlb.Group;
 import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.support.twist.Groups;
 
 public class GroupsParserTest {
 

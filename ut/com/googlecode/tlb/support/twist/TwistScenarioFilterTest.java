@@ -1,6 +1,7 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.support.twist;
 
 import com.googlecode.tlb.utils.FileUtil;
+import com.googlecode.tlb.domain.LoadBalanceFactor;
 import static junit.framework.Assert.fail;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

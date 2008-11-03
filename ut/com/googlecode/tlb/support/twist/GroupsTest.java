@@ -1,4 +1,4 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.support.twist;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

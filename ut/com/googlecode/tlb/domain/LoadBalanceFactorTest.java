@@ -1,4 +1,4 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.domain;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;

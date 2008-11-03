@@ -9,8 +9,8 @@ package com.googlecode.tlb.parser;
 @header{
 package com.googlecode.tlb.parser;
 	
-import com.googlecode.tlb.Groups;
-import com.googlecode.tlb.Group;
+import com.googlecode.tlb.support.twist.Groups;
+import com.googlecode.tlb.support.twist.Group;
 
 }
 
