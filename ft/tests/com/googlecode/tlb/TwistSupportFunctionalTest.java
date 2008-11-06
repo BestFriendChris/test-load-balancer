@@ -6,8 +6,7 @@ import org.junit.After;
 import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
 
-import java.io.File;
-import java.io.FilenameFilter;
+import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -21,14 +20,14 @@ public class TwistSupportFunctionalTest {
         reports.delete();
         reports.mkdirs();
         runCommand(new HashMap(), new File("."), new String[]{"ant", "jar.module.test-load-balancer"});
-        runCommand(new HashMap(), new File("ft/twist/tlb-twist"), new String[]{"ant", "retrive"});
+        runCommand(new HashMap(), new File("ft/twist/tlb-twist"), new String[]{"ant", "retrieve"});
 
 
     }
 
     @After
     public void teardown() throws Exception {
-
+        runCommand(new HashMap(), new File("ft/twist/tlb-twist/scenarios"), new String[]{"svn", "revert", "-R", "."});
     }
 
     @Test
@@ -56,9 +55,9 @@ public class TwistSupportFunctionalTest {
 
     @Test
     public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
-        HashMap hashMap = new HashMap();
-        hashMap.put(JOBNAME, "job2");
-        runCommand(hashMap, new File("ft/twist/tlb-twist"), new String[]{"ant", "twist"});
+        HashMap map = new HashMap();
+        map.put(JOBNAME, "");
+        runCommand(map, new File("ft/twist/tlb-twist"), new String[]{"ant", "twist"});
 
         File reports = new File("ft/twist/tlb-twist/target/reports");
         int count = reportCount(reports);
@@ -72,6 +71,11 @@ public class TwistSupportFunctionalTest {
         env.putAll(envMap);
         pb.directory(directory);
         Process p = pb.start();
+        BufferedReader inputStream = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String current = "";
+        while ((current = inputStream.readLine()) != null) {
+            System.out.println(current);
+        }
         p.waitFor();
         return p.exitValue();
 

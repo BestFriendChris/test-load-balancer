@@ -12,6 +12,7 @@ import java.io.ByteArrayInputStream;
 import com.googlecode.tlb.domain.LoadBalancer;
 import com.googlecode.tlb.support.twist.parser.GroupLexer;
 import com.googlecode.tlb.support.twist.parser.GroupParser;
+import com.googlecode.tlb.exceptions.JobNotFoundException;
 
 public class TwistLoadBalancer extends Task {
     public static final Logger LOGGER = Logger.getLogger(TwistLoadBalancer.class);
@@ -35,6 +36,9 @@ public class TwistLoadBalancer extends Task {
             }
             final Group group = groups.findByJobName(jobName);
             LoadBalancer.getLoadBalancer(group.jobIndex(jobName), group.jobsCount()).balance(scenarioDir);
+        } catch (JobNotFoundException e) {
+            LOGGER.error("Failed to load balance", e);
+            System.err.println("Failed to load balance: " + e);
         } catch (Exception e) {
             // TODO - fix log4j
             LOGGER.error("Failed to load balance", e);
@@ -43,13 +47,13 @@ public class TwistLoadBalancer extends Task {
         }
     }
 
-    static String getJobName(String envValue) {
+    static String getJobName(String envValue) throws JobNotFoundException {
         String jobName = System.getProperty(CRUISE_JOB_NAME);
         if (isEmpty(jobName)) {
             jobName = envValue;
         }
         if (isEmpty(jobName)) {
-            throw new RuntimeException("Unable to find the current running job. Cruise should set it automatically.");
+            throw new JobNotFoundException("Unable to find the current running job. Cruise should set it automatically.");
         }
         return jobName;
     }

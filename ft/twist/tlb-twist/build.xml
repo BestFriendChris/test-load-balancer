@@ -30,13 +30,12 @@
     </target>
 
     <target name="load-balance">
-        <taskdef classname="com.googlecode.tlb.TwistLoadBalancer"
+        <taskdef classname="com.googlecode.tlb.support.twist.TwistLoadBalancer"
                  classpathref="twist-classpath" name="load.balancer"/>
         <load.balancer scenarioDir="${dir.scenarios}" loadBalance="[job1, job2]"/>
     </target>
 
     <target name="retrieve">
-        <ant antfile="build.xml" dir="../../../"/>
         <copy todir="${dir.lib}">
             <!--TODO remove the duplication-->
             <fileset dir="../../../lib/">
@@ -46,7 +45,7 @@
         <copy overwrite="true" todir="${dir.lib}" file="../../../target/test-load-balancer.jar"/>
     </target>
 
-    <target name="twist" description="Executes twist scenarios" depends="init">
+    <target name="twist" description="Executes twist scenarios" depends="init, load-balance">
         <taskdef classname="com.thoughtworks.twist.core.execution.ant.ExecuteScenariosTask"
                  classpathref="twist-classpath" name="twist.runner"/>
 
