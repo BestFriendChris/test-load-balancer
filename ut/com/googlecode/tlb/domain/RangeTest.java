@@ -13,11 +13,11 @@ public class RangeTest {
     @Test
     public void shouldReturnFilesInRange() {
         final File[] all = { new File("file1"), new File("file2"), new File("file3") };
-        final List<File> inRange = new Range(0, 2).in(all);
+        final List inRange = new Range(0, 2).in(all);
 
         assertThat(inRange.size(), is(2));
-        assertThat(inRange.get(0), is(new File("file1")));
-        assertThat(inRange.get(1), is(new File("file2")));
+        assertThat((File) inRange.get(0), is(new File("file1")));
+        assertThat((File) inRange.get(1), is(new File("file2")));
 
     }
 }

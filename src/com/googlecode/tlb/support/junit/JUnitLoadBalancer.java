@@ -1,14 +1,12 @@
 package com.googlecode.tlb.support.junit;
 
+import com.googlecode.tlb.domain.LoadBalanceFactor;
+import com.googlecode.tlb.domain.Range;
 import org.apache.tools.ant.types.resources.FileResource;
 
-import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.io.File;
-
-import com.googlecode.tlb.domain.Range;
-import com.googlecode.tlb.domain.LoadBalanceFactor;
 
 public class JUnitLoadBalancer {
     private int pieceIndex;
@@ -20,21 +18,16 @@ public class JUnitLoadBalancer {
     }
 
     public Iterator balance(Iterator iterator) {
-        List<File> files = new ArrayList<File>();
+        List<FileResource> files = new ArrayList<FileResource>();
         while (iterator.hasNext()) {
-            File file = ((FileResource) iterator.next()).getFile();
-            files.add(file);
+            files.add((FileResource) iterator.next());
         }
 
         final LoadBalanceFactor factor = new LoadBalanceFactor(pieceIndex, splittedPieces);
         Range ofResources = factor.getRangeOfResources(files.size());
-        List<File> list = ofResources.in(files.toArray(new File[]{}));
+        List<Object> list = ofResources.in(files.toArray(new Object[]{}));
 
-        List<FileResource> resources = new ArrayList<FileResource>();
-        for (File file : list) {
-            resources.add(new FileResource(file));
-        }
-        return resources.iterator();
+        return list.iterator();
 
     }
 }

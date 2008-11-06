@@ -57,6 +57,7 @@
             <include name="**/*.jar"></include>
         </fileset>
     </path>
+    <typedef  name="filter-fileset" classname="com.googlecode.tlb.support.junit.FilterFileSet" classpathref="classpath"/>
 
     <target name="test" depends="compile">
         <mkdir dir="target/test-classes"/>
@@ -74,10 +75,12 @@
             <formatter type="brief" usefile="false"/>
             <formatter type="xml"/>
             <batchtest todir="target/test-results">
-                <fileset dir="target/test-classes" includes="**/*Test.class"/>
+                <filter-fileset loadBalance="[job1, job2]" dir="target/test-classes" includes="**/*Test.class"/>
             </batchtest>
         </junit>
     </target>
+
+
     <target name="retrieve">
         <copy todir="lib">
             <!--TODO remove the duplication-->
@@ -85,7 +88,7 @@
                 <include name="**/*.jar"/>
             </fileset>
         </copy>
-        <copy overwrite="true" todir="${dir.lib}" file="../../../target/test-load-balancer.jar"/>
+        <copy overwrite="true" todir="lib" file="../../../target/test-load-balancer.jar"/>
     </target>
     <target name="jar" depends="compile">
         <jar jarfile="target/connectfour.jar" basedir="target/classes"/>

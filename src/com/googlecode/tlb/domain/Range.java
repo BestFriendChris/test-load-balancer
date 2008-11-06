@@ -36,8 +36,8 @@ public class Range {
         return result;
     }
 
-    public List<File> in(File[] testFiles) {
-        final File[] files = new File[this.length];
+    public List<Object> in(Object[] testFiles) {
+        final Object[] files = new Object[this.length];
         System.arraycopy(testFiles, start, files, 0, this.length);
         return Arrays.asList(files);
     }

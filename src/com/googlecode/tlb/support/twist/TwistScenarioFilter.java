@@ -34,7 +34,6 @@ public class TwistScenarioFilter implements TestFilter {
     }
 
 
-
     void deleteScenarios(File[] scenarioFiles, List<File> toKeep) {
         log(toKeep);
         for (File scenarioFile : scenarioFiles) {
@@ -63,7 +62,7 @@ public class TwistScenarioFilter implements TestFilter {
         }
     }
 
-    private List<File> getScenariosToKeep(LoadBalanceFactor factor, File[] scenarioFiles) {
+    private List getScenariosToKeep(LoadBalanceFactor factor, File[] scenarioFiles) {
         final Range range = factor.getRangeOfResources(scenarioFiles.length);
         return range.in(scenarioFiles);
     }
