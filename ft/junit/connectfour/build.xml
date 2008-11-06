@@ -38,7 +38,7 @@
     <target name="all" depends="clean, compile, sleep, test, jar"/>
 
     <target name="clean">
-        <delete dir="target" quiet="true" />
+        <delete dir="target" quiet="true"/>
     </target>
 
     <target name="compile">
@@ -47,8 +47,16 @@
     </target>
 
     <target name="sleep">
-        <echo message="Sleeping for a while so you can see the build in the new dashboard" />
+        <echo message="Sleeping for a while so you can see the build in the new dashboard"/>
     </target>
+
+    <path id="classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <fileset dir="lib">
+            <include name="**/*.jar"></include>
+        </fileset>
+    </path>
 
     <target name="test" depends="compile">
         <mkdir dir="target/test-classes"/>
@@ -61,19 +69,24 @@
 
         <mkdir dir="target/test-results"/>
         <junit haltonfailure="no" printsummary="on">
-            <classpath >
-                <pathelement location="target/classes"/>
-                <pathelement location="lib/junit.jar"/>
-                <pathelement location="target/test-classes"/>
+            <classpath refid="classpath">
             </classpath>
             <formatter type="brief" usefile="false"/>
-            <formatter type="xml" />
-            <batchtest todir="target/test-results" >
+            <formatter type="xml"/>
+            <batchtest todir="target/test-results">
                 <fileset dir="target/test-classes" includes="**/*Test.class"/>
             </batchtest>
         </junit>
     </target>
-
+    <target name="retrieve">
+        <copy todir="lib">
+            <!--TODO remove the duplication-->
+            <fileset dir="../../../lib/">
+                <include name="**/*.jar"/>
+            </fileset>
+        </copy>
+        <copy overwrite="true" todir="${dir.lib}" file="../../../target/test-load-balancer.jar"/>
+    </target>
     <target name="jar" depends="compile">
         <jar jarfile="target/connectfour.jar" basedir="target/classes"/>
     </target>
