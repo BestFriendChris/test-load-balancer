@@ -13,7 +13,7 @@ public class FileUtil {
     }
 
     private static String tempFolder() {
-        return System.getProperty("java.io.tmpdir");
+        return System.getProperty("java.io.tmpdir") + System.currentTimeMillis();
     }
 
     public static File createFileInFolder(File folder, String fileName) throws IOException {
