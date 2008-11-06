@@ -9,6 +9,7 @@ import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.support.twist.Groups;
 import com.googlecode.tlb.support.twist.parser.GroupLexer;
 import com.googlecode.tlb.support.twist.parser.GroupParser;
+import com.googlecode.tlb.exceptions.JobNotFoundException;
 
 import java.util.Iterator;
 import java.io.ByteArrayInputStream;
@@ -36,6 +37,10 @@ public class FilterFileSet extends FileSet {
             }
             final Group group = groups.findByJobName(jobName);
             return new JUnitLoadBalancer(group.jobIndex(jobName), group.jobsCount()).balance(super.iterator());
+        } catch (JobNotFoundException e) {
+            LOGGER.error("Failed to load balance", e);
+            System.err.println("Failed to load balance: " + e);
+            return super.iterator();
         } catch (Exception e) {
             // TODO - fix log4j
             LOGGER.error("Failed to load balance", e);
@@ -48,13 +53,13 @@ public class FilterFileSet extends FileSet {
         this.loadBalance = loadBalance;
     }
 
-    static String getJobName(String envValue) {
+    static String getJobName(String envValue) throws JobNotFoundException {
         String jobName = System.getProperty(CRUISE_JOB_NAME);
         if (isEmpty(jobName)) {
             jobName = envValue;
         }
         if (isEmpty(jobName)) {
-            throw new RuntimeException("Unable to find the current running job. Cruise should set it automatically.");
+            throw new JobNotFoundException("Unable to find the current running job. Cruise should set it automatically.");
         }
         return jobName;
     }

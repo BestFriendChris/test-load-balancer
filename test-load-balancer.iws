@@ -16,13 +16,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/junit" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/junit/FilterFileSetTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/FilterFileSet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-results" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net/sourceforge/cruisecontrol" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net/sourceforge/cruisecontrol" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/connectfour.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/FilterFileSet.java" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/FilterFileSet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/lib/junit.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-results/TEST-net.sourceforge.cruisecontrol.sampleproject.connectfour.PlayingStandTest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net/sourceforge/cruisecontrol/sampleproject" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-results/TEST-net.sourceforge.cruisecontrol.sampleproject.connectfour.CellTest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net/sourceforge/cruisecontrol/sampleproject" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand$WinningPlacement.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net/sourceforge" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net/sourceforge/cruisecontrol/sampleproject/connectfour" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/lib" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net/sourceforge/cruisecontrol/sampleproject/connectfour" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/README.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-classes/net/sourceforge" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iws" afterPath="$PROJECT_DIR$/test-load-balancer.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/junit" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/JUnitLoadBalancer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/test-results/TEST-net.sourceforge.cruisecontrol.sampleproject.connectfour.PlayingTest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ft/junit/connectfour/target/classes/net/sourceforge/cruisecontrol/sampleproject" />
     </list>
     <ignored path="test-load-balancer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -116,7 +173,30 @@
     <favorites_list name="test-load-balancer" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="JUnitLoadBalancer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/JUnitLoadBalancer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="13" selection-start="308" selection-end="308" vertical-scroll-proportion="0.20425531">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilterFileSet.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/FilterFileSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="36" selection-start="1857" selection-end="1857" vertical-scroll-proportion="0.4212766">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -253,6 +333,62 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/support" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/support" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/support/junit" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -501,12 +637,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="22" width="1373" height="878" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3202417" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20392749" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.56688744" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" order="8" />
@@ -517,7 +653,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986567" order="1" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" order="8" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36821193" order="2" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36821193" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3986755" order="4" />
@@ -701,18 +837,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/FilterFileSet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/JUnitLoadBalancer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1488" selection-end="1488" vertical-scroll-proportion="0.6666667">
+        <state line="12" column="13" selection-start="308" selection-end="308" vertical-scroll-proportion="0.20425531">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/JUnitLoadBalancer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/junit/FilterFileSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1189" selection-end="1189" vertical-scroll-proportion="1.0285715">
+        <state line="42" column="36" selection-start="1857" selection-end="1857" vertical-scroll-proportion="0.4212766">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
