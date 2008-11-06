@@ -17,7 +17,7 @@ public class TwistLoadBalancer extends Task {
     public static final Logger LOGGER = Logger.getLogger(TwistLoadBalancer.class);
     private File scenarioDir;
     private String loadBalance;
-    private static final String JOBNAME = "CRUISE_JOB_NAME";
+    public static final String JOBNAME = "CRUISE_JOB_NAME";
     public static final String CRUISE_JOB_NAME = "cruise.job.name";
 
     public void execute() throws BuildException {

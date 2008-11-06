@@ -179,7 +179,7 @@
         </junit>
     </target>
 
-    <target name="jar.module.test-load-balancer">
+    <target name="jar.module.test-load-balancer" depends="clean, init, compile.module.test-load-balancer.production">
         <jar destfile="${target}/test-load-balancer.jar">
             <fileset dir="${test-load-balancer.output.dir}">
                 <include name="**/*.class"/>

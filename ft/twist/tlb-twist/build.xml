@@ -43,10 +43,10 @@
                 <include name="**/*.jar"/>
             </fileset>
         </copy>
-        <copy todir="${dir.lib}" file="../../../target/test-load-balancer.jar"/>
+        <copy overwrite="true" todir="${dir.lib}" file="../../../target/test-load-balancer.jar"/>
     </target>
 
-    <target name="twist" description="Executes twist scenarios">
+    <target name="twist" description="Executes twist scenarios" depends="init">
         <taskdef classname="com.thoughtworks.twist.core.execution.ant.ExecuteScenariosTask"
                  classpathref="twist-classpath" name="twist.runner"/>
 
