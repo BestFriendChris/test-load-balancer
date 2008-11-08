@@ -22,7 +22,9 @@ public class JunitSupportFunctionalTest {
         File reports = new File("ft/junit/connectfour/target/test-results");
         reports.delete();
         reports.mkdirs();
-        runCommand(new HashMap(), new File("."), new String[]{"ant", "jar.module.test-load-balancer"});
+        if (!new File("target/test-load-balancer.jar").exists()) {
+            runCommand(new HashMap(), new File("."), new String[]{"ant", "jar.module.test-load-balancer"});
+        }
         runCommand(new HashMap(), new File("ft/junit/connectfour"), new String[]{"ant", "retrieve"});
     }
 

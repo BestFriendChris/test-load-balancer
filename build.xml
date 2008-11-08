@@ -108,7 +108,7 @@
 
     <path id="test-load-balancer.module.test.sourcepath">
         <dirset dir="${module.test-load-balancer.basedir}">
-            <include name="ft"/>
+            <include name="ft/tests"/>
             <include name="ut"/>
         </dirset>
     </path>
@@ -180,6 +180,22 @@
         </junit>
     </target>
 
+     <target name="ft.module.test-load-balancer" depends="init, clean, compile.module.test-load-balancer, jar.module.test-load-balancer">
+        <junit printsummary="yes" dir="${module.test-load-balancer.basedir}" haltonfailure="true" fork="true"
+               forkMode="once">
+            <classpath refid="test-load-balancer.runtime.module.classpath"></classpath>
+            <formatter type="brief" usefile="false"/>
+            <formatter type="xml"/>
+
+
+            <batchtest todir="${target}/testoutput">
+                <fileset dir="${module.test-load-balancer.basedir}/ft/tests">
+                    <include name="**/*Test.java"></include>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
     <target name="jar.module.test-load-balancer" depends="clean, init, compile.module.test-load-balancer.production">
         <jar destfile="${target}/test-load-balancer.jar">
             <fileset dir="${test-load-balancer.output.dir}">
@@ -205,6 +221,6 @@
     <import file="ft/twist/tlb-twist/build.xml"/>
 
     <target name="all"
-            depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer, jar.module.test-load-balancer"
+            depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer, jar.module.test-load-balancer, ft.module.test-load-balancer"
             description="build all"/>
 </project>

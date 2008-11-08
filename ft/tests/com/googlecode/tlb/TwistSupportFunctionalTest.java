@@ -19,7 +19,9 @@ public class TwistSupportFunctionalTest {
         File reports = new File("ft/twist/tlb-twist/target/reports");
         reports.delete();
         reports.mkdirs();
-        runCommand(new HashMap(), new File("."), new String[]{"ant", "jar.module.test-load-balancer"});
+        if (!new File("target/test-load-balancer.jar").exists()) {
+            runCommand(new HashMap(), new File("."), new String[]{"ant", "jar.module.test-load-balancer"});
+        }
         runCommand(new HashMap(), new File("ft/twist/tlb-twist"), new String[]{"ant", "retrieve"});
 
 
