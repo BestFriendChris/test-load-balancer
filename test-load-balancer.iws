@@ -16,10 +16,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ft/tests/com/googlecode/tlb/JunitSupportFunctionalTest.java" afterPath="$PROJECT_DIR$/ft/tests/com/googlecode/tlb/JunitSupportFunctionalTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$" afterPath="$PROJECT_DIR$" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iws" afterPath="$PROJECT_DIR$/test-load-balancer.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ft/tests/com/googlecode/tlb/TwistSupportFunctionalTest.java" afterPath="$PROJECT_DIR$/ft/tests/com/googlecode/tlb/TwistSupportFunctionalTest.java" />
     </list>
     <ignored path="test-load-balancer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,47 +97,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="JunitSupportFunctionalTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ft/tests/com/googlecode/tlb/JunitSupportFunctionalTest.java">
+      <file leaf-file-name="GroupLoader.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/GroupLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="642" selection-end="827" vertical-scroll-proportion="0.18723404">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="158" selection-start="9149" selection-end="9149" vertical-scroll-proportion="0.8518519">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ft/junit/connectfour/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.44267052">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ft/twist/tlb-twist/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.18432511">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwistSupportFunctionalTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ft/tests/com/googlecode/tlb/TwistSupportFunctionalTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="0.23829788">
-              <folding />
+            <state line="8" column="24" selection-start="232" selection-end="243" vertical-scroll-proportion="0.13617021">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -258,7 +222,85 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/ft" />
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/support" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/support" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Users/twer/Workspace/test-load-balancer/src/com/googlecode/tlb/support/cruise" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -600,13 +642,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/JSONClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="11" selection-start="503" selection-end="503" vertical-scroll-proportion="-1.4444444">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/GroupsDivider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="349" selection-end="349" vertical-scroll-proportion="0.3968254">
@@ -653,15 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/GroupLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="14" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.45957446">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="121" selection-end="121" vertical-scroll-proportion="0.068085104">
@@ -683,6 +709,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ft/tests/com/googlecode/tlb/JunitSupportFunctionalTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="642" selection-end="827" vertical-scroll-proportion="0.18723404">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="194" column="24" selection-start="7999" selection-end="7999" vertical-scroll-proportion="1.4074074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ft/junit/connectfour/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="0" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.44267052">
@@ -697,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ft/tests/com/googlecode/tlb/JunitSupportFunctionalTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="642" selection-end="827" vertical-scroll-proportion="0.18723404">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ft/tests/com/googlecode/tlb/TwistSupportFunctionalTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="0.23829788">
@@ -711,10 +744,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="158" selection-start="9149" selection-end="9149" vertical-scroll-proportion="0.8518519">
+        <state line="2" column="17" selection-start="61" selection-end="61" vertical-scroll-proportion="0.034042552">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/GroupLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="24" selection-start="232" selection-end="243" vertical-scroll-proportion="0.13617021">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
