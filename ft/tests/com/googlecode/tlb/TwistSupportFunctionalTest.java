@@ -30,7 +30,9 @@ public class TwistSupportFunctionalTest {
 
     @After
     public void teardown() throws Exception {
+        // TODO - yanghada - keeping both commands here until we all migrate to git 
         runCommand(new HashMap(), new File("ft/twist/tlb-twist/scenarios"), "svn", "revert", "-R", ".");
+        runCommand(new HashMap(), new File("ft/twist/tlb-twist/scenarios"), "git", "checkout", ".");
     }
 
     @Test
