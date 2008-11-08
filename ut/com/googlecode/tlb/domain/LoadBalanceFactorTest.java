@@ -49,12 +49,37 @@ public class LoadBalanceFactorTest {
     @Test
     public void shouldReturnFilteredResourceNumberIfResourcesCanNotBeDevidedEvenly() {
         LoadBalanceFactor balanceFactor = new LoadBalanceFactor(1, 3);
-        assertThat(balanceFactor.getRangeOfResources(20), is(new Range(0, 6)));
+        assertThat(balanceFactor.getRangeOfResources(20), is(new Range(0, 7)));
         balanceFactor = new LoadBalanceFactor(2, 3);
-        assertThat(balanceFactor.getRangeOfResources(20), is(new Range(6, 6)));
+        assertThat(balanceFactor.getRangeOfResources(20), is(new Range(7, 7)));
         balanceFactor = new LoadBalanceFactor(3, 3);
-        assertThat(balanceFactor.getRangeOfResources(20), is(new Range(12, 8)));
+        assertThat(balanceFactor.getRangeOfResources(20), is(new Range(14, 6)));
     }
+
+    @Test
+    public void shouldReturnFilteredResourceNumberIfResourcesCanNotBeDevidedEvenly2() {
+        LoadBalanceFactor balanceFactor = new LoadBalanceFactor(1, 4);
+        assertThat(balanceFactor.getRangeOfResources(18), is(new Range(0, 5)));
+        balanceFactor = new LoadBalanceFactor(2, 4);
+        assertThat(balanceFactor.getRangeOfResources(18), is(new Range(5, 5)));
+        balanceFactor = new LoadBalanceFactor(3, 4);
+        assertThat(balanceFactor.getRangeOfResources(18), is(new Range(10, 4)));
+        balanceFactor = new LoadBalanceFactor(4, 4);
+        assertThat(balanceFactor.getRangeOfResources(18), is(new Range(14, 4)));
+    }
+
+    @Test
+    public void shouldReturnFilteredResourceNumberIfResourcesCanNotBeDevidedEvenly3() {
+        LoadBalanceFactor balanceFactor = new LoadBalanceFactor(1, 4);
+        assertThat(balanceFactor.getRangeOfResources(11), is(new Range(0, 3)));
+        balanceFactor = new LoadBalanceFactor(2, 4);
+        assertThat(balanceFactor.getRangeOfResources(11), is(new Range(3, 3)));
+        balanceFactor = new LoadBalanceFactor(3, 4);
+        assertThat(balanceFactor.getRangeOfResources(11), is(new Range(6, 3)));
+        balanceFactor = new LoadBalanceFactor(4, 4);
+        assertThat(balanceFactor.getRangeOfResources(11), is(new Range(9, 2)));
+    }
+
 
     @Test(expected = Exception.class)
     public void shouldThrowExceptionAtZeroJobs() {
