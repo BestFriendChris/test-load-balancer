@@ -23,9 +23,9 @@ public class JunitSupportFunctionalTest {
         reports.delete();
         reports.mkdirs();
         if (!new File("target/test-load-balancer.jar").exists()) {
-            runCommand(new HashMap(), new File("."), new String[]{"ant", "jar.module.test-load-balancer"});
+            runCommand(new HashMap(), new File("."), "ant", "jar.module.test-load-balancer");
         }
-        runCommand(new HashMap(), new File("ft/junit/connectfour"), new String[]{"ant", "retrieve"});
+        runCommand(new HashMap(), new File("ft/junit/connectfour"), "ant", "retrieve");
     }
 
     @After
@@ -33,26 +33,26 @@ public class JunitSupportFunctionalTest {
     }
 
     @Test
-    public void shouldRunFirstTestWhenAgentIsRunningAsJob1() throws Exception {
+    public void shouldRunFirstTwoTestsWhenAgentIsRunningAsJob1() throws Exception {
         HashMap hashMap = new HashMap();
         hashMap.put(JOBNAME, "job1");
-        runCommand(hashMap, new File("ft/junit/connectfour"), new String[]{"ant"});
+        runCommand(hashMap, new File("ft/junit/connectfour"), "ant");
 
         File reports = new File("ft/junit/connectfour/target/test-results");
         int count = reportCount(reports);
-        assertThat(count, Is.is(1));
+        assertThat(count, Is.is(2));
 
     }
 
     @Test
-    public void shouldRunLast2TestWhenAgentIsRunningAsJob2() throws Exception {
+    public void shouldRunLast1TestWhenAgentIsRunningAsJob2() throws Exception {
         HashMap hashMap = new HashMap();
         hashMap.put(JOBNAME, "job2");
         runCommand(hashMap, new File("ft/junit/connectfour"), new String[]{"ant"});
 
         File reports = new File("ft/junit/connectfour/target/test-results");
         int count = reportCount(reports);
-        assertThat(count, Is.is(2));
+        assertThat(count, Is.is(1));
     }
 
     @Test

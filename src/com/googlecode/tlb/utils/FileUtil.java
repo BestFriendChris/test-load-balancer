@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class FileUtil {
-    public static File createTempFolder(String folderName) {
-        final File file = new File(tempFolder(), folderName);
+    public static File createTempFolder() {
+        final File file = new File(tempFolder(), UUID.randomUUID().toString());
         file.mkdirs();
         file.deleteOnExit();
         return file;
     }
 
     private static String tempFolder() {
-        return System.getProperty("java.io.tmpdir") + System.currentTimeMillis();
+        return System.getProperty("java.io.tmpdir");
     }
 
     public static File createFileInFolder(File folder, String fileName) throws IOException {

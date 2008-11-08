@@ -5,12 +5,17 @@ import org.junit.Before;
 import org.junit.After;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
+import org.hamcrest.core.Is;
+import org.hamcrest.collection.IsCollectionContaining;
 import com.googlecode.tlb.utils.FileUtil;
 import com.googlecode.tlb.domain.LoadBalancer;
 import static com.googlecode.tlb.support.twist.TwistLoadBalancer.getJobName;
 
 import java.io.File;
-import java.util.UUID;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TwistLoadBalancerTest {
     private File scenarioDir;
@@ -21,7 +26,7 @@ public class TwistLoadBalancerTest {
     @Before
     public void setUp() throws Exception {
         System.setProperty(TwistLoadBalancer.CRUISE_JOB_NAME, "job1");
-        scenarioDir = FileUtil.createTempFolder(UUID.randomUUID().toString());
+        scenarioDir = FileUtil.createTempFolder();
         scn1 = FileUtil.createFileInFolder(scenarioDir, "1.scn");
         scn2 = FileUtil.createFileInFolder(scenarioDir, "2.scn");
         scn3 = FileUtil.createFileInFolder(scenarioDir, "3.scn");
@@ -38,8 +43,10 @@ public class TwistLoadBalancerTest {
         LoadBalancer.getLoadBalancer(1, 2).balance(scenarioDir);
 
         final File[] filesToKeep = scenarioDir.listFiles();
-        assertThat(filesToKeep.length, is(1));
-        assertThat(filesToKeep[0], is(scn1));
+        List<File> filesToKeepList = Arrays.asList(filesToKeep);
+        assertThat(filesToKeepList.size(), is(2));
+        assertThat(filesToKeepList.contains(scn1), is(true));
+        assertThat(filesToKeepList.contains(scn2), is(true));
     }
 
     @Test
@@ -64,9 +71,7 @@ public class TwistLoadBalancerTest {
         LoadBalancer.getLoadBalancer(2, 2).balance(scenarioDir);
 
         final File[] filesToKeep = scenarioDir.listFiles();
-        assertThat(filesToKeep.length, is(2));
-        assertThat(filesToKeep[0], is(scn2));
-        assertThat(filesToKeep[1], is(scn3));
-
+        assertThat(filesToKeep.length, is(1));
+        assertThat(filesToKeep[0], is(scn3));
     }
 }

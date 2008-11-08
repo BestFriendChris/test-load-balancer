@@ -19,7 +19,7 @@ public class FilterFileSetTest {
 
     @Before
     public void setUp() throws Exception {
-        temp = FileUtil.createTempFolder("temp");
+        temp = FileUtil.createTempFolder();
     }
 
     @After

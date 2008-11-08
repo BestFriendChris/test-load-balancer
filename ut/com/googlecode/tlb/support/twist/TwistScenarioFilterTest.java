@@ -11,21 +11,20 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class TwistScenarioFilterTest {
     private File scenarioDir;
 
     @Before
     public void setup() throws IOException {
-        scenarioDir = FileUtil.createTempFolder(UUID.randomUUID().toString());
+        scenarioDir = FileUtil.createTempFolder();
         FileUtil.createFileInFolder(scenarioDir, "1.scn");
         FileUtil.createFileInFolder(scenarioDir, "2.scn");
         FileUtil.createFileInFolder(scenarioDir, "3.scn");
     }
 
     @Test
-    public void shouldFilterScenariosAccordingToFactor() {
+    public void shouldFilterScenariosAccordingToFactorWhenTestsCanBeEvenlyDivided() {
         assertThat(scenarioDir.listFiles().length, is(3));
 
         new TwistScenarioFilter(scenarioDir).filter(new LoadBalanceFactor(1, 3));
@@ -36,15 +35,14 @@ public class TwistScenarioFilterTest {
     }
 
     @Test
-    public void shouldAssignTheRestToTheLastAgentIfLoadCanNotBeEvenlyBalanced() throws Exception {
+    public void shouldFilterScenariosAccordingToFactorWhenTestsCanNotBeEvenlyDivided() throws Exception {
         assertThat(scenarioDir.listFiles().length, is(3));
 
-        new TwistScenarioFilter(scenarioDir).filter(new com.googlecode.tlb.domain.LoadBalanceFactor(2, 2));
+        new TwistScenarioFilter(scenarioDir).filter(new LoadBalanceFactor(2, 2));
 
         File[] files = scenarioDir.listFiles();
-        assertThat(files.length, is(2));
-        assertThat(files[0].getName(), is("2.scn"));
-        assertThat(files[1].getName(), is("3.scn"));
+        assertThat(files.length, is(1));
+        assertThat(files[0].getName(), is("3.scn"));
     }
 
     @Test
@@ -60,7 +58,7 @@ public class TwistScenarioFilterTest {
 
     @Test
     public void shouldContinueToDeleteFileEvenIfAnyFileIsFailedToDelete() throws Exception {
-        final com.googlecode.tlb.support.twist.TwistScenarioFilter scenarioFilter = new TwistScenarioFilter(scenarioDir);
+        final TwistScenarioFilter scenarioFilter = new TwistScenarioFilter(scenarioDir);
         final DeletableFile file = new DeletableFile("1");
         final FailedToDeleteFile file2 = new FailedToDeleteFile("2");
         final DeletableFile file3 = new DeletableFile("3");

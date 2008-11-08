@@ -1,0 +1,5 @@
+ft/junit/connectfour/target/
+out/
+target/
+*.log
+testout/
