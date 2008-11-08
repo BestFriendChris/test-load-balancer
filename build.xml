@@ -58,6 +58,7 @@
         <pathelement location="${basedir}/lib/production/antlr-3.1.1.jar"/>
         <pathelement location="${basedir}/lib/production/ant-junit.jar"/>
         <pathelement location="${basedir}/lib/production/log4j-1.2.12.jar"/>
+        <pathelement location="${basedir}/lib/production/jsontools-core-1.6.jar"/>
     </path>
 
     <!-- Modules -->

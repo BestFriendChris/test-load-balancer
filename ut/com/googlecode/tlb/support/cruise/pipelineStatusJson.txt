@@ -1,0 +1,109 @@
+{ "pipelines" :
+ [
+   {
+    "name" : "evolve",
+    "paused" : "false",
+    "pauseCause" : "",
+    "pauseBy" : "",
+    "forcedBuild" : "false",
+    "canForce"    : "true",
+    "stages"  : 
+         [
+            {
+             "pipelineId"     : "22",
+             "pipelineName"   : "evolve",
+             "uniqueStageId"  : "evolve-dev-82",
+             "buildCause"     : "modified by committer",
+             "current_status" : "building",
+             "stageName"      : "dev",
+             "current_label"  : "11",
+             "id"             : "82",
+             "buildCauseSummaries" :
+                  [
+                    {
+                      "username" : "committer",
+                      "comment"  : "Added the README file",
+                      "revision" : "100",
+                      "modified_date" : "2008-09-18 16:43:10 +0800"
+                    },
+                    {
+                     "username" : "lgao",
+                     "comment" : "Fixing the not checked in files",
+                     "revision" : "99",
+                     "modified_date" : "2008-09-17 16:43:10 +0800"
+                     }
+                  ],
+                  "builds" :
+                   [
+                       {
+                            "agent"  : "Not yet assigned",
+                            "build_scheduled_date" : "2008-09-18 16:38:13 +0800",
+                            "build_assigned_date"  : "2008-09-18 16:39:13 +0800",
+                            "build_preparing_date" : "2008-09-18 16:40:13 +0800",
+                            "build_building_date"  : "2008-09-18 16:41:13 +0800",
+                            "build_completing_date": "N/A",
+                            "build_completed_date" : "N/A",
+                            "current_status"       : "building",
+                            "current_build_duration" : "291",
+                            "last_build_duration"  : "0",
+                            "id" : "405",
+                            "is_completed"         : "false",
+                            "name" : "buildPlan-1",
+                            "result" : "Unknown"
+                        },
+                        {
+                            "agent"  : "Not yet assigned",
+                            "build_scheduled_date" : "2008-09-18 16:38:13 +0800",
+                            "build_assigned_date"  : "2008-09-18 16:39:13 +0800",
+                            "build_preparing_date" : "2008-09-18 16:40:13 +0800",
+                            "build_building_date"  : "2008-09-18 16:41:13 +0800",
+                            "build_completing_date": "N/A",
+                            "build_completed_date" : "N/A",
+                            "current_status"       : "building",
+                            "current_build_duration" : "291",
+                            "last_build_duration"  : "0",
+                            "id" : "405",
+                            "is_completed"         : "false",
+                            "name" : "buildPlan-2",
+                            "result" : "Unknown"
+                        },
+                        {
+                            "agent"  : "Not yet assigned",
+                            "build_scheduled_date" : "2008-09-18 16:38:13 +0800",
+                            "build_assigned_date"  : "2008-09-18 16:39:13 +0800",
+                            "build_preparing_date" : "2008-09-18 16:40:13 +0800",
+                            "build_building_date"  : "2008-09-18 16:41:13 +0800",
+                            "build_completing_date": "N/A",
+                            "build_completed_date" : "N/A",
+                            "current_status"       : "building",
+                            "current_build_duration" : "291",
+                            "last_build_duration"  : "0",
+                            "id" : "405",
+                            "is_completed"         : "false",
+                            "name" : "buildPlan-3",
+                            "result" : "Unknown"
+                        },
+                        {
+                            "agent"  : "Not yet assigned",
+                            "build_scheduled_date" : "2008-09-18 16:38:13 +0800",
+                            "build_assigned_date"  : "2008-09-18 16:39:13 +0800",
+                            "build_preparing_date" : "2008-09-18 16:40:13 +0800",
+                            "build_building_date"  : "2008-09-18 16:41:13 +0800",
+                            "build_completing_date": "N/A",
+                            "build_completed_date" : "N/A",
+                            "current_status"       : "building",
+                            "current_build_duration" : "291",
+                            "last_build_duration"  : "0",
+                            "id" : "405",
+                            "is_completed"         : "false",
+                            "name" : "linux-3",
+                            "result" : "Unknown"
+                        }
+
+                   ]
+
+              }
+           ]
+    }
+  ]
+}

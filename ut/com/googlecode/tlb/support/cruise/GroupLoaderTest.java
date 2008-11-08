@@ -3,62 +3,54 @@ package com.googlecode.tlb.support.cruise;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
-import org.junit.After;
 import org.junit.Before;
+import org.apache.commons.io.FileUtils;
 import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.support.cruise.GroupLoader;
 import com.googlecode.tlb.support.cruise.CruiseConnector;
+import com.googlecode.tlb.exceptions.JobNotFoundException;
+
+import java.io.InputStream;
+import java.io.File;
 
 public class GroupLoaderTest {
-    @Test
-    public void should() throws Exception {
-        GroupLoader groupLoader = new GroupLoader(new CruiseConnector() {
+    private GroupLoader groupLoader;
+
+    @Before
+    public void setUp() {
+        groupLoader = new GroupLoader(new CruiseConnector() {
             public String pipelineStatus(String pipelineName, String stageName, String jobName) {
-                return PIPELINESTATUSJSON;
+                File file = new File("ut/com/googlecode/tlb/support/cruise/pipelineStatusJson.txt");
+                try {
+                    return FileUtils.readFileToString(file);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
             }
         });
-        Group group = groupLoader.load("evolve", "dev", "buildPlan-1");
-        assertThat(group.jobsCount(), is(2));
     }
 
-    public static final String PIPELINESTATUSJSON =
-            "{ \"pipelines\" : [ { \"name\" : \"evolve\", \"paused\" : \"false\", \"pauseCause\" : \"\", "
-                    + "\"pauseBy\" : \"\", \"stages\""
-                    + " : [ { \"pipelineId\" : \"22\", \"pipelineName\" : \"evolve\", \"uniqueStageId\" : "
-                    + "\"evolve-dev-82\", \"buildCause\""
-                    + " : \"modified by committer\", \"buildCauseSummaries\" : [ { \"username\" : \"committer\","
-                    + " \"comment\" : \"Added"
-                    + " the README file\", \"revision\" : \"100\", \"modified_date\" :"
-                    + " \"2008-09-18 16:43:10 +0800\" }, { \"username\""
-                    + " : \"lgao\", \"comment\" : \"Fixing the not checked in files\", "
-                    + "\"revision\" : \"99\", \"modified_date\" : \"2008-09-17"
-                    + " 16:43:10 +0800\" } ], \"stageName\" : \"dev\", \"current_label\":"
-                    + " \"11\", \"id\" : \"82\", \"builds\" : [ { \"agent\""
-                    + " : \"Not yet assigned\", \"build_scheduled_date\" "
-                    + ": \"2008-09-18 16:38:13 +0800\", \"build_assigned_date\" :"
-                    + " \"2008-09-18 16:39:13 +0800\", \"build_preparing_date\" : "
-                    + "\"2008-09-18 16:40:13 +0800\", \"build_building_date\""
-                    + " : \"2008-09-18 16:41:13 +0800\", \"build_completing_date\" : "
-                    + "\"N/A\", \"build_completed_date\" : \"N/A\", \"current_status\""
-                    + " : \"building\", \"current_build_duration\" : \"291\", \"last_build_duration\" "
-                    + ": \"0\", \"id\" : \"405\", \"is_completed\""
-                    + " : \"false\", \"name\" : \"buildPlan-1\", \"result\" : \"Unknown\" }, "
-                    + "{ \"agent\" : \"Not yet assigned\", \"build_scheduled_date\""
-                    + " : \"2008-09-18 16:43:13 +0800\", \"build_assigned_date\" : \"N/A\", "
-                    + "\"build_preparing_date\" : \"N/A\", \"build_building_date\""
-                    + " : \"N/A\", \"build_completing_date\" : \"N/A\", \"build_completed_date\" "
-                    + ": \"N/A\", \"current_status\" : \"discontinued\""
-                    + ", \"current_build_duration\" : \"0\", \"last_build_duration\" : \"0\", "
-                    + "\"id\" : \"403\", \"is_completed\" : \"false\""
-                    + ", \"name\" : \"buildPlan-2\", \"result\" : \"Unknown\" }, { \"agent\" : "
-                    + "\"Not yet assigned\", \"build_scheduled_date\""
-                    + " : \"2008-09-18 16:43:13 +0800\", \"build_assigned_date\" : "
-                    + "\"N/A\", \"build_preparing_date\" : \"N/A\", \"build_building_date\""
-                    + " : \"N/A\", \"build_completing_date\" : \"N/A\", \"build_completed_date\" : "
-                    + "\"N/A\", \"current_status\" : \"scheduled\""
-                    + ", \"current_build_duration\" : \"0\", \"last_build_duration\" : \"0\", \"id\" : \"404\","
-                    + " \"is_completed\" : \"false\""
-                    + ", \"name\" : \"unit\", \"result\" : \"Unknown\" } ], \"current_status\" : \"building\" } ],"
-                    + " \"forcedBuild\" : \"false\""
-                    + ", \"canForce\" : \"true\" } ] }";
+    @Test
+    public void shouldFindGroupOnlyContainsMultipleJobs() throws Exception {
+        Group group = groupLoader.load("evolve", "dev", "buildPlan-1");
+        assertThat(group.jobsCount(), is(3));
+    }
+
+    @Test
+    public void shouldFindGroupOnlyContainsOneJob() throws Exception {
+        Group group = groupLoader.load("evolve", "dev", "linux");
+        assertThat(group.jobsCount(), is(1));
+    }
+
+    @Test(expected = JobNotFoundException.class)
+    public void shouldThrowExceptionWhenJobNameCannotBeFondAndIsEmpty() throws Exception {
+        groupLoader.load("evolve", "dev", "");
+    }
+
+
+    @Test(expected = RuntimeException.class)
+    public void shouldThrowExceptionWhenJobNameCannotBeFondAndNotEmpty() throws Exception {
+        groupLoader.load("evolve", "dev", "somethingNotExist");
+    }
 }
