@@ -57,7 +57,6 @@
             <include name="**/*.jar"></include>
         </fileset>
     </path>
-    <typedef  name="filter-fileset" classname="com.googlecode.tlb.support.junit.FilterFileSet" classpathref="classpath"/>
 
     <target name="test" depends="compile">
         <mkdir dir="target/test-classes"/>
@@ -69,6 +68,9 @@
         </javac>
 
         <mkdir dir="target/test-results"/>
+
+        <typedef  name="filter-fileset" classname="com.googlecode.tlb.support.junit.FilterFileSet" classpathref="classpath"/>
+
         <junit haltonfailure="no" printsummary="on">
             <classpath refid="classpath">
             </classpath>
