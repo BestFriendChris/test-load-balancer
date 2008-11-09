@@ -8,10 +8,12 @@ public class LoadBalanceFactor {
     private static final Logger LOGGER = Logger.getLogger(LoadBalanceFactor.class);
     private int pieceIndex;
     private int splittedPieces;
+    private int allTestResources;
 
-    public LoadBalanceFactor(int pieceIndex, int splittedPieces) {
-        this.pieceIndex = pieceIndex;
+    public LoadBalanceFactor(int allTestResources, int splittedPieces, int pieceIndex) {
         this.splittedPieces = splittedPieces;
+        this.pieceIndex = pieceIndex;
+        this.allTestResources = allTestResources;
     }
 
     public int getPieceIndex() {
@@ -26,28 +28,28 @@ public class LoadBalanceFactor {
         return format("%d/%d", pieceIndex, splittedPieces);
     }
 
-    public Range getRangeOfResources(int allTestResourse) {
+    public Range getRangeOfResources() {
         Range range;
-        if (areJobsMoreThanTests(allTestResourse)) {
-            range = assignEachJobOneTest(allTestResourse);
+        if (areJobsMoreThanTests(allTestResources)) {
+            range = assignEachJobOneTest(allTestResources);
         } else {
-            int mod = getMod(allTestResourse);
+            int mod = getMod(allTestResources);
             int startIndex;
             int length;
             if (mod == 0) {
-                length = averageWithoutMod(allTestResourse, mod);
+                length = averageWithoutMod(allTestResources, mod);
                 startIndex = (pieceIndex - 1) * length;
             } else if (pieceIndex - 1 < mod) {
-                length = averageWithoutMod(allTestResourse, mod) + 1;
+                length = averageWithoutMod(allTestResources, mod) + 1;
                 startIndex =(pieceIndex - 1) * length;
             } else {
-                length = averageWithoutMod(allTestResourse, mod);
+                length = averageWithoutMod(allTestResources, mod);
                 startIndex = (length + 1) * mod + (pieceIndex - mod - 1) * length;   
             }
             range = new Range(startIndex, length);
         }
         final String msg = format("[%d] tests to load balance between [%d] jobs. Assigned range [%s] to #[%d] job",
-                allTestResourse, splittedPieces, range, pieceIndex);
+                allTestResources, splittedPieces, range, pieceIndex);
         LOGGER.info(msg);
         System.out.println(msg);
         return range;
@@ -79,5 +81,4 @@ public class LoadBalanceFactor {
         }
         return (allTestResourse - mod) / getSplittedPieces();
     }
-
 }
