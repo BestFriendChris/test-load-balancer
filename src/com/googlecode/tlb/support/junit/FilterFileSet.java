@@ -15,17 +15,17 @@ import java.util.Iterator;
 import java.io.ByteArrayInputStream;
 
 public class FilterFileSet extends FileSet {
-    private static final String JOBNAME = "CRUISE_JOB_NAME";
     public static final Logger LOGGER = Logger.getLogger(FilterFileSet.class);
+
+    private static final String JOB_NAME_ENV = "CRUISE_JOB_NAME";
+    public static final String JOB_NAME_PROP = "cruise.job.name";
+
     String loadBalance;
-
-
-    public static final String CRUISE_JOB_NAME = "cruise.job.name";
 
     public Iterator iterator() {
         try {
-            String jobName = getJobName(System.getenv(JOBNAME));
-            Groups groups = null;
+            String jobName = getJobName(System.getenv(JOB_NAME_ENV));
+            Groups groups;
             try {
                 ANTLRInputStream input = new ANTLRInputStream(new ByteArrayInputStream(loadBalance.getBytes("UTF-8")));
                 GroupLexer lexer = new GroupLexer(input);
@@ -36,7 +36,7 @@ public class FilterFileSet extends FileSet {
                 throw new RuntimeException(e);
             }
             final Group group = groups.findByJobName(jobName);
-            return new JUnitLoadBalancer(group.jobIndex(jobName), group.jobsCount()).balance(super.iterator());
+            return new JUnitLoadBalancer().balance(super.iterator(), group.jobsCount(), group.jobIndex(jobName));
         } catch (JobNotFoundException e) {
             LOGGER.error("Failed to load balance", e);
             System.err.println("Failed to load balance: " + e);
@@ -54,7 +54,7 @@ public class FilterFileSet extends FileSet {
     }
 
     static String getJobName(String envValue) throws JobNotFoundException {
-        String jobName = System.getProperty(CRUISE_JOB_NAME);
+        String jobName = System.getProperty(JOB_NAME_PROP);
         if (isEmpty(jobName)) {
             jobName = envValue;
         }

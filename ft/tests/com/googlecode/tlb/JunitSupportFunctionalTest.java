@@ -13,7 +13,7 @@ import java.io.FilenameFilter;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.googlecode.tlb.support.twist.TwistLoadBalancer.JOBNAME;
+import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
 
 public class JunitSupportFunctionalTest {
 

@@ -1,8 +1,7 @@
 package com.googlecode.tlb.support.twist;
 
-import com.googlecode.tlb.utils.FileUtil;
 import com.googlecode.tlb.domain.LoadBalanceFactor;
-import static junit.framework.Assert.fail;
+import com.googlecode.tlb.utils.FileUtil;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Before;
@@ -11,9 +10,12 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 public class TwistScenarioFilterTest {
     private File scenarioDir;
+    private Iterator<File> iterator;
 
     @Before
     public void setup() throws IOException {
@@ -21,13 +23,14 @@ public class TwistScenarioFilterTest {
         FileUtil.createFileInFolder(scenarioDir, "1.scn");
         FileUtil.createFileInFolder(scenarioDir, "2.scn");
         FileUtil.createFileInFolder(scenarioDir, "3.scn");
+        iterator = Arrays.asList(scenarioDir.listFiles()).iterator();
     }
 
     @Test
     public void shouldFilterScenariosAccordingToFactorWhenTestsCanBeEvenlyDivided() {
         assertThat(scenarioDir.listFiles().length, is(3));
 
-        new TwistScenarioFilter(scenarioDir).filter(new LoadBalanceFactor(1, 3));
+        new TwistScenarioFilter(iterator).filter(new LoadBalanceFactor(1, 3));
 
         File[] files = scenarioDir.listFiles();
         assertThat(files.length, is(1));
@@ -38,7 +41,7 @@ public class TwistScenarioFilterTest {
     public void shouldFilterScenariosAccordingToFactorWhenTestsCanNotBeEvenlyDivided() throws Exception {
         assertThat(scenarioDir.listFiles().length, is(3));
 
-        new TwistScenarioFilter(scenarioDir).filter(new LoadBalanceFactor(2, 2));
+        new TwistScenarioFilter(iterator).filter(new LoadBalanceFactor(2, 2));
 
         File[] files = scenarioDir.listFiles();
         assertThat(files.length, is(1));
@@ -46,19 +49,8 @@ public class TwistScenarioFilterTest {
     }
 
     @Test
-    public void shouldThrowExceptionIfScenarioDirDoesNotExist() throws Exception {
-        File invalidDir = new File("invalid");
-        try {
-            new TwistScenarioFilter(invalidDir).filter(new LoadBalanceFactor(2, 2));
-            fail("should have thrown RuntimeException instead");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
     public void shouldContinueToDeleteFileEvenIfAnyFileIsFailedToDelete() throws Exception {
-        final TwistScenarioFilter scenarioFilter = new TwistScenarioFilter(scenarioDir);
+        final TwistScenarioFilter scenarioFilter = new TwistScenarioFilter(iterator);
         final DeletableFile file = new DeletableFile("1");
         final FailedToDeleteFile file2 = new FailedToDeleteFile("2");
         final DeletableFile file3 = new DeletableFile("3");

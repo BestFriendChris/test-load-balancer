@@ -1,20 +1,16 @@
 package com.googlecode.tlb.support.twist;
 
-import org.junit.Test;
-import org.junit.Before;
+import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.getJobName;
+import com.googlecode.tlb.utils.FileUtil;
+import static org.hamcrest.core.Is.is;
 import org.junit.After;
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.core.Is.is;
-import org.hamcrest.core.Is;
-import org.hamcrest.collection.IsCollectionContaining;
-import com.googlecode.tlb.utils.FileUtil;
-import com.googlecode.tlb.domain.LoadBalancer;
-import static com.googlecode.tlb.support.twist.TwistLoadBalancer.getJobName;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
-import java.util.Collections;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class TwistLoadBalancerTest {
@@ -22,25 +18,27 @@ public class TwistLoadBalancerTest {
     private File scn1;
     private File scn2;
     private File scn3;
+    private Iterator iterator;
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty(TwistLoadBalancer.CRUISE_JOB_NAME, "job1");
+        System.setProperty(TwistLoadBalancerTask.CRUISE_JOB_NAME, "job1");
         scenarioDir = FileUtil.createTempFolder();
         scn1 = FileUtil.createFileInFolder(scenarioDir, "1.scn");
         scn2 = FileUtil.createFileInFolder(scenarioDir, "2.scn");
         scn3 = FileUtil.createFileInFolder(scenarioDir, "3.scn");
+        iterator = Arrays.asList(scenarioDir.listFiles()).iterator();
     }
 
     @After
     public void tearDown() throws Exception {
-        System.clearProperty(TwistLoadBalancer.CRUISE_JOB_NAME);
+        System.clearProperty(TwistLoadBalancerTask.CRUISE_JOB_NAME);
     }
 
     @Test
     public void end2endWithJobsEvenlyDevided() throws Exception {
         assertThat(scenarioDir.listFiles().length, is(3));
-        LoadBalancer.getLoadBalancer(1, 2).balance(scenarioDir);
+        new TwistLoadBalancer().balance(iterator, 2, 1);
 
         final File[] filesToKeep = scenarioDir.listFiles();
         List<File> filesToKeepList = Arrays.asList(filesToKeep);
@@ -51,7 +49,7 @@ public class TwistLoadBalancerTest {
 
     @Test
     public void shouldUseEnvironmentVairableWhenSystemPropertyIsEmpty() throws Exception {
-        System.clearProperty(TwistLoadBalancer.CRUISE_JOB_NAME);
+        System.clearProperty(TwistLoadBalancerTask.CRUISE_JOB_NAME);
         final String job = getJobName("jobNameFromEnv");
         assertThat(job, is("jobNameFromEnv"));
     }
@@ -64,11 +62,11 @@ public class TwistLoadBalancerTest {
 
     @Test
     public void end2endWhenJobsCanNotBeEvenlyDevided() throws Exception {
-        System.setProperty(TwistLoadBalancer.CRUISE_JOB_NAME, "job2");
+        System.setProperty(TwistLoadBalancerTask.CRUISE_JOB_NAME, "job2");
 
         assertThat(scenarioDir.listFiles().length, is(3));
 
-        LoadBalancer.getLoadBalancer(2, 2).balance(scenarioDir);
+        new TwistLoadBalancer().balance(iterator, 2, 2);
 
         final File[] filesToKeep = scenarioDir.listFiles();
         assertThat(filesToKeep.length, is(1));

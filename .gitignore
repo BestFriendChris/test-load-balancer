@@ -1,4 +1,6 @@
 ft/junit/connectfour/target/
+ft/junit/connectfour/lib/
+ft/twist/tlb-twist/lib
 out/
 target/
 *.log

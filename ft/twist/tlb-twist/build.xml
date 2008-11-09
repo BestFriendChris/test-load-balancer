@@ -30,7 +30,7 @@
     </target>
 
     <target name="load-balance">
-        <taskdef classname="com.googlecode.tlb.support.twist.TwistLoadBalancer"
+        <taskdef classname="com.googlecode.tlb.support.twist.TwistLoadBalancerTask"
                  classpathref="twist-classpath" name="load.balancer"/>
         <load.balancer scenarioDir="${dir.scenarios}" loadBalance="[job1, job2]"/>
     </target>

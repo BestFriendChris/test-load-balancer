@@ -7,26 +7,29 @@ import java.io.File;
 import java.io.FilenameFilter;
 import static java.util.Arrays.sort;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Collections;
 import static java.lang.String.format;
 
 import com.googlecode.tlb.domain.Range;
 import com.googlecode.tlb.domain.LoadBalanceFactor;
 
 public class TwistScenarioFilter implements TestFilter {
-    private final File scenarioDir;
+    private final Iterator scenarios;
     private final static String SCN_SUFFIX = ".scn";
 
     public static final Logger LOGGER = Logger.getLogger(TwistScenarioFilter.class);
 
-    public TwistScenarioFilter(File scenarioDir) {
-        this.scenarioDir = scenarioDir;
+    public TwistScenarioFilter(Iterator scenarios) {
+        this.scenarios = scenarios;
     }
 
     public void filter(LoadBalanceFactor factor) {
-        if (!scenarioDir.isDirectory() || !scenarioDir.exists()) {
-            throw new RuntimeException(String.format("Scenario directory [%s] doesn't exist",
-                    scenarioDir.getAbsolutePath()));
-        }
+//        if (!scenarioDir.isDirectory() || !scenarioDir.exists()) {
+//            throw new RuntimeException(String.format("Scenario directory [%s] doesn't exist",
+//                    scenarioDir.getAbsolutePath()));
+//        }
 
         final File[] scenarioFiles = getScenarioFiles();
         List<File> toKeep = getScenariosToKeep(factor, scenarioFiles);
@@ -68,12 +71,11 @@ public class TwistScenarioFilter implements TestFilter {
     }
 
     private File[] getScenarioFiles() {
-        final File[] scenarioFiles = scenarioDir.listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.endsWith(SCN_SUFFIX);
-            }
+        List<File> scenarioList = new ArrayList<File>();
+        while (scenarios.hasNext()) {
+            scenarioList.add((File) scenarios.next());
         }
-        );
+        File[] scenarioFiles = scenarioList.toArray(new File[]{});        
         sort(scenarioFiles, new NameFileComparator());
         return scenarioFiles;
     }

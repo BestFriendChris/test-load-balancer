@@ -3,7 +3,6 @@ package com.googlecode.tlb;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
-import org.junit.Ignore;
 import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
 
@@ -11,7 +10,7 @@ import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
 
-import static com.googlecode.tlb.support.twist.TwistLoadBalancer.JOBNAME;
+import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
 
 public class TwistSupportFunctionalTest {
 
