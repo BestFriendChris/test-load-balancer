@@ -2,6 +2,10 @@ package com.googlecode.tlb.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.io.File;
+import static java.lang.System.arraycopy;
 
 public class Range {
     private final int start;
@@ -35,9 +39,9 @@ public class Range {
         return result;
     }
 
-    public List<Object> in(Object[] testFiles) {
+    public List<Object> in(List testFiles) {
         final Object[] files = new Object[this.length];
-        System.arraycopy(testFiles, start, files, 0, this.length);
+        arraycopy(testFiles.toArray(), start, files, 0, this.length);
         return Arrays.asList(files);
     }
 }

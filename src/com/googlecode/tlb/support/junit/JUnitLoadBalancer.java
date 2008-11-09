@@ -15,15 +15,19 @@ public class JUnitLoadBalancer implements LoadBalancer {
     }
 
     public Iterator balance(Iterator iterator, int splittedPieces, int pieceIndex) {
-        List<FileResource> files = new ArrayList<FileResource>();
-        while (iterator.hasNext()) {
-            files.add((FileResource) iterator.next());
-        }
+        List files = listFiles(iterator);
 
         final LoadBalanceFactor factor = new LoadBalanceFactor(pieceIndex, splittedPieces);
         Range ofResources = factor.getRangeOfResources(files.size());
-        List<Object> list = ofResources.in(files.toArray(new Object[]{}));
 
-        return list.iterator();
+        return ofResources.in(files).iterator();
+    }
+
+    private List listFiles(Iterator iterator) {
+        List files = new ArrayList();
+        while (iterator.hasNext()) {
+            files.add(iterator.next());
+        }
+        return files;
     }
 }

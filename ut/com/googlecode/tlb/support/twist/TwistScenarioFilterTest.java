@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class TwistScenarioFilterTest {
     private File scenarioDir;
@@ -54,8 +55,8 @@ public class TwistScenarioFilterTest {
         final DeletableFile file = new DeletableFile("1");
         final FailedToDeleteFile file2 = new FailedToDeleteFile("2");
         final DeletableFile file3 = new DeletableFile("3");
-        final File[] files = {file, file2, file3};
-
+        final List<File> files = Arrays.asList(file, file2, file3);
+        
         scenarioFilter.deleteScenarios(files, new ArrayList<File>());
         assertThat(file.isDeleted(), is(true));
         assertThat(file3.isDeleted(), is(true));

@@ -26,23 +26,17 @@ public class TwistScenarioFilter implements TestFilter {
     }
 
     public void filter(LoadBalanceFactor factor) {
-//        if (!scenarioDir.isDirectory() || !scenarioDir.exists()) {
-//            throw new RuntimeException(String.format("Scenario directory [%s] doesn't exist",
-//                    scenarioDir.getAbsolutePath()));
-//        }
-
-        final File[] scenarioFiles = getScenarioFiles();
+        final List<File> scenarioFiles = getScenarioFiles();
         List<File> toKeep = getScenariosToKeep(factor, scenarioFiles);
         deleteScenarios(scenarioFiles, toKeep);
     }
 
 
-    void deleteScenarios(File[] scenarioFiles, List<File> toKeep) {
+    void deleteScenarios(List<File> scenarioFiles, List<File> toKeep) {
         log(toKeep);
         for (File scenarioFile : scenarioFiles) {
             if (!toKeep.contains(scenarioFile)) {
                 try {
-                    log(format("Deleting file [%s]", scenarioFile.getAbsolutePath()));
                     scenarioFile.delete();
                     log(format("File [%s] is deleted", scenarioFile.getAbsolutePath()));
                 } catch (Exception e) {
@@ -65,18 +59,17 @@ public class TwistScenarioFilter implements TestFilter {
         }
     }
 
-    private List getScenariosToKeep(LoadBalanceFactor factor, File[] scenarioFiles) {
-        final Range range = factor.getRangeOfResources(scenarioFiles.length);
+    private List getScenariosToKeep(LoadBalanceFactor factor, List<File> scenarioFiles) {
+        final Range range = factor.getRangeOfResources(scenarioFiles.size());
         return range.in(scenarioFiles);
     }
 
-    private File[] getScenarioFiles() {
-        List<File> scenarioList = new ArrayList<File>();
+    private List<File> getScenarioFiles() {
+        List<File> scenarioFiles = new ArrayList<File>();
         while (scenarios.hasNext()) {
-            scenarioList.add((File) scenarios.next());
+            scenarioFiles.add((File) scenarios.next());
         }
-        File[] scenarioFiles = scenarioList.toArray(new File[]{});        
-        sort(scenarioFiles, new NameFileComparator());
+        Collections.sort(scenarioFiles, new NameFileComparator());
         return scenarioFiles;
     }
 }
