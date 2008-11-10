@@ -13,6 +13,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="production" level="project" />
+    <orderEntry type="library" name="httpclient" level="project" />
+    <orderEntry type="library" name="commons-logging" level="project" />
     <orderEntryProperties />
   </component>
   <component name="RSpecModuleSettingsStorage">

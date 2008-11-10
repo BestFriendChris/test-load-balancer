@@ -231,10 +231,7 @@
       </item>
     </group>
   </component>
-  <component name="ProjectFileVersion" converted="true">
-    <converter id="javaee-modules" />
-    <converter id="ror-modules" />
-  </component>
+  <component name="ProjectFileVersion" converted="true" />
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/test-load-balancer.iml" filepath="$PROJECT_DIR$/test-load-balancer.iml" />
@@ -257,9 +254,6 @@
     <option name="GENERATE_IIOP_STUBS" value="false" />
     <option name="ADDITIONAL_OPTIONS_STRING" value="" />
   </component>
-  <component name="SvnBranchConfigurationManager">
-    <option name="myVersion" value="123" />
-  </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="svn" />
   </component>
@@ -274,6 +268,25 @@
       <SOURCES />
       <jarDirectory url="file://$PROJECT_DIR$/lib/production" recursive="false" />
       <jarDirectory url="file://$PROJECT_DIR$/lib/test" recursive="false" />
+    </library>
+    <library name="httpclient">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/production/commons-httpclient/commons-httpclient-3.0.1.jar!/" />
+        <root url="file://$PROJECT_DIR$/lib/production/commons-codec" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/production/commons-httpclient/commons-httpclient-3.0.1-src.zip!/" />
+      </SOURCES>
+      <jarDirectory url="file://$PROJECT_DIR$/lib/production/commons-codec" recursive="false" />
+    </library>
+    <library name="commons-logging">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/lib/production/commons-logging" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+      <jarDirectory url="file://$PROJECT_DIR$/lib/production/commons-logging" recursive="false" />
     </library>
   </component>
 </project>
