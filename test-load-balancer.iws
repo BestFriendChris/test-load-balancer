@@ -17,17 +17,18 @@
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iws" afterPath="$PROJECT_DIR$/test-load-balancer.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/production/commons-httpclient/commons-httpclient-3.0.1-src.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/CruiseConnectorImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.ipr" afterPath="$PROJECT_DIR$/test-load-balancer.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/production/commons-codec" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnectorImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/production/commons-httpclient/commons-httpclient-3.0.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/production/commons-logging/commons-logging-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/production/commons-httpclient" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/production/commons-logging" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-load-balancer.iml" afterPath="$PROJECT_DIR$/test-load-balancer.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/production/commons-codec/commons-codec-1.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/Registration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/AgentProxyTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLKeyManagerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/AgentProxy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/ResponseResult.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/SelfSignedCertificateX509TrustManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLProtocolSocketFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLX509TrustManagerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/utils/ExceptionUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/KeyStoreManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLInitializationError.java" />
     </list>
     <ignored path="test-load-balancer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,8 +94,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -106,59 +107,7 @@
     <favorites_list name="test-load-balancer" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="GroupLoader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/GroupLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="64" selection-start="994" selection-end="994" vertical-scroll-proportion="0.6195191">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CruiseConnector.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="163" selection-end="163" vertical-scroll-proportion="0.12465374">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CruiseConnectorImpl.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnectorImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="32" selection-start="311" selection-end="330" vertical-scroll-proportion="0.15558699">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CruiseConnectorImplTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/CruiseConnectorImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="25" selection-start="456" selection-end="456" vertical-scroll-proportion="0.4238227">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GroupLoaderTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/GroupLoaderTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="42" selection-start="632" selection-end="632" vertical-scroll-proportion="0.22437674">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -214,6 +163,24 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
+          <option name="myItemId" value="utils" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="com.googlecode.tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
           <option name="myItemId" value="support" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
         </PATH_ELEMENT>
@@ -237,6 +204,32 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="cruise" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test-load-balancer" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="com.googlecode.tlb" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="support" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="cruise" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="security" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -489,8 +482,8 @@
     <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="GenerateAntBuildDialog.backupFiles" value="false" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -503,19 +496,22 @@
       <recent name="com.googlecode.tlb.cruise" />
       <recent name="com.googlecode.tlb.support.cruise" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.googlecode.tlb.support.cruise.security" />
+    </key>
   </component>
   <component name="RubyDocSettings">
     <RUBY_DOC NAME="DEFAULTS" VALUE="true" />
     <RUBY_DOC NAME="NUMBER" VALUE="0" />
   </component>
-  <component name="RunManager" selected="JUnit.CruiseConnectorImplTest">
-    <tempConfiguration default="false" name="CruiseConnectorImplTest" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
+  <component name="RunManager" selected="JUnit.AgentProxyTest">
+    <tempConfiguration default="false" name="AgentProxyTest" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <pattern value="com.googlecode.tlb.support.cruise.*" />
       <module name="test-load-balancer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.googlecode.tlb.support.cruise" />
-      <option name="MAIN_CLASS_NAME" value="com.googlecode.tlb.support.cruise.CruiseConnectorImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.googlecode.tlb.support.cruise.AgentProxyTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -534,6 +530,29 @@
         <option name="Make" value="true" />
       </method>
     </tempConfiguration>
+    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -563,21 +582,17 @@
         <option name="Make" value="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method>
-        <option name="Make" value="true" />
-      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
@@ -601,27 +616,8 @@
         <option name="Make" value="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.CruiseConnectorImplTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.AgentProxyTest" />
     </list>
     <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e STDOUT.sync=true;STDERR.sync=true;load($0=ARGV.shift)" />
@@ -708,11 +704,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1448" height="876" extended-state="1" />
+    <frame x="-4" y="-4" width="1448" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32802126" order="8" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4236388" order="8" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986567" order="1" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.56688744" order="1" />
@@ -720,13 +716,13 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" order="8" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32802126" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23115578" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2878679" order="0" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="6" />
@@ -798,79 +794,25 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/GroupsDividerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="435" selection-end="435" vertical-scroll-proportion="0.10344828">
+        <state line="5" column="0" selection-start="163" selection-end="163" vertical-scroll-proportion="0.12465374">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/pipelineStatusJson.txt">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnectorImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="38" selection-start="4920" selection-end="4927" vertical-scroll-proportion="0.7276596">
-          <folding />
+        <state line="9" column="32" selection-start="311" selection-end="330" vertical-scroll-proportion="0.15558699">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/utils/FileUtil.java">
+    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/CruiseConnectorImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="121" selection-end="121" vertical-scroll-proportion="0.068085104">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/utils/StringUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="48" selection-end="58" vertical-scroll-proportion="0.034042552">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/twist/TwistLoadBalancer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2463" selection-end="2571" vertical-scroll-proportion="0.7446808">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ft/tests/com/googlecode/tlb/JunitSupportFunctionalTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="642" selection-end="827" vertical-scroll-proportion="0.18723404">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="24" selection-start="7999" selection-end="7999" vertical-scroll-proportion="1.4074074">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ft/junit/connectfour/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.44267052">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ft/twist/tlb-twist/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.18432511">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ft/tests/com/googlecode/tlb/TwistSupportFunctionalTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="0.23829788">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/GroupLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="64" selection-start="994" selection-end="994" vertical-scroll-proportion="0.6195191">
+        <state line="17" column="25" selection-start="456" selection-end="456" vertical-scroll-proportion="0.4238227">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -884,32 +826,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/production/commons-httpclient/commons-httpclient-3.0.1-src.zip!/org/apache/commons/httpclient/methods/GetMethod.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="11" selection-start="3110" selection-end="3110" vertical-scroll-proportion="0.33240998">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/CruiseConnectorImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="25" selection-start="456" selection-end="456" vertical-scroll-proportion="0.4238227">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnector.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/utils/ExceptionUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="163" selection-end="163" vertical-scroll-proportion="0.12465374">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/CruiseConnectorImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLX509TrustManagerFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="32" selection-start="311" selection-end="330" vertical-scroll-proportion="0.15558699">
+        <state line="52" column="76" selection-start="2253" selection-end="2290" vertical-scroll-proportion="0.34107402">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/SelfSignedCertificateX509TrustManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="20" selection-start="492" selection-end="492" vertical-scroll-proportion="0.36574745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/KeyStoreManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0/src.zip!/java/security/KeyStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1287" column="22" selection-start="43425" selection-end="43425" vertical-scroll-proportion="0.3409091">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/ResponseResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="38" selection-start="427" selection-end="427" vertical-scroll-proportion="0.4346591">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ut/com/googlecode/tlb/support/cruise/AgentProxyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="117" selection-start="729" selection-end="729" vertical-scroll-proportion="0.4265928">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/AgentProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="53" selection-start="1650" selection-end="1650" vertical-scroll-proportion="0.40166205">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLProtocolSocketFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="27" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.32686982">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLInitializationError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="6" selection-start="332" selection-end="332" vertical-scroll-proportion="0.34903046">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/tlb/support/cruise/security/AuthSSLKeyManagerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="8" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.32548475">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
