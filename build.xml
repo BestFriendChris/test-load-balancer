@@ -50,15 +50,9 @@
     <!-- Project Libraries -->
 
     <path id="library.production.classpath">
-        <pathelement location="${basedir}/lib/test/hamcrest-library-1.1.jar"/>
-        <pathelement location="${basedir}/lib/test/junit-4.4.jar"/>
-        <pathelement location="${basedir}/lib/test/commons-io-1.4.jar"/>
-        <pathelement location="${basedir}/lib/production/ant-1.7.0.jar"/>
-        <pathelement location="${basedir}/lib/production/commons-collections-3.2.jar"/>
-        <pathelement location="${basedir}/lib/production/antlr-3.1.1.jar"/>
-        <pathelement location="${basedir}/lib/production/ant-junit.jar"/>
-        <pathelement location="${basedir}/lib/production/log4j-1.2.12.jar"/>
-        <pathelement location="${basedir}/lib/production/jsontools-core-1.6.jar"/>
+        <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+        </fileset>
     </path>
 
     <!-- Modules -->
