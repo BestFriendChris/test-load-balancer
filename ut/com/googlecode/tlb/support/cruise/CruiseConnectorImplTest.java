@@ -3,6 +3,7 @@ package com.googlecode.tlb.support.cruise;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
+import org.junit.Ignore;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.text.StringContains.containsString;
 
@@ -19,6 +20,7 @@ public class CruiseConnectorImplTest {
     }
 
     @Test
+    @Ignore
     public void shouldGetPipelineStatusJson() {
         CruiseConnectorImpl connector = new CruiseConnectorImpl("jez", "badger");
         String content = connector.pipelineStatus("cruise", "dev", "linux-firefox");
