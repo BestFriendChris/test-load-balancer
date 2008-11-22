@@ -7,7 +7,7 @@ import org.junit.Ignore;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.text.StringContains.containsString;
 
-public class CruiseConnectorImplTest {
+public class CruiseUserSessionTest {
 
     @Before
     public void setUp() {
@@ -22,7 +22,7 @@ public class CruiseConnectorImplTest {
     @Test
     @Ignore
     public void shouldGetPipelineStatusJson() {
-        CruiseConnectorImpl connector = new CruiseConnectorImpl("jez", "badger");
+        CruiseUserSession connector = new CruiseUserSession("jez", "badger");
         String content = connector.pipelineStatus("cruise", "dev", "linux-firefox");
         assertThat(content, containsString("linux-firefox-2"));
     }

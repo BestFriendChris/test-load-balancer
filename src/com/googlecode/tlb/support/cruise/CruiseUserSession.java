@@ -7,11 +7,11 @@ import org.apache.commons.httpclient.methods.GetMethod;
 
 import java.io.IOException;
 
-public class CruiseConnectorImpl implements CruiseConnector {
+public class CruiseUserSession implements CruiseConnector {
     private String username;
     private String password;
 
-    public CruiseConnectorImpl(String username, String password) {
+    public CruiseUserSession(String username, String password) {
         this.username = username;
         this.password = password;
     }
