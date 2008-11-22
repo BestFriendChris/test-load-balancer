@@ -9,34 +9,36 @@ import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.support.twist.Groups;
 import com.googlecode.tlb.support.twist.parser.GroupLexer;
 import com.googlecode.tlb.support.twist.parser.GroupParser;
+import com.googlecode.tlb.support.cruise.GroupLoader;
+import com.googlecode.tlb.support.cruise.CruiseAgentSession;
+import com.googlecode.tlb.support.cruise.CruiseConnector;
 import com.googlecode.tlb.exceptions.JobNotFoundException;
+import com.googlecode.tlb.domain.CurrentJob;
+import com.googlecode.tlb.domain.GroupLoaderFactory;
 
 import java.util.Iterator;
 import java.io.ByteArrayInputStream;
 
 public class FilterFileSet extends FileSet {
     public static final Logger LOGGER = Logger.getLogger(FilterFileSet.class);
+    private GroupLoader groupLoader;
+    private CurrentJob currentJob;
 
-    private static final String JOB_NAME_ENV = "CRUISE_JOB_NAME";
-    public static final String JOB_NAME_PROP = "cruise.job.name";
+    public FilterFileSet(GroupLoader groupLoader, CurrentJob currentJob) {
+        this.groupLoader = groupLoader;
+        this.currentJob = currentJob;
+    }
 
-    String loadBalance;
+    public FilterFileSet() {
+        this.groupLoader = GroupLoaderFactory.getInstance();
+        this.currentJob = new CurrentJob();
+    }
 
     public Iterator iterator() {
         try {
-            String jobName = getJobName(System.getenv(JOB_NAME_ENV));
-            Groups groups;
-            try {
-                ANTLRInputStream input = new ANTLRInputStream(new ByteArrayInputStream(loadBalance.getBytes("UTF-8")));
-                GroupLexer lexer = new GroupLexer(input);
-                CommonTokenStream tokens = new CommonTokenStream(lexer);
-                GroupParser parser = new GroupParser(tokens);
-                groups = parser.groups();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-            final Group group = groups.findByJobName(jobName);
-            return new JUnitLoadBalancer().balance(super.iterator(), group.jobsCount(), group.jobIndex(jobName));
+            final Group group = groupLoader.load();
+            return new JUnitLoadBalancer().balance(super.iterator(), group.jobsCount(),
+                    group.jobIndex(currentJob.getJobName()));
         } catch (JobNotFoundException e) {
             LOGGER.error("Failed to load balance", e);
             System.err.println("Failed to load balance: " + e);
@@ -50,22 +52,6 @@ public class FilterFileSet extends FileSet {
     }
 
     public void setLoadBalance(String loadBalance) {
-        this.loadBalance = loadBalance;
-    }
-
-    static String getJobName(String envValue) throws JobNotFoundException {
-        String jobName = System.getProperty(JOB_NAME_PROP);
-        if (isEmpty(jobName)) {
-            jobName = envValue;
-        }
-        if (isEmpty(jobName)) {
-            throw new JobNotFoundException("Unable to find the current running job. Cruise should set it automatically.");
-        }
-        return jobName;
-    }
-
-    private static boolean isEmpty(String str) {
-        return str == null || str.trim().length() == 0;
     }
 
 }

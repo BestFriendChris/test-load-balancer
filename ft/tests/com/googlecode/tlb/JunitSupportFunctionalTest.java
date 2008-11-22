@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
+import com.googlecode.tlb.support.cruise.LocalGroupLoader;
 
 public class JunitSupportFunctionalTest {
 
@@ -35,7 +36,8 @@ public class JunitSupportFunctionalTest {
     @Test
     public void shouldRunFirstTwoTestsWhenAgentIsRunningAsJob1() throws Exception {
         HashMap hashMap = new HashMap();
-        hashMap.put(JOBNAME, "job1");
+        hashMap.put(LocalGroupLoader.PIECES, "2");
+        hashMap.put(LocalGroupLoader.INDEX, "1");
         runCommand(hashMap, new File("ft/junit/connectfour"), "ant");
 
         File reports = new File("ft/junit/connectfour/target/test-results");
@@ -47,7 +49,8 @@ public class JunitSupportFunctionalTest {
     @Test
     public void shouldRunLast1TestWhenAgentIsRunningAsJob2() throws Exception {
         HashMap hashMap = new HashMap();
-        hashMap.put(JOBNAME, "job2");
+        hashMap.put(LocalGroupLoader.PIECES, "2");
+        hashMap.put(LocalGroupLoader.INDEX, "2");
         runCommand(hashMap, new File("ft/junit/connectfour"), new String[]{"ant"});
 
         File reports = new File("ft/junit/connectfour/target/test-results");

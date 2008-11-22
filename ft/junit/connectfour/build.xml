@@ -77,7 +77,7 @@
             <formatter type="brief" usefile="false"/>
             <formatter type="xml"/>
             <batchtest todir="target/test-results">
-                <filter-fileset loadBalance="[job1, job2]" dir="target/test-classes" includes="**/*Test.class"/>
+                <filter-fileset dir="target/test-classes" includes="**/*Test.class"/>
             </batchtest>
         </junit>
     </target>

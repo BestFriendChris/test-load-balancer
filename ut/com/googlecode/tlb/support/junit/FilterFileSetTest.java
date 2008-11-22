@@ -1,6 +1,12 @@
 package com.googlecode.tlb.support.junit;
 
 import com.googlecode.tlb.utils.FileUtil;
+import com.googlecode.tlb.testhelpers.CruiseConnectorMother;
+import com.googlecode.tlb.testhelpers.CurrentJobMother;
+import static com.googlecode.tlb.testhelpers.CruiseConnectorMother.connectorStub;
+import com.googlecode.tlb.support.cruise.GroupLoader;
+import com.googlecode.tlb.support.cruise.AgentBasedGroupLoader;
+import com.googlecode.tlb.domain.CurrentJob;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.types.resources.FileResource;
 import static org.hamcrest.core.Is.is;
@@ -14,8 +20,8 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class FilterFileSetTest {
-    public static final String CRUISE_JOB_NAME = "cruise.job.name";
     private File temp = null;
+    private FilterFileSet filter;
 
     @Before
     public void setUp() throws Exception {
@@ -29,12 +35,11 @@ public class FilterFileSetTest {
 
     @Test
     public void shouldFilterFile() throws IOException {
-        FilterFileSet filter = new FilterFileSet();
+        final CurrentJob job = CurrentJobMother.currentJobStub("buildPlan-1", "dev", "evolve");
+        filter = new FilterFileSet(new AgentBasedGroupLoader(connectorStub(), job), job);
         File file = FileUtil.createFileInFolder(temp, "asdf");
         filter.setDir(temp);
         filter.setProject(new Project());
-        filter.setLoadBalance("[job1]");
-        System.setProperty(CRUISE_JOB_NAME, "job1");
 
         Iterator iterator = filter.iterator();
         assertThat(iterator.hasNext(), is(true));
@@ -43,14 +48,14 @@ public class FilterFileSetTest {
 
     @Test
     public void shouldFilterOutHalfTestResources() throws IOException {
-        FilterFileSet filter = new FilterFileSet();
+        final CurrentJob job = CurrentJobMother.currentJobStub("windows-1", "dev", "evolve");
+        filter = new FilterFileSet(new AgentBasedGroupLoader(connectorStub(), job), job);
         File file1 = FileUtil.createFileInFolder(temp, "file1");
         FileUtil.createFileInFolder(temp, "file2");
 
         filter.setDir(temp);
         filter.setProject(new Project());
-        filter.setLoadBalance("[job1, job2]");
-        System.setProperty(CRUISE_JOB_NAME, "job1");
+
 
         Iterator iterator = filter.iterator();
 

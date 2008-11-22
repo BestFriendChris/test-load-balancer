@@ -98,6 +98,38 @@
                             "is_completed"         : "false",
                             "name" : "linux-3",
                             "result" : "Unknown"
+                        },
+                        {
+                            "agent"  : "Not yet assigned",
+                            "build_scheduled_date" : "2008-09-18 16:38:13 +0800",
+                            "build_assigned_date"  : "2008-09-18 16:39:13 +0800",
+                            "build_preparing_date" : "2008-09-18 16:40:13 +0800",
+                            "build_building_date"  : "2008-09-18 16:41:13 +0800",
+                            "build_completing_date": "N/A",
+                            "build_completed_date" : "N/A",
+                            "current_status"       : "building",
+                            "current_build_duration" : "291",
+                            "last_build_duration"  : "0",
+                            "id" : "405",
+                            "is_completed"         : "false",
+                            "name" : "windows-1",
+                            "result" : "Unknown"
+                        },
+                        {
+                            "agent"  : "Not yet assigned",
+                            "build_scheduled_date" : "2008-09-18 16:38:13 +0800",
+                            "build_assigned_date"  : "2008-09-18 16:39:13 +0800",
+                            "build_preparing_date" : "2008-09-18 16:40:13 +0800",
+                            "build_building_date"  : "2008-09-18 16:41:13 +0800",
+                            "build_completing_date": "N/A",
+                            "build_completed_date" : "N/A",
+                            "current_status"       : "building",
+                            "current_build_duration" : "291",
+                            "last_build_duration"  : "0",
+                            "id" : "405",
+                            "is_completed"         : "false",
+                            "name" : "windows-2",
+                            "result" : "Unknown"
                         }
 
                    ]

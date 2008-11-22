@@ -4,53 +4,44 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import org.junit.Before;
-import org.apache.commons.io.FileUtils;
 import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.support.cruise.GroupLoader;
-import com.googlecode.tlb.support.cruise.CruiseConnector;
 import com.googlecode.tlb.exceptions.JobNotFoundException;
+import com.googlecode.tlb.testhelpers.CurrentJobMother;
+import static com.googlecode.tlb.testhelpers.CurrentJobMother.currentJobStub;
+import static com.googlecode.tlb.testhelpers.CruiseConnectorMother.connectorStub;
 
-import java.io.InputStream;
-import java.io.File;
-
-public class GroupLoaderTest {
+public class AgentBasedGroupLoaderTest {
     private GroupLoader groupLoader;
 
     @Before
     public void setUp() {
-        groupLoader = new GroupLoader(new CruiseConnector() {
-            public String pipelineStatus(String pipelineName, String stageName, String jobName) {
-                File file = new File("ut/com/googlecode/tlb/support/cruise/pipelineStatusJson.txt");
-                try {
-                    return FileUtils.readFileToString(file);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-
-            }
-        });
     }
 
     @Test
     public void shouldFindGroupOnlyContainsMultipleJobs() throws Exception {
-        Group group = groupLoader.load("evolve", "dev", "buildPlan-1");
+        groupLoader = new AgentBasedGroupLoader(connectorStub(), currentJobStub("buildPlan-1", "dev", "evolve"));
+        Group group = groupLoader.load();
         assertThat(group.jobsCount(), is(3));
     }
 
     @Test
     public void shouldFindGroupOnlyContainsOneJob() throws Exception {
-        Group group = groupLoader.load("evolve", "dev", "linux");
+        groupLoader = new AgentBasedGroupLoader(connectorStub(), currentJobStub("linux-1", "dev", "evolve"));
+        Group group = groupLoader.load();
         assertThat(group.jobsCount(), is(1));
     }
 
     @Test(expected = JobNotFoundException.class)
     public void shouldThrowExceptionWhenJobNameCannotBeFondAndIsEmpty() throws Exception {
-        groupLoader.load("evolve", "dev", "");
+        groupLoader = new AgentBasedGroupLoader(connectorStub(), currentJobStub("", "dev", "evolve"));
+        groupLoader.load();
     }
 
 
     @Test(expected = RuntimeException.class)
     public void shouldThrowExceptionWhenJobNameCannotBeFondAndNotEmpty() throws Exception {
-        groupLoader.load("evolve", "dev", "somethingNotExist");
+        groupLoader = new AgentBasedGroupLoader(connectorStub(), currentJobStub("no-exist", "dev", "evolve"));
+        groupLoader.load();
     }
 }
