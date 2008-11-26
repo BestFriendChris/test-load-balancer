@@ -1,5 +1,7 @@
 package com.googlecode.tlb.utils;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
@@ -21,5 +23,9 @@ public class FileUtil {
         file.createNewFile();
         file.deleteOnExit();
         return file;
+    }
+
+    public static void deleteFolder(File folder) throws IOException {
+        FileUtils.deleteDirectory(folder);
     }
 }

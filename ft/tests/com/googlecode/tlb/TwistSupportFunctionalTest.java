@@ -20,11 +20,15 @@ public class TwistSupportFunctionalTest {
         reports.delete();
         reports.mkdirs();
         if (!new File("target/test-load-balancer.jar").exists()) {
-            runCommand(new HashMap(), new File("."), "ant", "jar.module.test-load-balancer");
+            runCommand(new HashMap(), new File("."), ant(), "jar.module.test-load-balancer");
         }
-        runCommand(new HashMap(), new File("ft/twist/tlb-twist"), "ant", "retrieve");
+        runCommand(new HashMap(), new File("ft/twist/tlb-twist"), ant(), "retrieve");
 
 
+    }
+
+    private String ant() {
+        return JunitSupportFunctionalTest.antCommand();
     }
 
     @After
@@ -38,7 +42,7 @@ public class TwistSupportFunctionalTest {
     public void shouldRunFirst2TestsWhenAgentIsRunningAsJob1() throws Exception {
         HashMap hashMap = new HashMap();
         hashMap.put(JOBNAME, "job1");
-        runCommand(hashMap, new File("ft/twist/tlb-twist"), "ant", "twist");
+        runCommand(hashMap, new File("ft/twist/tlb-twist"), ant(), "twist");
 
         File reports = new File("ft/twist/tlb-twist/target/reports");
         int count = reportCount(reports);
@@ -50,7 +54,7 @@ public class TwistSupportFunctionalTest {
     public void shouldRunLast1TestWhenAgentIsRunningAsJob2() throws Exception {
         HashMap hashMap = new HashMap();
         hashMap.put(JOBNAME, "job2");
-        runCommand(hashMap, new File("ft/twist/tlb-twist"), "ant", "twist");
+        runCommand(hashMap, new File("ft/twist/tlb-twist"), ant(), "twist");
 
         File reports = new File("ft/twist/tlb-twist/target/reports");
         int count = reportCount(reports);
@@ -61,7 +65,7 @@ public class TwistSupportFunctionalTest {
     public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
         HashMap map = new HashMap();
         map.put(JOBNAME, "");
-        runCommand(map, new File("ft/twist/tlb-twist"), "ant", "twist");
+        runCommand(map, new File("ft/twist/tlb-twist"), ant(), "twist");
 
         File reports = new File("ft/twist/tlb-twist/target/reports");
         int count = reportCount(reports);

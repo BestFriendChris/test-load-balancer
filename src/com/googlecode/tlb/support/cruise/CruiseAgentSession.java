@@ -9,7 +9,7 @@ public class CruiseAgentSession implements CruiseConnector {
     private AgentProxy agentProxy;
 
     public CruiseAgentSession() {
-        File agentConfigDir = new File("../config");
+        File agentConfigDir = new AgentConfigDirLocator().agentConfigDir();
         this.agentProxy = new AgentProxy(agentConfigDir);
     }
 

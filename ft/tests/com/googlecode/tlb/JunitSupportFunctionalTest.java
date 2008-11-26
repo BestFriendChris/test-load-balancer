@@ -24,9 +24,21 @@ public class JunitSupportFunctionalTest {
         reports.delete();
         reports.mkdirs();
         if (!new File("target/test-load-balancer.jar").exists()) {
-            runCommand(new HashMap(), new File("."), "ant", "jar.module.test-load-balancer");
+            runCommand(new HashMap(), new File("."), antCommand(), "jar.module.test-load-balancer");
         }
-        runCommand(new HashMap(), new File("ft/junit/connectfour"), "ant", "retrieve");
+        runCommand(new HashMap(), new File("ft/junit/connectfour"), antCommand(), "retrieve");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(System.getProperty("os.name"));
+    }
+
+    public static String antCommand() {
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            return "ant.bat";
+        } else {
+            return "ant";
+        }
     }
 
     @After
@@ -38,7 +50,7 @@ public class JunitSupportFunctionalTest {
         HashMap hashMap = new HashMap();
         hashMap.put(LocalGroupLoader.PIECES, "2");
         hashMap.put(LocalGroupLoader.INDEX, "1");
-        runCommand(hashMap, new File("ft/junit/connectfour"), "ant");
+        runCommand(hashMap, new File("ft/junit/connectfour"), antCommand());
 
         File reports = new File("ft/junit/connectfour/target/test-results");
         int count = reportCount(reports);
@@ -51,7 +63,7 @@ public class JunitSupportFunctionalTest {
         HashMap hashMap = new HashMap();
         hashMap.put(LocalGroupLoader.PIECES, "2");
         hashMap.put(LocalGroupLoader.INDEX, "2");
-        runCommand(hashMap, new File("ft/junit/connectfour"), new String[]{"ant"});
+        runCommand(hashMap, new File("ft/junit/connectfour"), new String[]{antCommand()});
 
         File reports = new File("ft/junit/connectfour/target/test-results");
         int count = reportCount(reports);
@@ -62,7 +74,7 @@ public class JunitSupportFunctionalTest {
     public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
         HashMap map = new HashMap();
         map.put(JOBNAME, "");
-        runCommand(map, new File("ft/junit/connectfour"), new String[]{"ant"});
+        runCommand(map, new File("ft/junit/connectfour"), new String[]{antCommand()});
 
         File reports = new File("ft/junit/connectfour/target/test-results");
         int count = reportCount(reports);

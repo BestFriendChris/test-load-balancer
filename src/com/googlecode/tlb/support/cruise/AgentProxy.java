@@ -16,10 +16,12 @@ public class AgentProxy {
     private static final String AGENT_STORE_PASSWORD = "agent5s0repa55w0rd";
     private File agentCertificateFile;
     private File agentTrustFile;
+    public static final String AGENT_JKS = "agent.jks";
+    public static final String TRUST_JKS = "trust.jks";
 
     public AgentProxy(File agentConfigDir) {
-        agentCertificateFile = new File(agentConfigDir, "agent.jks");
-        agentTrustFile = new File(agentConfigDir, "trust.jks");
+        agentCertificateFile = new File(agentConfigDir, AGENT_JKS);
+        agentTrustFile = new File(agentConfigDir, TRUST_JKS);
         createSslInfrastructure();
     }
 
