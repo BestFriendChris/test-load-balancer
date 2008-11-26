@@ -8,12 +8,12 @@ public class LoadBalanceFactor {
     private static final Logger LOGGER = Logger.getLogger(LoadBalanceFactor.class);
     private int pieceIndex;
     private int splittedPieces;
-    private int allTestResources;
+    private int numberOfTests;
 
-    public LoadBalanceFactor(int allTestResources, int splittedPieces, int pieceIndex) {
+    public LoadBalanceFactor(int numberOfTests, int splittedPieces, int pieceIndex) {
         this.splittedPieces = splittedPieces;
         this.pieceIndex = pieceIndex;
-        this.allTestResources = allTestResources;
+        this.numberOfTests = numberOfTests;
     }
 
     public int getPieceIndex() {
@@ -30,49 +30,49 @@ public class LoadBalanceFactor {
 
     public Range getRangeOfResources() {
         Range range;
-        if (areJobsMoreThanTests(allTestResources)) {
-            range = assignEachJobOneTest(allTestResources);
+        if (arePiecesMoreThanTests(numberOfTests)) {
+            range = assignEachJobOneTest(numberOfTests);
         } else {
-            int mod = getMod(allTestResources);
+            int mod = getMod(numberOfTests);
             int startIndex;
             int length;
             if (mod == 0) {
-                length = averageWithoutMod(allTestResources, mod);
+                length = averageWithoutMod(numberOfTests, mod);
                 startIndex = (pieceIndex - 1) * length;
             } else if (pieceIndex - 1 < mod) {
-                length = averageWithoutMod(allTestResources, mod) + 1;
+                length = averageWithoutMod(numberOfTests, mod) + 1;
                 startIndex =(pieceIndex - 1) * length;
             } else {
-                length = averageWithoutMod(allTestResources, mod);
+                length = averageWithoutMod(numberOfTests, mod);
                 startIndex = (length + 1) * mod + (pieceIndex - mod - 1) * length;   
             }
             range = new Range(startIndex, length);
         }
         final String msg = format("[%d] tests to load balance between [%d] jobs. Assigned range [%s] to #[%d] job",
-                allTestResources, splittedPieces, range, pieceIndex);
+                numberOfTests, splittedPieces, range, pieceIndex);
         LOGGER.info(msg);
         System.out.println(msg);
         return range;
     }
 
-    private boolean areJobsMoreThanTests(int amountOfTest) {
-        return amountOfTest < this.splittedPieces;
+    private boolean arePiecesMoreThanTests(int numberOfTests) {
+        return numberOfTests < this.splittedPieces;
     }
 
-    private Range assignEachJobOneTest(int allTestResourse) {
-        if (noMoreTestToAssign(allTestResourse)) {
+    private Range assignEachJobOneTest(int numberOfTests) {
+        if (noMoreTestToAssign(numberOfTests)) {
             return new NullRange();
         } else {
             return new Range(pieceIndex - 1, 1);
         }
     }
 
-    private boolean noMoreTestToAssign(int allTestResourse) {
-        return this.pieceIndex > allTestResourse;
+    private boolean noMoreTestToAssign(int numberOfTests) {
+        return this.pieceIndex > numberOfTests;
     }
 
-    private int getMod(int allTestResourse) {
-        return allTestResourse % splittedPieces;
+    private int getMod(int numberOfTests) {
+        return numberOfTests % splittedPieces;
     }
 
     private int averageWithoutMod(int allTestResourse, int mod) {
