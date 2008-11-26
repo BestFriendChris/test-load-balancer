@@ -1,4 +1,4 @@
-package com.googlecode.tlb.support.cruise;
+package com.googlecode.tlb.domain;
 
 import com.googlecode.tlb.exceptions.JobNotFoundException;
 import com.googlecode.tlb.support.twist.Group;

@@ -3,9 +3,7 @@ package com.googlecode.tlb.support.cruise;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
-import com.googlecode.tlb.support.cruise.GroupsDivider;
-import static com.googlecode.tlb.support.cruise.GroupsDivider.divid;
-import com.googlecode.tlb.support.twist.Groups;
+import static com.googlecode.tlb.domain.GroupsDivider.divid;
 import com.googlecode.tlb.support.twist.Group;
 
 import java.util.List;

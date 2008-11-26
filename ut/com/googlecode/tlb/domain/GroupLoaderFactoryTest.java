@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Ignore;
-import com.googlecode.tlb.support.cruise.GroupLoader;
+import com.googlecode.tlb.domain.GroupLoader;
 import com.googlecode.tlb.support.cruise.LocalGroupLoader;
 import com.googlecode.tlb.support.cruise.AgentBasedGroupLoader;
 

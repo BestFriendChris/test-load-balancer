@@ -2,6 +2,7 @@ package com.googlecode.tlb.support.cruise;
 
 import com.googlecode.tlb.exceptions.JobNotFoundException;
 import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.domain.GroupLoader;
 
 public class LocalGroupLoader implements GroupLoader {
     public static final String PIECES = "PIECES";

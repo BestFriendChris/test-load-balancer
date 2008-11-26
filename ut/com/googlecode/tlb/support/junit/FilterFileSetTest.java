@@ -1,10 +1,8 @@
 package com.googlecode.tlb.support.junit;
 
 import com.googlecode.tlb.utils.FileUtil;
-import com.googlecode.tlb.testhelpers.CruiseConnectorMother;
 import com.googlecode.tlb.testhelpers.CurrentJobMother;
 import static com.googlecode.tlb.testhelpers.CruiseConnectorMother.connectorStub;
-import com.googlecode.tlb.support.cruise.GroupLoader;
 import com.googlecode.tlb.support.cruise.AgentBasedGroupLoader;
 import com.googlecode.tlb.domain.CurrentJob;
 import org.apache.tools.ant.Project;
