@@ -8,28 +8,22 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class GroupsDivider {
+    private static final String NON_FIRST_JOB_NAME_PATTERN = "(.*)-(\\d)+";
+    private static final Pattern PATTERN = Pattern.compile(NON_FIRST_JOB_NAME_PATTERN);
 
     public static Group divid(List<String> jobs, String thisJob) {
         String prefix = getPrefix(thisJob);
-        List<String> jobsInOneGroup = new ArrayList<String>();
+        List<String> thisGroup = new ArrayList<String>();
         for (String job : jobs) {
-            if (job.equals(prefix) || job.contains(prefix + '-')) {
-                jobsInOneGroup.add(job);
+            if (job.equals(prefix) || job.startsWith(prefix + '-')) {
+                thisGroup.add(job);
             }
         }
-        return new Group(jobsInOneGroup.toArray(new String[]{}));
+        return new Group(thisGroup.toArray(new String[thisGroup.size()]));
     }
 
-    private static String getPrefix(String thisJob) {
-        String endsWithDigit = ".*-(\\d)+";
-        Pattern pattern = Pattern.compile(endsWithDigit);
-        Matcher matcher = pattern.matcher(thisJob);
-        if (matcher.matches()) {
-            String digit = matcher.group(1);
-            int index = thisJob.lastIndexOf("-" + digit);
-            return thisJob.substring(0, index);
-        } else {
-            return thisJob;
-        }
+    private static String getPrefix(String jobName) {
+        Matcher matcher = PATTERN.matcher(jobName);
+        return matcher.matches() ? matcher.group(1) : jobName;
     }
 }

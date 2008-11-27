@@ -19,11 +19,11 @@ public class GroupsDividerTest {
         allJobs.add("linux-1");
         allJobs.add("linux-2");
         allJobs.add("linux-3");
-        Group groups = divid(allJobs, "windows-1");
-        assertThat(groups.jobsCount(), is(3));
-        assertThat(groups.jobAt(0), is("windows-1"));
-        assertThat(groups.jobAt(1), is("windows-2"));
-        assertThat(groups.jobAt(2), is("windows-3"));
+        Group group = divid(allJobs, "windows-1");
+        assertThat(group.jobsCount(), is(3));
+        assertThat(group.jobAt(0), is("windows-1"));
+        assertThat(group.jobAt(1), is("windows-2"));
+        assertThat(group.jobAt(2), is("windows-3"));
     }
 
     @Test
@@ -35,11 +35,11 @@ public class GroupsDividerTest {
         allJobs.add("linux-1");
         allJobs.add("linux-2");
         allJobs.add("linux-3");
-        Group groups = divid(allJobs, "windows-1");
-        assertThat(groups.jobsCount(), is(3));
-        assertThat(groups.jobAt(0), is("windows"));
-        assertThat(groups.jobAt(1), is("windows-2"));
-        assertThat(groups.jobAt(2), is("windows-3"));
+        Group group = divid(allJobs, "windows-1");
+        assertThat(group.jobsCount(), is(3));
+        assertThat(group.jobAt(0), is("windows"));
+        assertThat(group.jobAt(1), is("windows-2"));
+        assertThat(group.jobAt(2), is("windows-3"));
     }
 
 
@@ -52,10 +52,12 @@ public class GroupsDividerTest {
         allJobs.add("linux-1");
         allJobs.add("linux-2");
         allJobs.add("linux-3");
-        Group groups = divid(allJobs, "windows");
-        assertThat(groups.jobsCount(), is(1));
-        groups = divid(allJobs, "window-2");
-        assertThat(groups.jobsCount(), is(2));
+        Group windowsGroup = divid(allJobs, "windows");
+        assertThat(windowsGroup.jobsCount(), is(1));
+        Group winGroup = divid(allJobs, "window-2");
+        assertThat(winGroup.jobsCount(), is(2));
+        Group linuxGroup = divid(allJobs, "linux-1");
+        assertThat(linuxGroup.jobsCount(), is(3));
     }
 
 }
