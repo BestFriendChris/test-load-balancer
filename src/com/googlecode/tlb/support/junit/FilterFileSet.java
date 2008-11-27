@@ -14,23 +14,19 @@ import java.util.Iterator;
 public class FilterFileSet extends FileSet {
     public static final Logger LOGGER = Logger.getLogger(FilterFileSet.class);
     private GroupLoader groupLoader;
-    private CurrentJob currentJob;
 
-    public FilterFileSet(GroupLoader groupLoader, CurrentJob currentJob) {
+    public FilterFileSet(GroupLoader groupLoader) {
         this.groupLoader = groupLoader;
-        this.currentJob = currentJob;
     }
 
     public FilterFileSet() {
         this.groupLoader = GroupLoaderFactory.getInstance();
-        this.currentJob = new CurrentJob();
     }
 
     public Iterator iterator() {
         try {
             final Group group = groupLoader.load();
-            return new JUnitLoadBalancer().balance(super.iterator(), group.jobsCount(),
-                    group.jobIndex(currentJob.getJobName()));
+            return new JUnitLoadBalancer().balance(super.iterator(), group.jobsCount(), group.jobIndex());
         } catch (JobNotFoundException e) {
             LOGGER.error("Failed to load balance", e);
             System.err.println("Failed to load balance: " + e);

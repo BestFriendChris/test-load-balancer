@@ -6,6 +6,7 @@ import static java.lang.String.format;
 
 public class Group {
     public List<String> jobs = new ArrayList<String>();
+    private String thisJob;
 
     public Group() {
     }
@@ -14,6 +15,11 @@ public class Group {
         for (String job : jobs) {
             this.addJob(job);
         }
+    }
+
+    public Group(String[] jobArray, String thisJob) {
+        this(jobArray);
+        this.thisJob = thisJob;
     }
 
     public void addJob(String jobName) {
@@ -41,5 +47,9 @@ public class Group {
             throw new RuntimeException(format("Job [%s] is not found", jobName));
         }
         return jobs.indexOf(jobName) + 1;
+    }
+
+    public int jobIndex() {
+        return jobIndex(thisJob);
     }
 }

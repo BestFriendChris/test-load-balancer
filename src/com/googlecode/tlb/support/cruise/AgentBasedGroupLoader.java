@@ -6,6 +6,7 @@ import com.googlecode.tlb.domain.GroupsDivider;
 import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.exceptions.JobNotFoundException;
 import com.googlecode.tlb.utils.StringUtil;
+import static com.googlecode.tlb.utils.StringUtil.isEmpty;
 
 import java.util.List;
 
@@ -19,16 +20,18 @@ public class AgentBasedGroupLoader implements GroupLoader {
     }
 
     public Group load() throws JobNotFoundException {
-        String jobName = job.getJobName();
-        if (StringUtil.isEmpty(jobName)) {
-            throw new JobNotFoundException(jobName);
-        }
         String pipelineName = job.getPipelineName();
         String stageName = job.getStageName();
-        String pipelinesJson = this.connector.pipelineStatus(pipelineName, stageName, jobName);
+        String jobName = job.getJobName();
+        if (isEmpty(pipelineName) || isEmpty(stageName) || isEmpty(jobName)) {
+            throw new JobNotFoundException();
+        }
+
+        String pipelinesJson = connector.pipelineStatus(pipelineName, stageName, jobName);
         JsonClient jsonClient = new JsonClient(pipelinesJson, pipelineName, stageName);
         List<String> allJobs = jsonClient.getJobsInStage();
         Group group = GroupsDivider.divid(allJobs, jobName);
+
         if (!isGroupFound(group)) {
             throw new RuntimeException("Running jobName " + jobName
                     + "cannot be found in Cruise stage definition.");

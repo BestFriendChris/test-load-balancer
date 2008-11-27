@@ -19,7 +19,8 @@ public class GroupsDivider {
                 thisGroup.add(job);
             }
         }
-        return new Group(thisGroup.toArray(new String[thisGroup.size()]));
+        String[] jobArray = thisGroup.toArray(new String[thisGroup.size()]);
+        return new Group(jobArray, thisJob);
     }
 
     private static String getPrefix(String jobName) {

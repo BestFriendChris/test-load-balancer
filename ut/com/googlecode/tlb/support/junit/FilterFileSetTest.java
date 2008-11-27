@@ -34,7 +34,7 @@ public class FilterFileSetTest {
     @Test
     public void shouldFilterFile() throws IOException {
         final CurrentJob job = CurrentJobMother.currentJobStub("buildPlan-1", "dev", "evolve");
-        filter = new FilterFileSet(new AgentBasedGroupLoader(connectorStub(), job), job);
+        filter = new FilterFileSet(new AgentBasedGroupLoader(connectorStub(), job));
         File file = FileUtil.createFileInFolder(temp, "asdf");
         filter.setDir(temp);
         filter.setProject(new Project());
@@ -47,7 +47,7 @@ public class FilterFileSetTest {
     @Test
     public void shouldFilterOutHalfTestResources() throws IOException {
         final CurrentJob job = CurrentJobMother.currentJobStub("windows-1", "dev", "evolve");
-        filter = new FilterFileSet(new AgentBasedGroupLoader(connectorStub(), job), job);
+        filter = new FilterFileSet(new AgentBasedGroupLoader(connectorStub(), job));
         File file1 = FileUtil.createFileInFolder(temp, "file1");
         FileUtil.createFileInFolder(temp, "file2");
 
