@@ -4,7 +4,7 @@ import com.googlecode.tlb.support.cruise.CurrentJob;
 
 public class CurrentJobMother {
     public static CurrentJob currentJobStub(final String jobName, final String stageName, final String pipelineName) {
-        return new CurrentJob(){
+        return new CurrentJob() {
             public String getJobName() {
                 return jobName;
             }

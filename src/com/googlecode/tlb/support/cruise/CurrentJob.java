@@ -1,19 +1,19 @@
 package com.googlecode.tlb.support.cruise;
 
 public class CurrentJob {
-    public static final String JOB_NAME_PROP = "cruise.job.name";
-    public static final String PIPELINE_NAME_PROP = "cruise.pipeline.name";
-    public static final String STAGE_NAME_PROP = "cruise.stage.name";
+    public static final String PIPELINE_NAME_KEY = "CRUISE_PIPELINE_NAME";
+    public static final String STAGE_NAME_KEY = "CRUISE_STAGE_NAME";
+    public static final String JOB_NAME_KEY = "CRUISE_JOB_NAME";
 
     public String getJobName() {
-        return System.getProperty(JOB_NAME_PROP);
+        return System.getenv(JOB_NAME_KEY);
     }
 
     public String getStageName() {
-        return System.getProperty(STAGE_NAME_PROP);
+        return System.getenv(STAGE_NAME_KEY);
     }
 
     public String getPipelineName() {
-        return System.getProperty(PIPELINE_NAME_PROP);
+        return System.getenv(PIPELINE_NAME_KEY);
     }
 }
