@@ -4,6 +4,7 @@ import com.googlecode.tlb.domain.GroupLoader;
 import com.googlecode.tlb.support.cruise.LocalGroupLoader;
 import com.googlecode.tlb.support.cruise.AgentBasedGroupLoader;
 import com.googlecode.tlb.support.cruise.CruiseAgentSession;
+import com.googlecode.tlb.support.cruise.CurrentJob;
 
 public class GroupLoaderFactory {
 

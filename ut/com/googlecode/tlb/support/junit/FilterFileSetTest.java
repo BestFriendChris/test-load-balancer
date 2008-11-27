@@ -4,7 +4,7 @@ import com.googlecode.tlb.utils.FileUtil;
 import com.googlecode.tlb.testhelpers.CurrentJobMother;
 import static com.googlecode.tlb.testhelpers.CruiseConnectorMother.connectorStub;
 import com.googlecode.tlb.support.cruise.AgentBasedGroupLoader;
-import com.googlecode.tlb.domain.CurrentJob;
+import com.googlecode.tlb.support.cruise.CurrentJob;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.types.resources.FileResource;
 import static org.hamcrest.core.Is.is;

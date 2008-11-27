@@ -1,11 +1,10 @@
 package com.googlecode.tlb.support.cruise;
 
-import com.googlecode.tlb.domain.CurrentJob;
+import com.googlecode.tlb.support.cruise.CurrentJob;
 import com.googlecode.tlb.domain.GroupLoader;
-import com.googlecode.tlb.domain.GroupsDivider;
+import com.googlecode.tlb.support.cruise.GroupsDivider;
 import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.exceptions.JobNotFoundException;
-import com.googlecode.tlb.utils.StringUtil;
 import static com.googlecode.tlb.utils.StringUtil.isEmpty;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.googlecode.tlb.domain;
+package com.googlecode.tlb.support.cruise;
 
 import com.googlecode.tlb.support.twist.Group;
 

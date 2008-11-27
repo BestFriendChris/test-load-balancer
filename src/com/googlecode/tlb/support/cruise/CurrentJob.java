@@ -1,4 +1,4 @@
-package com.googlecode.tlb.domain;
+package com.googlecode.tlb.support.cruise;
 
 public class CurrentJob {
     public static final String JOB_NAME_PROP = "cruise.job.name";

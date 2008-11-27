@@ -1,6 +1,6 @@
 package com.googlecode.tlb.testhelpers;
 
-import com.googlecode.tlb.domain.CurrentJob;
+import com.googlecode.tlb.support.cruise.CurrentJob;
 
 public class CurrentJobMother {
     public static CurrentJob currentJobStub(final String jobName, final String stageName, final String pipelineName) {
