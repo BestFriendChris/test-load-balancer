@@ -3,16 +3,14 @@ package com.googlecode.tlb.support.cruise;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
-import org.junit.After;
-import org.junit.Before;
-import com.googlecode.tlb.support.cruise.JSONClient;
+import com.googlecode.tlb.support.cruise.JsonClient;
 
 import java.util.List;
 
-public class JSONClientTest {
+public class JsonClientTest {
     @Test
     public void shouldLoadAllJobsInSpecificStage() throws Exception {
-        JSONClient jsonClient = new JSONClient(PIPELINESTATUSJSON, "evolve", "dev");
+        JsonClient jsonClient = new JsonClient(PIPELINESTATUSJSON, "evolve", "dev");
         List<String> strings = jsonClient.getJobsInStage();
         assertThat(strings.size(), is(3));
     }

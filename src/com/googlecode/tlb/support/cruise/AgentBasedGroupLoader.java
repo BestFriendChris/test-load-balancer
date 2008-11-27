@@ -19,16 +19,18 @@ public class AgentBasedGroupLoader implements GroupLoader {
     }
 
     public Group load() throws JobNotFoundException {
-
-        if (StringUtil.isEmpty(job.getJobName())) {
-            throw new JobNotFoundException(job.getJobName());
+        String jobName = job.getJobName();
+        if (StringUtil.isEmpty(jobName)) {
+            throw new JobNotFoundException(jobName);
         }
-        String jsonString = this.connector.pipelineStatus(job.getPipelineName(), job.getStageName(), job.getJobName());
-        JSONClient jsonClient = new JSONClient(jsonString, job.getPipelineName(), job.getStageName());
+        String pipelineName = job.getPipelineName();
+        String stageName = job.getStageName();
+        String pipelinesJson = this.connector.pipelineStatus(pipelineName, stageName, jobName);
+        JsonClient jsonClient = new JsonClient(pipelinesJson, pipelineName, stageName);
         List<String> allJobs = jsonClient.getJobsInStage();
-        Group group = GroupsDivider.divid(allJobs, job.getJobName());
+        Group group = GroupsDivider.divid(allJobs, jobName);
         if (!isGroupFound(group)) {
-            throw new RuntimeException("Running jobName " + job.getJobName()
+            throw new RuntimeException("Running jobName " + jobName
                     + "cannot be found in Cruise stage definition.");
         }
         return group;
