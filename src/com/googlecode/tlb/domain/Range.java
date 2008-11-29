@@ -2,9 +2,6 @@ package com.googlecode.tlb.domain;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.io.File;
 import static java.lang.System.arraycopy;
 
 public class Range {
@@ -12,6 +9,12 @@ public class Range {
     private final int length;
 
     public Range(int start, int length) {
+        if (start < 0) {
+            throw new IllegalArgumentException("Negative start: " + start);
+        }
+        if (length < 0) {
+            throw new IllegalArgumentException("Negative length: " + length);
+        }
         this.start = start;
         this.length = length;
     }
@@ -43,5 +46,9 @@ public class Range {
         final Object[] files = new Object[this.length];
         arraycopy(testFiles.toArray(), start, files, 0, this.length);
         return Arrays.asList(files);
+    }
+
+    public boolean in(int index) {
+        return index >= start && index < start + length;
     }
 }

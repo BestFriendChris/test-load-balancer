@@ -5,39 +5,32 @@ import org.junit.Before;
 import org.junit.After;
 import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
+import org.apache.log4j.Logger;
+import org.apache.commons.io.IOUtils;
 
-import java.io.File;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.FilenameFilter;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
 import com.googlecode.tlb.support.cruise.LocalGroupLoader;
 
 public class JunitSupportFunctionalTest {
+    private static final Logger LOG = Logger.getLogger(JunitSupportFunctionalTest.class);
+    public File reportsFolder;
+    public File workingFolder;
 
     @Before
-    public void setup() throws Exception {
-        File reports = new File("ft/junit/connectfour/target/test-results");
-        reports.delete();
-        reports.mkdirs();
+    public void setUp() throws Exception {
+        workingFolder = new File("ft/junit/connectfour");
+        reportsFolder = new File("ft/junit/connectfour/target/test-results");
+        reportsFolder.delete();
+        reportsFolder.mkdirs();
+
         if (!new File("target/test-load-balancer.jar").exists()) {
-            runCommand(new HashMap(), new File("."), antCommand(), "jar.module.test-load-balancer");
-        }
-        runCommand(new HashMap(), new File("ft/junit/connectfour"), antCommand(), "retrieve");
-    }
-
-    public static void main(String[] args) {
-        System.out.println(System.getProperty("os.name"));
-    }
-
-    public static String antCommand() {
-        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-            return "ant.bat";
-        } else {
-            return "ant";
+            runAntCommand(new HashMap(), new File("."), "jar.module.test-load-balancer");
         }
     }
 
@@ -50,12 +43,9 @@ public class JunitSupportFunctionalTest {
         HashMap hashMap = new HashMap();
         hashMap.put(LocalGroupLoader.PIECES, "2");
         hashMap.put(LocalGroupLoader.INDEX, "1");
-        runCommand(hashMap, new File("ft/junit/connectfour"), antCommand());
+        runAntCommand(hashMap, workingFolder);
 
-        File reports = new File("ft/junit/connectfour/target/test-results");
-        int count = reportCount(reports);
-        assertThat(count, Is.is(2));
-
+        assertThat(reportsCount(), Is.is(2));
     }
 
     @Test
@@ -63,50 +53,61 @@ public class JunitSupportFunctionalTest {
         HashMap hashMap = new HashMap();
         hashMap.put(LocalGroupLoader.PIECES, "2");
         hashMap.put(LocalGroupLoader.INDEX, "2");
-        runCommand(hashMap, new File("ft/junit/connectfour"), new String[]{antCommand()});
+        runAntCommand(hashMap, workingFolder);
 
-        File reports = new File("ft/junit/connectfour/target/test-results");
-        int count = reportCount(reports);
-        assertThat(count, Is.is(1));
+        assertThat(reportsCount(), Is.is(1));
     }
 
     @Test
     public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
         HashMap map = new HashMap();
         map.put(JOBNAME, "");
-        runCommand(map, new File("ft/junit/connectfour"), new String[]{antCommand()});
+        runAntCommand(map, workingFolder);
 
-        File reports = new File("ft/junit/connectfour/target/test-results");
-        int count = reportCount(reports);
-        assertThat(count, Is.is(3));
-
+        assertThat(reportsCount(), Is.is(3));
     }
 
-    private int runCommand(Map envMap, File directory, String... command) throws Exception {
-        ProcessBuilder pb = new ProcessBuilder(command);
+    private int runAntCommand(Map<String, String> envMap, File directory, String... args) throws Exception {
+        ArrayList<String> cmd = new ArrayList<String>();
+        cmd.add(antCommand());
+        cmd.addAll(Arrays.asList(args));
+
+        ProcessBuilder pb = new ProcessBuilder(cmd);
         Map<String, String> env = pb.environment();
         env.putAll(envMap);
         pb.directory(directory);
         Process p = pb.start();
-        BufferedReader inputStream = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String current = "";
-        while ((current = inputStream.readLine()) != null) {
-            System.out.println(current);
-        }
+        logProcessOutput(p.getInputStream());
         p.waitFor();
         return p.exitValue();
-
     }
 
-    private int reportCount(File reports) {
+    private void logProcessOutput(InputStream processStream) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(processStream));
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            LOG.info(line);
+        }
+        IOUtils.closeQuietly(processStream);
+    }
+
+    private int reportsCount() {
         FilenameFilter filter = new XMLFilter();
-        String[] files = reports.list(filter);
+        String[] files = reportsFolder.list(filter);
         return files.length;
     }
 
     static class XMLFilter implements FilenameFilter {
         public boolean accept(File file, String name) {
             return name.toLowerCase().endsWith(".xml");
+        }
+    }
+
+    public static String antCommand() {
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            return "ant.bat";
+        } else {
+            return "ant";
         }
     }
 }

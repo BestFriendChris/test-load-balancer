@@ -81,4 +81,8 @@ public class LoadBalanceFactor {
         }
         return (allTestResourse - mod) / getSplittedPieces();
     }
+
+    public boolean inRange(int index) {
+        return getRangeOfResources().in(index);
+    }
 }

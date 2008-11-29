@@ -23,13 +23,14 @@ public class FilterFileSet extends FileSet {
     }
 
     public Iterator iterator() {
+        Iterator resources = super.iterator();
         try {
             final Group group = groupLoader.load();
-            return new JUnitLoadBalancer().balance(super.iterator(), group.jobsCount(), group.jobIndex());
+            return new JUnitLoadBalancer().balance(resources, group.jobsCount(), group.jobIndex());
         } catch (JobNotFoundException e) {
             LOGGER.error("Failed to load balance", e);
             System.err.println("Failed to load balance: " + e);
-            return super.iterator();
+            return resources;
         } catch (Exception e) {
             // TODO - fix log4j
             LOGGER.error("Failed to load balance", e);
