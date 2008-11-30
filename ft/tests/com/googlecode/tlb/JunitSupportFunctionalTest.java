@@ -19,23 +19,21 @@ import com.googlecode.tlb.support.cruise.LocalGroupLoader;
 
 public class JunitSupportFunctionalTest {
     private static final Logger LOG = Logger.getLogger(JunitSupportFunctionalTest.class);
-    public File reportsFolder;
-    public File workingFolder;
+    static File reportsFolder = new File("ft/junit/connectfour/target/test-results");
+    static File workingFolder = new File("ft/junit/connectfour");
 
     @Before
     public void setUp() throws Exception {
-        workingFolder = new File("ft/junit/connectfour");
-        reportsFolder = new File("ft/junit/connectfour/target/test-results");
+        before();
+    }
+
+    static void before() throws Exception {
         reportsFolder.delete();
         reportsFolder.mkdirs();
 
         if (!new File("target/test-load-balancer.jar").exists()) {
             runAntCommand(new HashMap(), new File("."), "jar.module.test-load-balancer");
         }
-    }
-
-    @After
-    public void teardown() throws Exception {
     }
 
     @Test
@@ -67,7 +65,7 @@ public class JunitSupportFunctionalTest {
         assertThat(reportsCount(), Is.is(3));
     }
 
-    private int runAntCommand(Map<String, String> envMap, File directory, String... args) throws Exception {
+    static int runAntCommand(Map<String, String> envMap, File directory, String... args) throws Exception {
         ArrayList<String> cmd = new ArrayList<String>();
         cmd.add(antCommand());
         cmd.addAll(Arrays.asList(args));
@@ -82,7 +80,7 @@ public class JunitSupportFunctionalTest {
         return p.exitValue();
     }
 
-    private void logProcessOutput(InputStream processStream) throws IOException {
+    private static void logProcessOutput(InputStream processStream) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(processStream));
         String line = "";
         while ((line = reader.readLine()) != null) {
@@ -91,7 +89,7 @@ public class JunitSupportFunctionalTest {
         IOUtils.closeQuietly(processStream);
     }
 
-    private int reportsCount() {
+    static int reportsCount() {
         FilenameFilter filter = new XMLFilter();
         String[] files = reportsFolder.list(filter);
         return files.length;
