@@ -3,6 +3,7 @@ package com.googlecode.tlb;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
+import org.junit.Ignore;
 import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
 
@@ -39,6 +40,7 @@ public class TwistSupportFunctionalTest {
     }
 
     @Test
+    @Ignore
     public void shouldRunFirst2TestsWhenAgentIsRunningAsJob1() throws Exception {
         HashMap hashMap = new HashMap();
         hashMap.put(JOBNAME, "job1");
@@ -51,6 +53,7 @@ public class TwistSupportFunctionalTest {
     }
 
     @Test
+    @Ignore
     public void shouldRunLast1TestWhenAgentIsRunningAsJob2() throws Exception {
         HashMap hashMap = new HashMap();
         hashMap.put(JOBNAME, "job2");

@@ -26,6 +26,7 @@ public class FilteredFile extends File {
     public void addFileSet(FileSet fileSet) {
         this.fileSet = fileSet;
     }
+
     @Override
     public File[] listFiles(FileFilter fileFilter) {
         Iterator iterator = fileSet.iterator();

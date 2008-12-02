@@ -199,6 +199,8 @@
         </jar>
     </target>
 
+    <target name="jar" depends="jar.module.test-load-balancer"/>
+
     <target name="clean.module.test-load-balancer" description="cleanup module">
         <delete dir="${test-load-balancer.output.dir}"/>
         <delete dir="${test-load-balancer.testoutput.dir}"/>

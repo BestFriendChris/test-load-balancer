@@ -1,11 +1,13 @@
 package com.googlecode.tlb.support.twist;
 
 import com.thoughtworks.twist.core.execution.ant.ExecuteScenariosTask;
+import com.googlecode.tlb.support.junit.FilterFileSet;
 
 import java.io.File;
 
 import org.junit.Test;
 import org.apache.tools.ant.types.FileSet;
+import org.apache.tools.ant.BuildException;
 
 public class ExecuteScenariosTaskWrapper extends ExecuteScenariosTask {
     private FileSet fileset;
@@ -17,7 +19,8 @@ public class ExecuteScenariosTaskWrapper extends ExecuteScenariosTask {
         super.setScenarioDir(filteredFile);
     }
 
-    public void addFileset(FileSet fileset) {
-        filteredFile.addFileSet(fileset);
+    public void addFilterFileSet(FilterFileSet fs) throws BuildException {
+        fs.setIncludes("**/*.scn");
+        filteredFile.addFileSet(fs);
     }
 }
