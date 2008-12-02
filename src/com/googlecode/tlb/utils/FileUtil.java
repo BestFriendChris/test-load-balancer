@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class FileUtil {
+
     public static File createTempFolder() {
         final File file = new File(tempFolder(), UUID.randomUUID().toString());
         file.mkdirs();
