@@ -13,7 +13,6 @@ import java.util.List;
 public class FilteredFile extends File {
     private FileSet fileSet;
 
-    //scenarioDir.getAbsoluteFile().listFiles(new TagFileFilter(tags));
     public FilteredFile(File file, FileSet fileSet) {
         super(file.getAbsolutePath());
         this.fileSet = fileSet;
@@ -24,6 +23,9 @@ public class FilteredFile extends File {
         return this;
     }
 
+    public void addFileSet(FileSet fileSet) {
+        this.fileSet = fileSet;
+    }
     @Override
     public File[] listFiles(FileFilter fileFilter) {
         Iterator iterator = fileSet.iterator();
