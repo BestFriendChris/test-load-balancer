@@ -29,4 +29,14 @@ public class FileUtil {
     public static void deleteFolder(File folder) throws IOException {
         FileUtils.deleteDirectory(folder);
     }
+
+    public static void copyFileWithReplacement(File src, File dest, String oldString, String newString) throws IOException {
+        String content = org.apache.commons.io.FileUtils.readFileToString(src);
+        content = content.replace(oldString, newString);
+        org.apache.commons.io.FileUtils.writeStringToFile(dest, content);
+    }
+
+    public static void copyFile(File src, File dest) throws IOException {
+        org.apache.commons.io.FileUtils.writeStringToFile(src, org.apache.commons.io.FileUtils.readFileToString(dest));
+    }
 }

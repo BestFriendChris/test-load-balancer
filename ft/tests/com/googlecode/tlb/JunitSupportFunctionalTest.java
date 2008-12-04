@@ -2,11 +2,8 @@ package com.googlecode.tlb;
 
 import org.junit.Test;
 import org.junit.Before;
-import org.junit.After;
 import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
-import org.apache.log4j.Logger;
-import org.apache.commons.io.IOUtils;
 
 import java.io.*;
 import java.util.HashMap;
@@ -16,9 +13,10 @@ import java.util.Arrays;
 
 import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
 import com.googlecode.tlb.support.cruise.LocalGroupLoader;
+import com.googlecode.tlb.utils.SystemUtil;
 
 public class JunitSupportFunctionalTest {
-    private static final Logger LOG = Logger.getLogger(JunitSupportFunctionalTest.class);
+
     static File reportsFolder = new File("ft/junit/connectfour/target/test-results");
     static File workingFolder = new File("ft/junit/connectfour");
 
@@ -31,8 +29,9 @@ public class JunitSupportFunctionalTest {
         reportsFolder.delete();
         reportsFolder.mkdirs();
 
-        if (!new File("target/test-load-balancer.jar").exists()) {
-            runAntCommand(new HashMap(), new File("."), "jar.module.test-load-balancer");
+        if (!new File("target/test-load-balancer.jar").exists()
+                || !new File("ft/junit/connectfour/lib/tlb/test-load-balancer.jar").exists()) {
+            runAntCommand(new HashMap(), new File("."), "publish");
         }
     }
 
@@ -66,27 +65,12 @@ public class JunitSupportFunctionalTest {
     }
 
     static int runAntCommand(Map<String, String> envMap, File directory, String... args) throws Exception {
-        ArrayList<String> cmd = new ArrayList<String>();
-        cmd.add(antCommand());
-        cmd.addAll(Arrays.asList(args));
+        ArrayList<String> list = new ArrayList<String>();
+        list.add(SystemUtil.antCommand());
+        list.addAll(Arrays.asList(args));
+        String[] cmd = list.toArray(new String[list.size()]);
 
-        ProcessBuilder pb = new ProcessBuilder(cmd);
-        Map<String, String> env = pb.environment();
-        env.putAll(envMap);
-        pb.directory(directory);
-        Process p = pb.start();
-        logProcessOutput(p.getInputStream());
-        p.waitFor();
-        return p.exitValue();
-    }
-
-    private static void logProcessOutput(InputStream processStream) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(processStream));
-        String line = "";
-        while ((line = reader.readLine()) != null) {
-            LOG.info(line);
-        }
-        IOUtils.closeQuietly(processStream);
+        return SystemUtil.runCommand(envMap, directory, cmd);
     }
 
     static int reportsCount() {
@@ -101,11 +85,4 @@ public class JunitSupportFunctionalTest {
         }
     }
 
-    public static String antCommand() {
-        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-            return "ant.bat";
-        } else {
-            return "ant";
-        }
-    }
 }

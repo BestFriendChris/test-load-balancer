@@ -35,11 +35,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************-->
 <project name="connectfour" default="all">
-    <target name="all" depends="clean, retrieve, compile, sleep, test"/>
+    <target name="all" depends="clean, compile, sleep, test"/>
 
     <target name="clean">
         <delete dir="target" quiet="true"/>
-        <delete dir="lib/tlb" quiet="true"/>
     </target>
 
     <target name="compile">
@@ -83,16 +82,6 @@
         </junit>
     </target>
 
-
-    <target name="retrieve">
-        <copy todir="lib/tlb">
-            <!--TODO remove the duplication-->
-            <fileset dir="../../../lib/production">
-                <include name="**/*.jar"/>
-            </fileset>
-        </copy>
-        <copy overwrite="true" todir="lib" file="../../../target/test-load-balancer.jar"/>
-    </target>
     <target name="jar" depends="compile">
         <jar jarfile="target/connectfour.jar" basedir="target/classes"/>
     </target>

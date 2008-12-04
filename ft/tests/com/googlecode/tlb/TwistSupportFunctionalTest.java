@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
+import com.googlecode.tlb.utils.SystemUtil;
 
 public class TwistSupportFunctionalTest {
 
@@ -29,7 +30,7 @@ public class TwistSupportFunctionalTest {
     }
 
     private String ant() {
-        return JunitSupportFunctionalTest.antCommand();
+        return SystemUtil.antCommand();
     }
 
     @After

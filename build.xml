@@ -50,7 +50,14 @@
     <!-- Project Libraries -->
 
     <path id="library.production.classpath">
-        <fileset dir="${basedir}/lib">
+        <fileset dir="${basedir}/lib/production">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="library.all.classpath">
+        <path refid="library.production.classpath"/>
+        <fileset dir="${basedir}/lib/test">
             <include name="**/*.jar"/>
         </fileset>
     </path>
@@ -76,7 +83,7 @@
     </path>
 
     <path id="test-load-balancer.module.classpath">
-        <path refid="library.production.classpath"/>
+        <path refid="library.all.classpath"/>
     </path>
 
     <path id="test-load-balancer.runtime.module.classpath">
@@ -201,6 +208,16 @@
 
     <target name="jar" depends="jar.module.test-load-balancer"/>
 
+    <target name="publish" depends="jar.module.test-load-balancer">
+        <delete dir="${basedir}/ft/junit/connectfour/lib/tlb"/>
+        <copy todir="${basedir}/ft/junit/connectfour/lib/tlb" overwrite="true">
+            <fileset dir="${basedir}/lib/production">
+                <include name="**/*.jar"/>
+            </fileset>
+            <fileset file="${target}/test-load-balancer.jar"/>
+        </copy>
+    </target>
+
     <target name="clean.module.test-load-balancer" description="cleanup module">
         <delete dir="${test-load-balancer.output.dir}"/>
         <delete dir="${test-load-balancer.testoutput.dir}"/>
@@ -217,6 +234,7 @@
     <import file="ft/twist/tlb-twist/build.xml"/>
 
     <target name="all"
-            depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer, jar.module.test-load-balancer, ft.module.test-load-balancer"
+            depends="init, clean, compile.module.test-load-balancer, ut.module.test-load-balancer,
+            jar.module.test-load-balancer, publish, ft.module.test-load-balancer"
             description="build all"/>
 </project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="2">
+  <server artifactsdir="logs">
+    <license user="cruise uat">fTYdOnhQcg/iQc8ovRESsS8E3aQSQaol4jM7B+h2WQ67yIlLXGjeZTNzMFF/&#xD;
+tK2xR+xAIsuYZgAreLDWBHbJLJr04F86XOMQpsEMRR9wV/pFx2D++rpKqlfU&#xD;
+TNmIVHAaiZMPvOV2xWjZSVEV3B+PtA/GBh1cX6mg9wv1TV5avt/t2plB/yD0&#xD;
+CNiti5aZwOtzDW989PeVdryAayvNIPbz3d6I/LXXoQL9t0bE5QiGuU9BTvvm&#xD;
+U6D5f1uFLxNW7yANhxQoznrVFTJErSZKk+L4HQLvZlptCbxec+Ws0uGuRYAY&#xD;
+v0YneKthcnPUs0cUFx3eXOPFXeicuXJDguPP2nka4w==</license>
+  <security>
+    <passwordFile path="password.properties" />
+  </security>
+  </server>
+  <pipelines>
+    <pipeline name="connectfour">
+      <materials>
+        <hg url="${URL}" />
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="job-1">
+            <tasks>
+              <ant buildfile="build.xml" />
+            </tasks>
+          </job>
+          <job name="job-2">
+            <tasks>
+              <ant buildfile="build.xml" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+</cruise>
+
