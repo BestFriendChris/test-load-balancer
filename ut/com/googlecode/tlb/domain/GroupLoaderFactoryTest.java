@@ -8,17 +8,17 @@ import org.junit.Test;
 import org.junit.After;
 import org.junit.Ignore;
 import com.googlecode.tlb.domain.GroupLoader;
-import com.googlecode.tlb.support.cruise.LocalGroupLoader;
+import com.googlecode.tlb.support.cruise.EnvBasedGroupLoader;
 import com.googlecode.tlb.support.cruise.AgentBasedGroupLoader;
 
 public class GroupLoaderFactoryTest {
     @Test
     @Ignore
-    public void shouldCreateLoadCruiseLoaderWhenPiceseAndCurrentIndexIsSpecified() {
+    public void shouldCreateEnvBasedLoaderWhenPiceseAndCurrentIndexIsSpecified() {
         System.setProperty("splittedPieces", "5");
         System.setProperty("pieceIndex", "1");
         final GroupLoader groupLoader = GroupLoaderFactory.getInstance();
-        assertThat(groupLoader, is(instanceOf(LocalGroupLoader.class)));
+        assertThat(groupLoader, is(instanceOf(EnvBasedGroupLoader.class)));
     }
 
 

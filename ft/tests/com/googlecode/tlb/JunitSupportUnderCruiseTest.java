@@ -1,21 +1,17 @@
 package com.googlecode.tlb;
 
-import org.apache.log4j.Logger;
 import org.junit.Before;
-import org.junit.After;
 import org.junit.Test;
 import org.junit.Ignore;
 import static org.junit.Assert.assertThat;
 import org.hamcrest.core.Is;
 
-import java.io.File;
 import java.util.HashMap;
 
 import static com.googlecode.tlb.JunitSupportFunctionalTest.runAntCommand;
 import static com.googlecode.tlb.JunitSupportFunctionalTest.before;
 import static com.googlecode.tlb.JunitSupportFunctionalTest.reportsCount;
 import static com.googlecode.tlb.JunitSupportFunctionalTest.workingFolder;
-import com.googlecode.tlb.support.cruise.LocalGroupLoader;
 import com.googlecode.tlb.support.cruise.CurrentJob;
 import com.googlecode.tlb.support.cruise.CruiseAgentSession;
 

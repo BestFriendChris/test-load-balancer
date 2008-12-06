@@ -4,11 +4,11 @@ import com.googlecode.tlb.exceptions.JobNotFoundException;
 import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.domain.GroupLoader;
 
-public class LocalGroupLoader implements GroupLoader {
+public class EnvBasedGroupLoader implements GroupLoader {
     public static final String PIECES = "PIECES";
     public static final String INDEX = "INDEX";
 
-    public LocalGroupLoader() {
+    public EnvBasedGroupLoader() {
 
     }
 

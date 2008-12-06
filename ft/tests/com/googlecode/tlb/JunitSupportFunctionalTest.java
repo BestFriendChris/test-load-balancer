@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
-import com.googlecode.tlb.support.cruise.LocalGroupLoader;
+import com.googlecode.tlb.support.cruise.EnvBasedGroupLoader;
 import com.googlecode.tlb.utils.SystemUtil;
 
 public class JunitSupportFunctionalTest {
@@ -38,8 +38,8 @@ public class JunitSupportFunctionalTest {
     @Test
     public void shouldRunFirstTwoTestsWhenAgentIsRunningAsJob1() throws Exception {
         HashMap hashMap = new HashMap();
-        hashMap.put(LocalGroupLoader.PIECES, "2");
-        hashMap.put(LocalGroupLoader.INDEX, "1");
+        hashMap.put(EnvBasedGroupLoader.PIECES, "2");
+        hashMap.put(EnvBasedGroupLoader.INDEX, "1");
         runAntCommand(hashMap, workingFolder);
 
         assertThat(reportsCount(), Is.is(2));
@@ -48,8 +48,8 @@ public class JunitSupportFunctionalTest {
     @Test
     public void shouldRunLast1TestWhenAgentIsRunningAsJob2() throws Exception {
         HashMap hashMap = new HashMap();
-        hashMap.put(LocalGroupLoader.PIECES, "2");
-        hashMap.put(LocalGroupLoader.INDEX, "2");
+        hashMap.put(EnvBasedGroupLoader.PIECES, "2");
+        hashMap.put(EnvBasedGroupLoader.INDEX, "2");
         runAntCommand(hashMap, workingFolder);
 
         assertThat(reportsCount(), Is.is(1));
