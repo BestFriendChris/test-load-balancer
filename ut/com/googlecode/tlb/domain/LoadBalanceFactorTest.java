@@ -56,6 +56,12 @@ public class LoadBalanceFactorTest {
         assertThat(new LoadBalanceFactor(11, 4, 4).getRangeOfResources(), is(new Range(9, 2)));
     }
 
+    @Test
+    public void shouldNotDoLoadBalanceWhenOnly1Piece() {
+        assertThat(new LoadBalanceFactor(11, 1, -1).getRangeOfResources(), is(new Range(0, 11)));
+        assertThat(new LoadBalanceFactor(11, 1, 0).getRangeOfResources(), is(new Range(0, 11)));
+        assertThat(new LoadBalanceFactor(11, 1, 1).getRangeOfResources(), is(new Range(0, 11)));
+    }
 
     @Test(expected = Exception.class)
     public void shouldThrowExceptionAtZeroJobs() {

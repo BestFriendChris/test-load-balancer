@@ -30,6 +30,9 @@ public class LoadBalanceFactor {
 
     public Range getRangeOfResources() {
         Range range;
+        if (splittedPieces == 1) {
+            return new Range(0, numberOfTests);
+        }
         if (arePiecesMoreThanTests(numberOfTests)) {
             range = assignEachJobOneTest(numberOfTests);
         } else {
@@ -41,10 +44,10 @@ public class LoadBalanceFactor {
                 startIndex = (pieceIndex - 1) * length;
             } else if (pieceIndex - 1 < mod) {
                 length = averageWithoutMod(numberOfTests, mod) + 1;
-                startIndex =(pieceIndex - 1) * length;
+                startIndex = (pieceIndex - 1) * length;
             } else {
                 length = averageWithoutMod(numberOfTests, mod);
-                startIndex = (length + 1) * mod + (pieceIndex - mod - 1) * length;   
+                startIndex = (length + 1) * mod + (pieceIndex - mod - 1) * length;
             }
             range = new Range(startIndex, length);
         }
