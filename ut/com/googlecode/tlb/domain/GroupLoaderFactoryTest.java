@@ -10,21 +10,46 @@ import org.junit.Ignore;
 import com.googlecode.tlb.domain.GroupLoader;
 import com.googlecode.tlb.support.cruise.EnvBasedGroupLoader;
 import com.googlecode.tlb.support.cruise.AgentBasedGroupLoader;
+import com.googlecode.tlb.support.cruise.CurrentJob;
+
+import java.util.HashMap;
 
 public class GroupLoaderFactoryTest {
+
+
     @Test
-    @Ignore
-    public void shouldCreateEnvBasedLoaderWhenPiceseAndCurrentIndexIsSpecified() {
-        System.setProperty("splittedPieces", "5");
-        System.setProperty("pieceIndex", "1");
-        final GroupLoader groupLoader = GroupLoaderFactory.getInstance();
+    public void shouldCreateAgentBasedGroupLoaderIfAllCruiseJobKeyExsit() {
+        HashMap<String, String> env = new HashMap<String, String>();
+        env.put(CurrentJob.JOB_NAME_KEY, "linux-firefox");
+        env.put(CurrentJob.CRUISE_SERVER_URL, "https://localhost:8153/cruise/");
+        final GroupLoader groupLoader = GroupLoaderFactory.getInstance(env);
+        assertThat(groupLoader, is(instanceOf(AgentBasedGroupLoader.class)));
+    }
+
+    @Test
+    public void shouldCreatedEnvBasedGroupLoaderWhenINDEXandPIECESExist() {
+        HashMap<String, String> env = new HashMap<String, String>();
+        env.put(EnvBasedGroupLoader.INDEX, "1");
+        env.put(EnvBasedGroupLoader.PIECES, "5");
+
+        final GroupLoader groupLoader = GroupLoaderFactory.getInstance(env);
         assertThat(groupLoader, is(instanceOf(EnvBasedGroupLoader.class)));
     }
 
+    @Test
+    public void shouldCreateLocalGroupLoaderWhenNoKeys() {
+        final GroupLoader groupLoader = GroupLoaderFactory.getInstance(new HashMap());
+        assertThat(groupLoader, is(instanceOf(LocalGroupLoader.class)));
+    }
 
     @Test
-    public void shouldCreateAgentBasedCruiseLoaderWhenPiceseAndCurrentIndexIsNotSpecified() {
-        final GroupLoader groupLoader = GroupLoaderFactory.getInstance();
+    public void shouldConsiderAgentBasedGroupLoaderFirst() {
+        HashMap<String, String> env = new HashMap<String, String>();
+        env.put(CurrentJob.JOB_NAME_KEY, "linux-firefox");
+        env.put(CurrentJob.CRUISE_SERVER_URL, "https://localhost:8153/cruise/");
+        env.put(EnvBasedGroupLoader.INDEX, "1");
+        env.put(EnvBasedGroupLoader.PIECES, "5");
+        final GroupLoader groupLoader = GroupLoaderFactory.getInstance(env);
         assertThat(groupLoader, is(instanceOf(AgentBasedGroupLoader.class)));
     }
 
@@ -32,11 +57,6 @@ public class GroupLoaderFactoryTest {
     public void setUp() {
     }
 
-    @After
-    public void tearDown() {
-        System.clearProperty("splittedPieces");
-        System.clearProperty("pieceIndex");
-    }
 
 }
 

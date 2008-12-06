@@ -8,6 +8,7 @@ import com.googlecode.tlb.exceptions.JobNotFoundException;
 import static com.googlecode.tlb.utils.StringUtil.isEmpty;
 
 import java.util.List;
+import java.util.Map;
 
 public class AgentBasedGroupLoader implements GroupLoader {
     private final CruiseConnector connector;
@@ -43,4 +44,7 @@ public class AgentBasedGroupLoader implements GroupLoader {
     }
 
 
+    public static boolean satisfy(Map<String, String> envs) {
+        return envs.get(CurrentJob.JOB_NAME_KEY) != null && envs.get(CurrentJob.CRUISE_SERVER_URL) != null;
+    }
 }

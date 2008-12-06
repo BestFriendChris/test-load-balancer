@@ -4,6 +4,8 @@ import com.googlecode.tlb.exceptions.JobNotFoundException;
 import com.googlecode.tlb.support.twist.Group;
 import com.googlecode.tlb.domain.GroupLoader;
 
+import java.util.Map;
+
 public class EnvBasedGroupLoader implements GroupLoader {
     public static final String PIECES = "PIECES";
     public static final String INDEX = "INDEX";
@@ -39,5 +41,9 @@ public class EnvBasedGroupLoader implements GroupLoader {
                 return Integer.parseInt(System.getenv(INDEX));
             }
         };
+    }
+
+    public static boolean satisfy(Map<String, String> envs) {
+        return envs.get(INDEX) != null && envs.get(PIECES) != null;
     }
 }
