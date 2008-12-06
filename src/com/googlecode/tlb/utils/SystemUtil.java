@@ -7,9 +7,15 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Arrays;
+import java.net.Socket;
+import java.net.InetSocketAddress;
 
 public class SystemUtil {
     private static final Logger LOG = Logger.getLogger(SystemUtil.class);
+
+    public static int runCommand(String... cmd) throws IOException, InterruptedException {
+        return runCommand(new HashMap<String, String>(), new File("."), cmd);
+    }
 
     public static int runCommand(File directory, String... cmd) throws IOException, InterruptedException {
         return runCommand(new HashMap<String, String>(), directory, cmd);
@@ -35,13 +41,39 @@ public class SystemUtil {
         return p;
     }
 
-    public static void logProcessOutput(InputStream processStream) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(processStream));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            LOG.info(line);
+    public static boolean isLocalPortOccupied(int portNum) {
+        Socket s = new Socket();
+        try {
+            s.connect(new InetSocketAddress(portNum));
+            return s.isConnected();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            try {
+                s.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        IOUtils.closeQuietly(processStream);
+    }
+
+
+    public static void logProcessOutput(final InputStream processStream) throws IOException {
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(processStream));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        LOG.info(line);
+                    }
+                } catch (IOException e) {
+                    LOG.error("Error while reading process output: ", e);
+                } finally {
+                    IOUtils.closeQuietly(processStream);
+                }
+            }
+        }).start();
     }
 
     public static boolean isWindows() {

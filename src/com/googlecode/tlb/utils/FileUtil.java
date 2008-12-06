@@ -1,6 +1,8 @@
 package com.googlecode.tlb.utils;
 
 import org.apache.commons.io.FileUtils;
+import static org.apache.commons.io.FileUtils.readFileToString;
+import static org.apache.commons.io.FileUtils.writeStringToFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,13 +32,12 @@ public class FileUtil {
         FileUtils.deleteDirectory(folder);
     }
 
-    public static void copyFileWithReplacement(File src, File dest, String oldString, String newString) throws IOException {
-        String content = org.apache.commons.io.FileUtils.readFileToString(src);
-        content = content.replace(oldString, newString);
-        org.apache.commons.io.FileUtils.writeStringToFile(dest, content);
-    }
-
     public static void copyFile(File src, File dest) throws IOException {
         org.apache.commons.io.FileUtils.copyFile(src, dest);
+    }
+
+    public static void replace(File configFile, String oldString, String newString) throws IOException {
+        String content = readFileToString(configFile);
+        writeStringToFile(configFile, content.replace(oldString, newString));
     }
 }
