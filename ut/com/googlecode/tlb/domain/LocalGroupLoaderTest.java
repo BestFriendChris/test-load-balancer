@@ -14,5 +14,6 @@ public class LocalGroupLoaderTest {
         LocalGroupLoader loader = new LocalGroupLoader();
         Group group = loader.load();
         assertThat(group.jobsCount(), is(1));
+        assertThat(group.jobIndex(), is(0));
     }
 }

@@ -7,6 +7,11 @@ public class LocalGroupLoader implements GroupLoader {
     public Group load() throws JobNotFoundException {
         return new Group() {
             @Override
+            public int jobIndex() {
+                return 0;
+            }
+
+            @Override
             public int jobsCount() {
                 return 1;
             }

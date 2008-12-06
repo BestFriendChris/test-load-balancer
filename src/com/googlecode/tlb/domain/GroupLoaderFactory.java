@@ -14,7 +14,7 @@ public class GroupLoaderFactory {
         return getInstance(System.getenv());
     }
 
-    static GroupLoader getInstance(Map<String, String> envs) {
+    public static GroupLoader getInstance(Map<String, String> envs) {
         if (AgentBasedGroupLoader.satisfy(envs)) {
             return new AgentBasedGroupLoader(new CruiseAgentSession(), new CurrentJob());
         } else if (EnvBasedGroupLoader.satisfy(envs)) {

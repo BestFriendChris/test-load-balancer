@@ -53,7 +53,6 @@
         <twist.runner scenarioDir="${dir.scenarios}" reportsDir="${dir.target.reports}" haltonfailure="true"
                       failureproperty="twist.scenarios.failed" classpathref="twist-classpath"
                       tags="!in-progress">
-            <filterFileSet dir="${dir.scenarios}"/>
         </twist.runner>
 
 

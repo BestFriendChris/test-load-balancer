@@ -37,6 +37,6 @@ public class FileUtil {
     }
 
     public static void copyFile(File src, File dest) throws IOException {
-        org.apache.commons.io.FileUtils.writeStringToFile(src, org.apache.commons.io.FileUtils.readFileToString(dest));
+        org.apache.commons.io.FileUtils.copyFile(src, dest);
     }
 }

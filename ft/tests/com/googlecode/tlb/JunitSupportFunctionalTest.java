@@ -54,14 +54,13 @@ public class JunitSupportFunctionalTest {
         assertThat(reportsCount(), Is.is(1));
     }
 
-//    @Test
-//    public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
-//        HashMap map = new HashMap();
-//        map.put(JOBNAME, "");
-//        runAntCommand(map, workingFolder);
-//
-//        assertThat(reportsCount(), Is.is(3));
-//    }
+    @Test
+    public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
+        HashMap map = new HashMap();
+        runAntCommand(map, workingFolder);
+
+        assertThat(reportsCount(), Is.is(3));
+    }
 
     static int runAntCommand(Map<String, String> envMap, File directory, String... args) throws Exception {
         ArrayList<String> list = new ArrayList<String>();
