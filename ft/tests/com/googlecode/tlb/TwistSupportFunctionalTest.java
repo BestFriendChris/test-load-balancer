@@ -1,18 +1,15 @@
 package com.googlecode.tlb;
 
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
-import org.junit.Ignore;
-import static org.junit.Assert.assertThat;
-import org.hamcrest.core.Is;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-
-import static com.googlecode.tlb.support.twist.TwistLoadBalancerTask.JOBNAME;
 import com.googlecode.tlb.utils.SystemUtil;
+import org.junit.After;
+import org.junit.Before;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwistSupportFunctionalTest {
 
@@ -40,42 +37,42 @@ public class TwistSupportFunctionalTest {
         runCommand(new HashMap(), new File("ft/twist/tlb-twist/scenarios"), "git", "checkout", ".");
     }
 
-    @Test
-    @Ignore
-    public void shouldRunFirst2TestsWhenAgentIsRunningAsJob1() throws Exception {
-        HashMap hashMap = new HashMap();
-        hashMap.put(JOBNAME, "job1");
-        runCommand(hashMap, new File("ft/twist/tlb-twist"), ant(), "twist");
-
-        File reports = new File("ft/twist/tlb-twist/target/reports");
-        int count = reportCount(reports);
-        assertThat(count, Is.is(2));
-
-    }
-
-    @Test
-    @Ignore
-    public void shouldRunLast1TestWhenAgentIsRunningAsJob2() throws Exception {
-        HashMap hashMap = new HashMap();
-        hashMap.put(JOBNAME, "job2");
-        runCommand(hashMap, new File("ft/twist/tlb-twist"), ant(), "twist");
-
-        File reports = new File("ft/twist/tlb-twist/target/reports");
-        int count = reportCount(reports);
-        assertThat(count, Is.is(1));
-    }
-
-    @Test
-    public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
-        HashMap map = new HashMap();
-        map.put(JOBNAME, "");
-        runCommand(map, new File("ft/twist/tlb-twist"), ant(), "twist");
-
-        File reports = new File("ft/twist/tlb-twist/target/reports");
-        int count = reportCount(reports);
-        assertThat(count, Is.is(3));
-
-    }
+//    @Test
+//    @Ignore
+//    public void shouldRunFirst2TestsWhenAgentIsRunningAsJob1() throws Exception {
+//        HashMap hashMap = new HashMap();
+//        hashMap.put(JOBNAME, "job1");
+//        runCommand(hashMap, new File("ft/twist/tlb-twist"), ant(), "twist");
+//
+//        File reports = new File("ft/twist/tlb-twist/target/reports");
+//        int count = reportCount(reports);
+//        assertThat(count, Is.is(2));
+//
+//    }
+//
+//    @Test
+//    @Ignore
+//    public void shouldRunLast1TestWhenAgentIsRunningAsJob2() throws Exception {
+//        HashMap hashMap = new HashMap();
+//        hashMap.put(JOBNAME, "job2");
+//        runCommand(hashMap, new File("ft/twist/tlb-twist"), ant(), "twist");
+//
+//        File reports = new File("ft/twist/tlb-twist/target/reports");
+//        int count = reportCount(reports);
+//        assertThat(count, Is.is(1));
+//    }
+//
+//    @Test
+//    public void shouldRunAllTestsWhenThereIsNoJobSpecified() throws Exception {
+//        HashMap map = new HashMap();
+//        map.put(JOBNAME, "");
+//        runCommand(map, new File("ft/twist/tlb-twist"), ant(), "twist");
+//
+//        File reports = new File("ft/twist/tlb-twist/target/reports");
+//        int count = reportCount(reports);
+//        assertThat(count, Is.is(3));
+//
+//    }
 
     private int runCommand(Map envMap, File directory, String... command) throws Exception {
         ProcessBuilder pb = new ProcessBuilder(command);
