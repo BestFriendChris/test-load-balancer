@@ -1,12 +1,12 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.helpers;
 
-import com.googlecode.tlb.utils.SystemUtil;
 import com.googlecode.tlb.utils.FileUtil;
+import com.googlecode.tlb.utils.SystemUtil;
 
-import java.util.Map;
-import java.util.HashMap;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ServerIsRunning extends ProcessIsRunning {
     public static final String SERVER_ROOT = "ft/integration/cruise-server-1.1";

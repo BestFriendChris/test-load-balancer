@@ -5,8 +5,10 @@ import org.junit.Before;
 
 import java.io.File;
 
+import com.googlecode.tlb.helpers.SupportForCruiseWithSecurityTestBase;
 
-public class JunitSupportForCruiseWithSecurityTest extends SupportForCruiseWithSecurityTestBase {
+
+public class JunitSupportAgentBasedGroupLoaderTest extends SupportForCruiseWithSecurityTestBase {
     @Before
     public void setUp() throws Exception {
         File hgRepo = createHgRepo("connectfour", "ft/junit/connectfour");

@@ -1,12 +1,11 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.helpers;
 
-import com.googlecode.tlb.utils.SystemUtil;
-import com.googlecode.tlb.utils.FileUtil;
 import static com.googlecode.tlb.utils.FileUtil.deleteFolder;
+import com.googlecode.tlb.utils.SystemUtil;
 
-import java.util.Map;
-import java.util.HashMap;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AgentIsRunning extends ProcessIsRunning {
 

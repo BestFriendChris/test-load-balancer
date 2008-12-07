@@ -5,7 +5,9 @@ import org.junit.Test;
 
 import java.io.File;
 
-public class TwistSupportForCruiseWithSecurityTest extends SupportForCruiseWithSecurityTestBase {
+import com.googlecode.tlb.helpers.SupportForCruiseWithSecurityTestBase;
+
+public class TwistSupportAgentBasedLoaderTest extends SupportForCruiseWithSecurityTestBase {
     @Before
     public void setUp() throws Exception {
         File hgRepo = createHgRepo("twist", "ft/twist/tlb-twist");

@@ -1,4 +1,4 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.helpers;
 
 import com.googlecode.tlb.utils.SystemUtil;
 

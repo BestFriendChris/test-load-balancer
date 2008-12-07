@@ -14,7 +14,7 @@ import java.util.Arrays;
 import com.googlecode.tlb.support.cruise.EnvBasedGroupLoader;
 import com.googlecode.tlb.utils.SystemUtil;
 
-public class JunitSupportFunctionalTest {
+public class JunitSupportEnvBasedGroupLoaderTest {
 
     static File reportsFolder = new File("ft/junit/connectfour/target/test-results");
     static File workingFolder = new File("ft/junit/connectfour");

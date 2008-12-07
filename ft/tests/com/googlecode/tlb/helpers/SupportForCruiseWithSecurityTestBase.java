@@ -1,4 +1,4 @@
-package com.googlecode.tlb;
+package com.googlecode.tlb.helpers;
 
 import org.junit.After;
 import static org.junit.matchers.JUnitMatchers.containsString;
@@ -16,6 +16,8 @@ import java.util.Properties;
 import java.util.UUID;
 
 import com.googlecode.tlb.utils.FileUtil;
+import com.googlecode.tlb.helpers.ServerIsRunning;
+import com.googlecode.tlb.helpers.AgentIsRunning;
 
 public class SupportForCruiseWithSecurityTestBase {
     protected ServerIsRunning serverIsRunning;
