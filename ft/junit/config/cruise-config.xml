@@ -7,6 +7,9 @@ TNmIVHAaiZMPvOV2xWjZSVEV3B+PtA/GBh1cX6mg9wv1TV5avt/t2plB/yD0&#xD;
 CNiti5aZwOtzDW989PeVdryAayvNIPbz3d6I/LXXoQL9t0bE5QiGuU9BTvvm&#xD;
 U6D5f1uFLxNW7yANhxQoznrVFTJErSZKk+L4HQLvZlptCbxec+Ws0uGuRYAY&#xD;
 v0YneKthcnPUs0cUFx3eXOPFXeicuXJDguPP2nka4w==</license>
+        <security>
+            <passwordFile path="password.properties" />
+        </security>
   </server>
   <pipelines>
     <pipeline name="${PIPELINE}">

@@ -4,10 +4,9 @@ import org.junit.Test;
 import org.junit.Before;
 
 import java.io.File;
-import java.util.UUID;
 
 
-public class JunitSupportForCruiseWithSecurityTest extends SupportForCruiseWithSecurityTest {
+public class JunitSupportForCruiseWithSecurityTest extends SupportForCruiseWithSecurityTestBase {
     @Before
     public void setUp() throws Exception {
         File hgRepo = createHgRepo("connectfour", "ft/junit/connectfour");

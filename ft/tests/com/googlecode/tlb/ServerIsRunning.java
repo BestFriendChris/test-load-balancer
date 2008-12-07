@@ -67,6 +67,7 @@ public class ServerIsRunning extends ProcessIsRunning {
         FileUtil.copyFileWithReplacement(new File("ft/junit/config", "cruise-config.xml"),
                 new File(serverDir, "cruise-config.xml"),
                 hashMap);
-        // copySingleFile(new File("ft/junit/config", "password.properties"), new File(serverDir, "password.properties"));
+        FileUtil.copySingleFile(new File("ft/junit/config", "password.properties"), new File(serverDir, "password.properties"));
+        
     }
 }

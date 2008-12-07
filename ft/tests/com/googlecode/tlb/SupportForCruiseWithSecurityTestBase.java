@@ -4,6 +4,8 @@ import org.junit.After;
 import static org.junit.matchers.JUnitMatchers.containsString;
 import static org.junit.Assert.assertThat;
 import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.UsernamePasswordCredentials;
+import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.io.FileUtils;
 
@@ -15,7 +17,7 @@ import java.util.UUID;
 
 import com.googlecode.tlb.utils.FileUtil;
 
-public class SupportForCruiseWithSecurityTest {
+public class SupportForCruiseWithSecurityTestBase {
     protected ServerIsRunning serverIsRunning;
     protected AgentIsRunning agentIsRunning;
     protected String pipeline;
@@ -78,6 +80,8 @@ public class SupportForCruiseWithSecurityTest {
         HttpClient httpClient = new HttpClient();
         GetMethod method = new GetMethod(url);
         try {
+            httpClient.getParams().setAuthenticationPreemptive(true);
+            httpClient.getState().setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("jez", "badger"));
             httpClient.executeMethod(method);
             return method.getResponseBodyAsString();
         } catch (IOException e) {
