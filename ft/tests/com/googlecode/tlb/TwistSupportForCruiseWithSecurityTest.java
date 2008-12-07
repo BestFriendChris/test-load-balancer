@@ -10,11 +10,7 @@ public class TwistSupportForCruiseWithSecurityTest extends SupportForCruiseWithS
     @Before
     public void setUp() throws Exception {
         File hgRepo = createHgRepo("twist", "ft/twist/tlb-twist");
-        pipeline = UUID.randomUUID().toString();
-        serverIsRunning = new ServerIsRunning(hgRepo.getAbsolutePath(), pipeline);
-        agentIsRunning = new AgentIsRunning();
-        serverIsRunning.start();
-        agentIsRunning.start();
+        setUp(hgRepo);
     }
 
     @Test

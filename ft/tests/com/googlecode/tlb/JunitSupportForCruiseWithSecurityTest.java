@@ -11,11 +11,7 @@ public class JunitSupportForCruiseWithSecurityTest extends SupportForCruiseWithS
     @Before
     public void setUp() throws Exception {
         File hgRepo = createHgRepo("connectfour", "ft/junit/connectfour");
-        pipeline = UUID.randomUUID().toString();
-        serverIsRunning = new ServerIsRunning(hgRepo.getAbsolutePath(), pipeline);
-        agentIsRunning = new AgentIsRunning();
-        serverIsRunning.start();
-        agentIsRunning.start();
+        super.setUp(hgRepo);
     }
 
     @Test

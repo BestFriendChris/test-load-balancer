@@ -9,6 +9,9 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.FileReader;
+import java.util.Properties;
+import java.util.UUID;
 
 import com.googlecode.tlb.utils.FileUtil;
 
@@ -17,6 +20,52 @@ public class SupportForCruiseWithSecurityTest {
     protected AgentIsRunning agentIsRunning;
     protected String pipeline;
 
+    public void setUp(File hgRepo) throws Exception {
+        prepareCruiseServerAndAgent();
+
+        this.pipeline = UUID.randomUUID().toString();
+
+        serverIsRunning = new ServerIsRunning(hgRepo.getAbsolutePath(), pipeline);
+        agentIsRunning = new AgentIsRunning();
+        serverIsRunning.start();
+        agentIsRunning.start();
+    }
+
+    private void prepareCruiseServerAndAgent() throws IOException {
+        Properties properties = new Properties();
+        File file = new File("ft/integration/cruise.properties");
+        if (!file.exists()) {
+            String messages = "Please create cruise.properties file under your ft/integration folder\n\n"
+                    + "cruise.properties should be look like this:\n"
+                    + "cruise.server = ABSOLUTE PATH TO YOUR cruise-server-1.1 FOLDER\n"
+                    + "cruise.agent = ABSOLUTE PATH TO YOUR cruise-agent-1.1 FOLDER\n"
+                    + "";
+            throw new RuntimeException(messages);
+        }
+        properties.load(new FileReader(file));
+
+        prepare(properties.getProperty("cruise.server").trim(), "server.sh", "stop-server.sh");
+        prepare(properties.getProperty("cruise.agent").trim(), "agent.sh", "stop-agent.sh");
+    }
+
+    void prepare(String dir, String... shells) throws IOException {
+        File file = new File(dir);
+        if (!file.exists()) {
+            throw new RuntimeException("Please check the directory you defined in your cruise.properties exist or not\n"
+                    + "[" + file.getAbsolutePath() + "] can not be found");
+        }
+        File integration = new File("ft/integration");
+        File cruise = new File(integration, file.getName());
+        if (cruise.exists()) {
+            cruise.delete();
+        }
+
+        FileUtils.copyDirectoryToDirectory(file, integration);
+        for (String shell : shells) {
+            new File("ft/integration/" + file.getName() + "/" + shell).setExecutable(true);
+        }
+
+    }
 
     @After
     public void tearDown() throws Exception {
