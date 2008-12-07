@@ -1,11 +1,11 @@
 package com.googlecode.tlb.utils;
 
 import org.apache.commons.io.FileUtils;
-import static org.apache.commons.io.FileUtils.readFileToString;
 import static org.apache.commons.io.FileUtils.writeStringToFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class FileUtil {
@@ -32,12 +32,30 @@ public class FileUtil {
         FileUtils.deleteDirectory(folder);
     }
 
-    public static void copyFile(File src, File dest) throws IOException {
-        org.apache.commons.io.FileUtils.copyFile(src, dest);
+    public static void copySingleFile(File src, File dest) throws IOException {
+        FileUtils.copyFile(src, dest);
     }
 
-    public static void replace(File configFile, String oldString, String newString) throws IOException {
-        String content = readFileToString(configFile);
-        writeStringToFile(configFile, content.replace(oldString, newString));
+    public static void copyFile(File src, File dest) throws IOException {
+        if (src.isFile()) {
+            copySingleFile(src, dest);
+        }
+        if (src.isDirectory()) {
+            File[] files = src.listFiles();
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    continue;
+                }
+                copySingleFile(file, new File(dest, file.getName()));
+            }
+        }
+    }
+
+    public static void copyFileWithReplacement(File src, File dest, HashMap<String, String> hashMap) throws IOException {
+        String content = org.apache.commons.io.FileUtils.readFileToString(src);
+        for (String key : hashMap.keySet()) {
+            content = content.replace(key, hashMap.get(key));
+        }
+        writeStringToFile(dest, content);
     }
 }

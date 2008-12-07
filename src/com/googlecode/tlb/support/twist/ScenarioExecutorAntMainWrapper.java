@@ -54,7 +54,7 @@ public class ScenarioExecutorAntMainWrapper {
             File src = ((FileResource) iterator.next()).getFile();
             File dest = new File(tempFolder, src.getName());
             
-            FileUtil.copyFile(src, dest);
+            FileUtil.copySingleFile(src, dest);
         }
 
     }

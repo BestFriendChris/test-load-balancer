@@ -21,6 +21,7 @@ v0YneKthcnPUs0cUFx3eXOPFXeicuXJDguPP2nka4w==</license>
             </tasks>
 			<artifacts>
   <test src="target/test-results" />
+  <test src="target/reports" />
 </artifacts>
           </job>
           <job name="job-2">
@@ -29,6 +30,7 @@ v0YneKthcnPUs0cUFx3eXOPFXeicuXJDguPP2nka4w==</license>
             </tasks>
 			<artifacts>
   <test src="target/test-results" />
+  <test src="target/reports" />
 </artifacts>
           </job>
         </jobs>
