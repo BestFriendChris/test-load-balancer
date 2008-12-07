@@ -20,7 +20,7 @@ public class TwistSupportForCruiseWithSecurityTest extends SupportForCruiseWithS
     @Test
     public void shouldRunUnderCruise() throws Exception {
         Thread.sleep(90000);
-        assertJobTestCount("job-1", 11);
-        assertJobTestCount("job-2", 10);
+        assertJobTestCount("job-1", 2);
+        assertJobTestCount("job-2", 1);
     }
 }
