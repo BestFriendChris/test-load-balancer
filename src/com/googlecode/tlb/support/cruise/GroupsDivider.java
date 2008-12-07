@@ -1,6 +1,6 @@
 package com.googlecode.tlb.support.cruise;
 
-import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.domain.Group;
 
 import java.util.List;
 import java.util.ArrayList;

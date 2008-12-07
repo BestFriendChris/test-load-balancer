@@ -4,7 +4,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import static com.googlecode.tlb.support.cruise.GroupsDivider.divid;
-import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.domain.Group;
 
 import java.util.List;
 import java.util.ArrayList;

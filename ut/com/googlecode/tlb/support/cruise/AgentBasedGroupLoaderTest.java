@@ -4,7 +4,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import org.junit.Before;
-import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.domain.Group;
 import com.googlecode.tlb.domain.GroupLoader;
 import com.googlecode.tlb.exceptions.JobNotFoundException;
 import static com.googlecode.tlb.testhelpers.CurrentJobMother.currentJobStub;

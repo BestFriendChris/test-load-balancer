@@ -1,7 +1,7 @@
 package com.googlecode.tlb.support.cruise;
 
 import com.googlecode.tlb.exceptions.JobNotFoundException;
-import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.domain.Group;
 import com.googlecode.tlb.domain.GroupLoader;
 
 import java.util.Map;

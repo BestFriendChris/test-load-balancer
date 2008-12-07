@@ -3,7 +3,7 @@ package com.googlecode.tlb.support.cruise;
 import com.googlecode.tlb.support.cruise.CurrentJob;
 import com.googlecode.tlb.domain.GroupLoader;
 import com.googlecode.tlb.support.cruise.GroupsDivider;
-import com.googlecode.tlb.support.twist.Group;
+import com.googlecode.tlb.domain.Group;
 import com.googlecode.tlb.exceptions.JobNotFoundException;
 import static com.googlecode.tlb.utils.StringUtil.isEmpty;
 
