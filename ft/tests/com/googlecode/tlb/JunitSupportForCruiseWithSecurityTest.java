@@ -3,26 +3,33 @@ package com.googlecode.tlb;
 import static com.googlecode.tlb.utils.ExceptionUtils.bomb;
 import static com.googlecode.tlb.utils.ExceptionUtils.bombIf;
 import com.googlecode.tlb.utils.FileUtil;
-import com.googlecode.tlb.utils.SystemUtil;
 import static com.googlecode.tlb.utils.SystemUtil.runCommand;
 import org.apache.commons.io.FileUtils;
 import static org.apache.commons.io.FileUtils.copyDirectory;
 import static org.apache.commons.io.FileUtils.deleteDirectory;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.HttpClient;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.matchers.JUnitMatchers.containsString;
+import static org.junit.Assert.assertThat;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
+
 
 public class JunitSupportForCruiseWithSecurityTest {
     private ServerIsRunning serverIsRunning;
     private AgentIsRunning agentIsRunning;
+    private String pipeline;
 
     @Before
     public void setUp() throws Exception {
         File hgRepo = createHgRepo("connectfour");
-        serverIsRunning = new ServerIsRunning(hgRepo.getAbsolutePath());
+        pipeline = UUID.randomUUID().toString();
+        serverIsRunning = new ServerIsRunning(hgRepo.getAbsolutePath(), pipeline);
         agentIsRunning = new AgentIsRunning();
         serverIsRunning.start();
         agentIsRunning.start();
@@ -34,13 +41,32 @@ public class JunitSupportForCruiseWithSecurityTest {
         agentIsRunning.stop();
     }
 
-    @Test
-    public void shouldRunUnderCruise() throws Exception {
-        System.out.println("test start");
-        Thread.sleep(90000);
-        System.out.println("test finished");
+    protected String getCruiseProperties(String job) {
+        String url = "http://localhost:8153/cruise/properties/" + pipeline + "/history/defaultStage/" + job + ".json?limitLabel=1";
+        HttpClient httpClient = new HttpClient();
+        GetMethod method = new GetMethod(url);
+        try {
+            httpClient.executeMethod(method);
+            return method.getResponseBodyAsString();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            method.releaseConnection();
+        }
     }
 
+    protected void assertJobTestCount(String job, int count) {
+        String cruiseProperties = getCruiseProperties(job);
+        System.out.println(cruiseProperties);
+        assertThat(cruiseProperties, containsString("\"tests_total_count\" : \"" + count + "\""));
+    }
+
+    @Test
+    public void shouldRunUnderCruise() throws Exception {
+        Thread.sleep(90000);
+        assertJobTestCount("job-1", 11);
+        assertJobTestCount("job-2", 10);
+    }
 
 
     private static File createHgRepo(String pipelineName) throws IOException, InterruptedException {

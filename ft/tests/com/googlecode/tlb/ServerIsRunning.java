@@ -5,16 +5,17 @@ import com.googlecode.tlb.utils.FileUtil;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.UUID;
 import java.io.File;
 import java.io.IOException;
 
 public class ServerIsRunning extends ProcessIsRunning {
     public static final String SERVER_ROOT = "ft/integration/cruise-server-1.1";
     private String repo;
+    private String pipeline;
 
-    public ServerIsRunning(String repo) {
+    public ServerIsRunning(String repo, String pipeline) {
         this.repo = repo;
+        this.pipeline = pipeline;
     }
 
     public void start() throws Exception {
@@ -61,11 +62,11 @@ public class ServerIsRunning extends ProcessIsRunning {
     public void prepare() throws IOException {
         HashMap hashMap = new HashMap();
         hashMap.put("${URL}", repo);
-        hashMap.put("${PIPELINE}", UUID.randomUUID().toString());
+        hashMap.put("${PIPELINE}", pipeline);
         File serverDir = new File(SERVER_ROOT);
         FileUtil.copyFileWithReplacement(new File("ft/junit/config", "cruise-config.xml"),
                 new File(serverDir, "cruise-config.xml"),
                 hashMap);
-       // copySingleFile(new File("ft/junit/config", "password.properties"), new File(serverDir, "password.properties"));
+        // copySingleFile(new File("ft/junit/config", "password.properties"), new File(serverDir, "password.properties"));
     }
 }
