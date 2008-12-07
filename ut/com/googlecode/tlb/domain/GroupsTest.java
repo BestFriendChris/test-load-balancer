@@ -1,10 +1,8 @@
-package com.googlecode.tlb.support.twist;
+package com.googlecode.tlb.domain;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
-import com.googlecode.tlb.domain.Groups;
-import com.googlecode.tlb.domain.Group;
 
 public class GroupsTest {
     @Test
