@@ -18,21 +18,31 @@ public class AgentProxy {
     private File agentTrustFile;
     public static final String AGENT_JKS = "agent.jks";
     public static final String TRUST_JKS = "trust.jks";
+    private final Protocol httpProtocol;
+    private final Protocol httpsProtocol;
 
     public AgentProxy(File agentConfigDir) {
         agentCertificateFile = new File(agentConfigDir, AGENT_JKS);
         agentTrustFile = new File(agentConfigDir, TRUST_JKS);
-        createSslInfrastructure();
-    }
 
-    private void createSslInfrastructure() {
         AuthSSLProtocolSocketFactory protocolSocketFactory = new AuthSSLProtocolSocketFactory(
                 agentTrustFile, agentCertificateFile, AGENT_STORE_PASSWORD);
-        Protocol.registerProtocol("http", new Protocol("http", (ProtocolSocketFactory) protocolSocketFactory, 80));
-        Protocol.registerProtocol("https", new Protocol("https", (ProtocolSocketFactory) protocolSocketFactory, 443));
+        httpProtocol = new Protocol("http", (ProtocolSocketFactory) protocolSocketFactory, 80);
+        httpsProtocol = new Protocol("https", (ProtocolSocketFactory) protocolSocketFactory, 443);
+    }
+
+    private void registerProtocol() {
+        Protocol.registerProtocol("http", httpProtocol);
+        Protocol.registerProtocol("https", httpsProtocol);
+    }
+
+    private void unregisterProtocol() {
+        Protocol.unregisterProtocol("http");
+        Protocol.unregisterProtocol("https");
     }
 
     public ResponseResult get(String url) throws IOException {
+        registerProtocol();
         HttpClient httpClient = new HttpClient();
         GetMethod getMethod = new GetMethod(url);
         try {
@@ -42,10 +52,12 @@ public class AgentProxy {
             return new ResponseResult(statusCode, responseBody);
         } finally {
             getMethod.releaseConnection();
+            unregisterProtocol();
         }
     }
 
     public ResponseResult post(String url, NameValuePair... params) throws IOException {
+        registerProtocol();
         HttpClient httpClient = new HttpClient();
         PostMethod postMethod = new PostMethod(url);
         try {
@@ -56,6 +68,7 @@ public class AgentProxy {
             return new ResponseResult(statusCode, responseBody);
         } finally {
             postMethod.releaseConnection();
+            unregisterProtocol();
         }
     }
 }

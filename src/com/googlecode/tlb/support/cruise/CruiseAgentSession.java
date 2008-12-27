@@ -4,6 +4,7 @@ import static com.googlecode.tlb.utils.ExceptionUtils.bomb;
 
 import java.io.File;
 import java.io.IOException;
+import static java.lang.String.format;
 
 public class CruiseAgentSession implements CruiseConnector {
     private AgentProxy agentProxy;
@@ -16,7 +17,10 @@ public class CruiseAgentSession implements CruiseConnector {
 
     public String pipelineStatus(String pipelineName, String stageName, String jobName) {
         try {
-            return agentProxy.get(getPipelineStatusUrl()).getResponseBody();
+            String url = getPipelineStatusUrl();
+            System.out.println(format("Getting pipeline status from [%s] for pipeline [%s] stage [%s] job [%s]",
+                    url, pipelineName, stageName, jobName));
+            return agentProxy.get(url).getResponseBody();
         } catch (IOException e) {
             throw bomb(e);
         }
