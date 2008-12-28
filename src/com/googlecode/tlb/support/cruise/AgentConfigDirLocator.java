@@ -2,6 +2,7 @@ package com.googlecode.tlb.support.cruise;
 
 import static com.googlecode.tlb.support.cruise.AgentProxy.*;
 import static com.googlecode.tlb.utils.ExceptionUtils.bomb;
+import static com.googlecode.tlb.utils.ExceptionUtils.bombIfNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +11,11 @@ public class AgentConfigDirLocator {
 
     public File agentConfigDir() {
         try {
-            return agentConfigDir(new File(".").getCanonicalFile());
+            File startDir = new File(".").getCanonicalFile();
+            File configDir = agentConfigDir(startDir);
+            bombIfNull(configDir,
+                    "Failed to find agent config dir! (Started from " + startDir.getAbsolutePath() + ")");
+            return configDir;
         } catch (IOException e) {
             throw bomb(e);
         }

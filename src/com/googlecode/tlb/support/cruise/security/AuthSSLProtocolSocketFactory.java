@@ -3,6 +3,7 @@ package com.googlecode.tlb.support.cruise.security;
 import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 import org.apache.commons.httpclient.protocol.Protocol;
 import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory;
+import static org.apache.commons.httpclient.protocol.Protocol.registerProtocol;
 import org.apache.commons.httpclient.params.HttpConnectionParams;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -47,7 +48,7 @@ public class AuthSSLProtocolSocketFactory implements SecureProtocolSocketFactory
     }
 
     public void registerAsHttpsProtocol() {
-        Protocol.registerProtocol("https", new Protocol("https", (ProtocolSocketFactory) this, 443));
+        registerProtocol("https", new Protocol("https", (ProtocolSocketFactory) this, 443));
     }
 
     SSLContext getSSLContext() {

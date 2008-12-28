@@ -5,28 +5,35 @@ import com.sdicons.json.model.JSONArray;
 import com.sdicons.json.model.JSONString;
 import com.sdicons.json.model.JSONValue;
 import com.sdicons.json.parser.JSONParser;
+import static com.googlecode.tlb.utils.ExceptionUtils.bombIfNull;
+import static com.googlecode.tlb.utils.ExceptionUtils.bomb;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.io.StringReader;
 
 public class JsonClient {
-    private String pipelinesJson;
     private String pipelineName;
     private String stageName;
     public JSONArray pipelineArray;
 
     public JsonClient(String pipelinesJson, String pipelineName, String stageName) {
-        this.pipelinesJson = pipelinesJson;
         this.pipelineName = pipelineName;
         this.stageName = stageName;
-        pipelineArray = parsePipelines(pipelinesJson);
+        this.pipelineArray = parsePipelines(pipelinesJson);
     }
 
     public List<String> getJobsInStage() {
         JSONObject pipelineJson = getPipeline(pipelineName);
         JSONObject stageJSON = getStage(pipelineJson, stageName);
         return getJobs(stageJSON);
+    }
+
+    public String getJobId(String jobName) {
+        JSONObject pipelineJson = getPipeline(pipelineName);
+        JSONObject stageJSON = getStage(pipelineJson, stageName);
+        JSONObject jobJson = getJob(stageJSON, jobName);
+        return getStringAttribute(jobJson, "id");
     }
 
     private List<String> getJobs(JSONObject stageJsonObj) {
@@ -40,13 +47,31 @@ public class JsonClient {
         return jobNames;
     }
 
+    private JSONObject getJob(JSONObject stageJsonObj, String jobName) {
+        JSONArray builds = (JSONArray) stageJsonObj.get("builds");
+        for (int i = 0; i < builds.size(); i++) {
+            JSONObject jobJson = (JSONObject) builds.get(i);
+            if (jobName.equals(getStringAttribute(jobJson, "name"))) {
+                return jobJson;
+            }
+        }
+        throw bomb("Failed to find job [" + jobName + "] in json! (" + builds.render(false) + ")");
+    }
+
+    private String getStringAttribute(JSONObject jsonObject, String attributeName) {
+        JSONValue jsonValue = jsonObject.get(attributeName);
+        return jsonValue.render(false).replace("\"", "");
+    }
+
     private JSONObject getStage(JSONObject pipelineJson, String stageName) {
         JSONArray stages = (JSONArray) pipelineJson.get("stages");
         return getItemByAttribute(stages, "stageName", stageName);
     }
 
     private JSONObject getPipeline(String pipelineName) {
-        return getItemByAttribute(pipelineArray, "name", pipelineName);
+        JSONObject jsonObj = getItemByAttribute(pipelineArray, "name", pipelineName);
+        bombIfNull(jsonObj, "Failed to find pipeline [" + pipelineName + "] in json");
+        return jsonObj;
     }
 
     private static JSONObject getItemByAttribute(JSONArray jsonArray, String attributeName, String attributeValue) {
@@ -57,7 +82,8 @@ public class JsonClient {
                 return child;
             }
         }
-        return null;
+        throw bomb("Failed to find [" + attributeName + "=" + attributeValue + "] in json! (" +
+                jsonArray.render(false) + ")");
     }
 
     private static JSONArray parsePipelines(String pipelinesJson) {

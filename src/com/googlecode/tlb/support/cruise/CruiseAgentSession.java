@@ -17,20 +17,45 @@ public class CruiseAgentSession implements CruiseConnector {
 
     public String pipelineStatus(String pipelineName, String stageName, String jobName) {
         try {
-            String url = getPipelineStatusUrl();
+            String url = pipelineStatusUrl();
             System.out.println(format("Getting pipeline status from [%s] for pipeline [%s] stage [%s] job [%s]",
                     url, pipelineName, stageName, jobName));
-            return agentProxy.get(url).getResponseBody();
+            return agentProxy.getResourceAsString(url);
         } catch (IOException e) {
             throw bomb(e);
         }
     }
 
-    private String getPipelineStatusUrl() {
+    public String consoleOut(String pipelineName, String stageName, String jobName) {
+        String json = pipelineStatus(pipelineName, stageName, jobName);
+        JsonClient client = new JsonClient(json, pipelineName, stageName);
+        String jobId = client.getJobId(jobName);
+        String url = consoleOutUrl(jobId);
+        try {
+            return agentProxy.getResourceAsString(url);
+        } catch (IOException e) {
+            throw bomb(e);
+        }
+    }
+
+    private String consoleOutUrl(String jobId) {
+        return urlPrefix() + "repository/artifacts/consoleout?buildInstanceId=" + jobId;
+    }
+
+    private String pipelineStatusUrl() {
+        return urlPrefix() + "admin/pipelineStatus.json";
+    }
+
+    private String urlPrefix() {
+        return contextRoot() + "remoting/";
+    }
+
+    private String contextRoot() {
         String serverUrl = System.getenv(SERVER_URL_KEY);
+        serverUrl = serverUrl == null ? "https://localhost:8154/cruise/" : serverUrl;
         if (!serverUrl.endsWith("/")) {
             serverUrl += "/";
         }
-        return serverUrl + "remoting/admin/pipelineStatus.json";
+        return serverUrl;
     }
 }
