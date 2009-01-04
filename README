@@ -1,0 +1,46 @@
+= What is test-load-balancer? =
+
+
+Put simply, test-load-balancer significantly shorten your automated testing interval by breaking your tests up so that they can be run in parallel on multiple agents.
+
+Test-load-balancer is an add-on to [http://www.thoughtworks.com/cruise ThoughtWorks Cruise].  In Cruise, you can manually define a stage with multiple jobs that, given enough agents, run automated tests in parallel instead of in sequence to gain speed.  Test-load-balancer works with Cruise closely by automatically partition your test suits into multiple shares that each will be run on a different agent without duplications.
+
+For example, you might have a Junit test suits with 5000 automated tests that takes 30 minutes to run, which means a significant wait to get the feedback after each check-in (after all, one reason of having automated tests is to get instant feedback on what is right and what is wrong).  However, with Cruise and test-load-balancer, this issue is very trivial.  If you have, say, 3 agents, you can define a stage with three jobs that share the same build script, and test-load-balancer will ensure that each job will only run one third of the whole test suits.  That means you can finish all the tests in 10 minutes!  If you have 5 agents, that duration will be reduced further down to about 6 minutes! And so on...
+
+
+= How to use test-load-balancer? =
+
+
+Test-load-balancer includes several apache ant tasks that you can use in your ant scripts.  Currently we support Junit and [http://www.thoughtworks.com/twist ThoughtWorks Twist]. More might come in the  future.  
+
+== Example 1: Junit ==
+{{{
+        <typedef  name="filter-fileset" classname="com.googlecode.tlb.support.junit.FilterFileSet" classpathref="classpath"/>
+
+        <junit>
+            <batchtest todir="target/test-results">
+                <filter-fileset dir="target/test-classes" includes="**/*Test.class"/>
+            </batchtest>
+            <classpath refid="classpath" />
+        </junit>
+}}}
+Let's take a close look at each of the steps:
+
+ * define a custom datatype in your script that reference FilterFileSet in the test-load-balancer library so you can use it in your junit tests to partition tests.
+ * once the custom datatype is defined, use that instead of the default fileset element in your batchtest definition.  Since it is a subclass of ant's FileSet class, you can (optionally) define any attributes as you would on a fileSet element.
+
+
+== Example 2: Twist ==
+{{{
+        <taskdef classname="com.googlecode.tlb.support.twist.TwistLoadBalancerTask" classpathref="twist-classpath" name="load.balancer" />
+
+        <twist.runner scenarioDir="${dir.scenarios}" reportsDir="${dir.target.reports}" tags="!in-progress"  />
+}}}
+Again, let's take a look at each of the steps in the example:
+
+ * define the task that we will be using for test-load-balancer so we can use it later on in the script. 
+ * once we have TwistLoadBalancerTask defined, we can call it in the script and supply it with both the scenario directory definition and the load balance definition.  ScenarioDir points to a directory where your twist scenario files reside.  loadBalance has the same meaning as that is explained in example 1.
+ * run twist runner after your defined twist test-load-balancer, in this way each agent that this script runs on will only run a partitioned share of twist tests.
+
+
+
