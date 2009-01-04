@@ -46,12 +46,12 @@ If you have more than one agent (e.g, 2), you can change the above configuration
   </stage>
 }}}
 
-You don't need to change your ant script for this.  All you have to do is to follow the <jobname>-<counter> naming convention as is shown in the above sample.  Test-load-balancer will figure out the rest.
+You don't need to change your ant script for this.  All you have to do is to follow the *`<jobname>-<counter>`* naming convention as is shown in the above sample.  Test-load-balancer will figure out the rest.
 
 The number of jobs to split depends totally on the number of available agents in your build cloud.  e.g. In one of our testing environment, we have 5 linux agents that are available to run our tests most of the time. We splitted our unit testing stage into 4 jobs to take advantage of those resources.
 
 
-== Step 2: Change your Ant script to use test-load-balancer ==
+== Step 2: Change your Ant script to use Test-load-balancer ==
 
 After you have splitted your testing job in Cruise, the next step is to add a few line of simple code into your ant script to use Test-load-balancer.  Test-load-balancer includes several apache ant tasks that you can use in your ant scripts.  Currently we support Junit and [http://www.thoughtworks.com/twist ThoughtWorks Twist]. More might come in the future.  
 
