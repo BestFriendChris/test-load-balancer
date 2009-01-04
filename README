@@ -9,23 +9,53 @@ For example, you might have a Junit test suits with 5000 automated tests that ta
 
 
 = How to use test-load-balancer? =
-
-
-Test-load-balancer includes several apache ant tasks that you can use in your ant scripts.  Currently we support Junit and [http://www.thoughtworks.com/twist ThoughtWorks Twist]. More might come in the future.  
-
 == Step 1: Parallelize your tests in Cruise ==
 
 Depending on how many agents you have in your [http://studios.thoughtworks.com/cruise-continuous-integration/build-cloud build cloud], you can duplicate your test job into multiple ones to speed tests up.
 
-For example, you might have the following config in Cruise:
+For example, you might have the following configuration in Cruise:
 
 {{{
-<stage name="dev">
-  <
-</stage>
+  <stage name="test">
+        <jobs>
+          <job name="ut">
+            <tasks>
+              <ant buildfile="build.xml" />
+            </tasks>
+          </job>
+       </jobs>
+  </stage>
 }}}
 
-== Example 1: Junit ==
+If you have more than one agent (e.g, 2), you can change the above configuration into this:
+
+{{{
+  <stage name="test">
+        <jobs>
+          <job name="ut-1">
+            <tasks>
+              <ant buildfile="build.xml" />
+            </tasks>
+          </job>
+          <job name="ut-2">
+            <tasks>
+              <ant buildfile="build.xml" />
+            </tasks>
+          </job>
+       </jobs>
+  </stage>
+}}}
+
+You don't need to change your ant script for this.  All you have to do is to follow the <jobname>-<counter> naming convention as is shown in the above sample.  Test-load-balancer will figure out the rest.
+
+The number of jobs to split depends totally on the number of available agents in your build cloud.  e.g. In one of our testing environment, we have 5 linux agents that are available to run our tests most of the time. We splitted our unit testing stage into 4 jobs to take advantage of those resources.
+
+
+== Step 2: Change your Ant script to use test-load-balancer ==
+
+After you have splitted your testing job in Cruise, the next step is to add a few line of simple code into your ant script to use Test-load-balancer.  Test-load-balancer includes several apache ant tasks that you can use in your ant scripts.  Currently we support Junit and [http://www.thoughtworks.com/twist ThoughtWorks Twist]. More might come in the future.  
+
+=== Example 1: Junit ===
 {{{
         <typedef  name="filter-fileset" classname="com.googlecode.tlb.support.junit.FilterFileSet" classpathref="classpath"/>
 
@@ -36,18 +66,20 @@ For example, you might have the following config in Cruise:
             <classpath refid="classpath" />
         </junit>
 }}}
+
 Let's take a close look at each of the steps:
 
  * define a custom datatype in your script that reference FilterFileSet in the test-load-balancer library so you can use it in your junit tests to partition tests.
  * once the custom datatype is defined, use that instead of the default fileset element in your batchtest definition.  Since it is a subclass of ant's FileSet class, you can (optionally) define any attributes as you would on a fileSet element.
 
 
-== Example 2: Twist ==
+=== Example 2: Twist ===
 {{{
         <taskdef classname="com.googlecode.tlb.support.twist.TwistLoadBalancerTask" classpathref="twist-classpath" name="load.balancer" />
 
         <twist.runner scenarioDir="${dir.scenarios}" reportsDir="${dir.target.reports}" tags="!in-progress"  />
 }}}
+
 Again, let's take a look at each of the steps in the example:
 
  * define the task that we will be using for test-load-balancer so we can use it later on in the script. 
