@@ -11,7 +11,19 @@ For example, you might have a Junit test suits with 5000 automated tests that ta
 = How to use test-load-balancer? =
 
 
-Test-load-balancer includes several apache ant tasks that you can use in your ant scripts.  Currently we support Junit and [http://www.thoughtworks.com/twist ThoughtWorks Twist]. More might come in the  future.  
+Test-load-balancer includes several apache ant tasks that you can use in your ant scripts.  Currently we support Junit and [http://www.thoughtworks.com/twist ThoughtWorks Twist]. More might come in the future.  
+
+== Step 1: Parallelize your tests in Cruise ==
+
+Depending on how many agents you have in your [http://studios.thoughtworks.com/cruise-continuous-integration/build-cloud build cloud], you can duplicate your test job into multiple ones to speed tests up.
+
+For example, you might have the following config in Cruise:
+
+{{{
+<stage name="dev">
+  <
+</stage>
+}}}
 
 == Example 1: Junit ==
 {{{
