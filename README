@@ -87,4 +87,8 @@ Again, let's take a look at each of the steps in the example:
  * run twist runner after your defined twist test-load-balancer, in this way each agent that this script runs on will only run a partitioned share of twist tests.
 
 
+= Video Tutorial =
+
+* [http://www.screencast.com/users/HuKai/folders/Default/media/8e33b661-b5ca-4b6a-9b3f-93fc96540a7b English Version]
+* [http://www.screencast.com/users/HuKai/folders/Default/media/45818c05-268b-4142-a193-0040e6773183 Chinese Version]
 
