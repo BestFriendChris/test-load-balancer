@@ -8,7 +8,12 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class GroupsDivider {
-    private static final String NON_FIRST_JOB_NAME_PATTERN = "(.*)-(\\d)+";
+
+    static String hex = "[a-fA-F0-9]";
+    static String uuid = hex + "{8}-" + hex + "{4}-" + hex + "{4}-" + hex + "{4}-" + hex + "{12}";
+    static String number = "\\d+";
+
+    private static final String NON_FIRST_JOB_NAME_PATTERN = "^(.*?)-(" + number + "|" + uuid + ")$";
     private static final Pattern PATTERN = Pattern.compile(NON_FIRST_JOB_NAME_PATTERN);
 
     public static Group divid(List<String> jobs, String thisJob) {
