@@ -16,7 +16,6 @@ import java.util.HashMap;
 
 public class GroupLoaderFactoryTest {
 
-
     @Test
     public void shouldCreateAgentBasedGroupLoaderIfAllCruiseJobKeyExsit() {
         HashMap<String, String> env = new HashMap<String, String>();

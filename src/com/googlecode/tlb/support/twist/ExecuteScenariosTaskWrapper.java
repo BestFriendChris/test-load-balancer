@@ -46,6 +46,7 @@ public class ExecuteScenariosTaskWrapper extends Task {
     private String tags = "";
     private String errorproperty;
     private String failureproperty;
+    private File confDir;
     private boolean haltonfailure = false;
     private boolean haltonerror = false;
 
@@ -286,6 +287,7 @@ public class ExecuteScenariosTaskWrapper extends Task {
         java.setClassname(ScenarioExecutorAntMainWrapper.class.getName());
         java.createArg().setValue(scenarioDir.getAbsolutePath());
         java.createArg().setValue(reportsDir.getAbsolutePath());
+        java.createArg().setValue(confDir.getAbsolutePath());
         java.createArg().setValue(tags);
 
         // Noticed that Task#init is not always called. Hence, setting this explicitly here.
@@ -302,5 +304,15 @@ public class ExecuteScenariosTaskWrapper extends Task {
         if (failureproperty != null) {
             getProject().setNewProperty(failureproperty, "");
         }
+    }
+
+    public File getConfDir()
+    {
+        return confDir;
+    }
+
+    public void setConfDir(File confDir)
+    {
+        this.confDir = confDir;
     }
 }
