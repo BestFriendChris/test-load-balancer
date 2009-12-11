@@ -34,7 +34,7 @@ public class AgentBasedGroupLoader implements GroupLoader {
 
         if (!isGroupFound(group)) {
             throw new RuntimeException("Running jobName " + jobName
-                    + "cannot be found in Cruise stage definition.");
+                    + " cannot be found in Cruise stage definition.");
         }
         return group;
     }

@@ -3,6 +3,7 @@ package com.googlecode.tlb.support.twist;
 import com.googlecode.tlb.domain.GroupLoader;
 import com.googlecode.tlb.domain.GroupLoaderFactory;
 import com.googlecode.tlb.support.junit.FilterFileSet;
+import com.googlecode.tlb.support.junit.JUnitLoadBalancer;
 import com.googlecode.tlb.utils.FileUtil;
 import com.thoughtworks.twist.core.execution.ant.ScenarioExecutorAntMain;
 import org.apache.tools.ant.DirectoryScanner;
@@ -44,7 +45,7 @@ public class ScenarioExecutorAntMainWrapper {
     }
 
     static void filter(File scenarioDir, File tempFolder, GroupLoader groupLoader) throws IOException {
-        FilterFileSet set = new FilterFileSet(groupLoader);
+        FilterFileSet set = new FilterFileSet(groupLoader, new TwistLoadBalancer());
         Project project = new Project();
         project.setBaseDir(scenarioDir.getParentFile());
         set.setDir(scenarioDir);

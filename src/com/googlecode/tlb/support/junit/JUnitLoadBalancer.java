@@ -19,7 +19,7 @@ public class JUnitLoadBalancer implements LoadBalancer {
         return ofResources.in(testFiles).iterator();
     }
 
-    private List listFiles(Iterator iterator) {
+    protected List listFiles(Iterator iterator) {
         List files = new ArrayList();
         while (iterator.hasNext()) {
             files.add(iterator.next());
