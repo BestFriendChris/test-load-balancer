@@ -26,18 +26,20 @@ public class ScenarioExecutorAntMainWrapper {
         System.out.println("scenarios dir is [" + scenarioDir + "]");
         File reportsDir = new File(args[1]).getAbsoluteFile();
         System.out.println("reports dir is [" + reportsDir + "]");
+        File configDir = (new File(args[2])).getAbsoluteFile();
+        System.out.println("config dir is [" + configDir + "]");
+
         String tags = "";
-        if (args.length >= 2) {
-            tags = args[2];
+        if (args.length >= 3) {
+            tags = args[3];
         }
         System.out.println("tags are [" + tags + "]");
         File tempDir = FileUtil.createTempFolder();
 
         filter(scenarioDir, tempDir, GroupLoaderFactory.getInstance());
         System.out.println("calling the original ant main");
-        ScenarioExecutorAntMain.main(new String[]{tempDir.getAbsolutePath(),
-                reportsDir.getAbsolutePath(),
-                tags});
+        ScenarioExecutorAntMain.main(new String[]{
+                tempDir.getAbsolutePath(), reportsDir.getAbsolutePath(), configDir.getAbsolutePath(), tags});
         System.out.println("exited the original ant main");
     }
 
